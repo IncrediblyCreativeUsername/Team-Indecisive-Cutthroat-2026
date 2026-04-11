@@ -1,24 +1,50 @@
 [gd_scene format=3 uid="uid://duqm4gm0oack8"]
 
 [ext_resource type="Script" uid="uid://db1yirjf8h55l" path="res://UI/main_menu.gd" id="1_uahxu"]
+[ext_resource type="AudioStream" uid="uid://dfwpcy45xc0au" path="res://Art/Placeholder/TesSong.mp3" id="2_b37jj"]
 
 [node name="MainMenu" type="Node2D" unique_id=2109912654]
 script = ExtResource("1_uahxu")
 
+[node name="Title" type="Label" parent="." unique_id=441380911]
+offset_right = 1152.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 128
+text = "TBD"
+horizontal_alignment = 1
+
 [node name="Play" type="Button" parent="." unique_id=819105366]
-offset_left = -1.0
-offset_top = 299.0
-offset_right = 255.0
-offset_bottom = 363.0
+offset_top = 512.0
+offset_right = 256.0
+offset_bottom = 576.0
 text = "Play"
 alignment = 0
 
 [node name="Quit" type="Button" parent="." unique_id=675368216]
-offset_top = 366.0
-offset_right = 256.0
-offset_bottom = 430.0
-text = "Play"
+offset_left = 1.0
+offset_top = 584.0
+offset_right = 257.0
+offset_bottom = 648.0
+text = "Quit
+"
 alignment = 0
+
+[node name="Volume slider label" type="Label" parent="." unique_id=90093605]
+offset_top = 456.0
+offset_right = 64.0
+offset_bottom = 479.0
+text = "Volume:"
+
+[node name="Volume Slider" type="HSlider" parent="." unique_id=1306812822]
+offset_top = 475.0
+offset_right = 256.0
+offset_bottom = 491.0
+value = 75.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1100318440]
+stream = ExtResource("2_b37jj")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]
