@@ -9,4 +9,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_volume_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), (75-value))
+	if value == 0:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), (value-75)/5)
