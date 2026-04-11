@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @onready var player = get_parent().find_child("Player")
 
+@onready var sprite = $Sprite2D
+
 func _physics_process(_delta: float) -> void:
 	#X movement
 	velocity.x = 0
@@ -26,3 +28,16 @@ func _physics_process(_delta: float) -> void:
 	
 	#move according to velocity and delta
 	move_and_slide()
+	
+	#animate sprite
+	animate()
+
+func animate():
+	#rotate sprite for wall climb
+	if is_on_wall():
+		if player.global_position.x <= self.global_position.x:
+			sprite.rotation = PI / 2
+		if player.global_position.x >= self.global_position.x:
+			sprite.rotation = -PI / 2
+	else:
+		sprite.rotation = 0
