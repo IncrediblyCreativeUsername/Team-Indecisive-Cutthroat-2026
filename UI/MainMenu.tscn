@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://duqm4gm0oack8"]
+
+[ext_resource type="Script" uid="uid://db1yirjf8h55l" path="res://UI/main_menu.gd" id="1_uahxu"]
+
+[node name="MainMenu" type="Node2D" unique_id=2109912654]
+script = ExtResource("1_uahxu")
+
+[node name="Button" type="Button" parent="." unique_id=819105366]
+offset_left = 5.0
+offset_top = 355.0
+offset_right = 256.0
+offset_bottom = 438.0
+text = "Play"
