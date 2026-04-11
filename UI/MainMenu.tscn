@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://db1yirjf8h55l" path="res://UI/main_menu.gd" id="1_uahxu"]
 [ext_resource type="AudioStream" uid="uid://dfwpcy45xc0au" path="res://Art/Placeholder/TesSong.mp3" id="2_b37jj"]
+[ext_resource type="PackedScene" uid="uid://dc7gxxantt3r8" path="res://Player/Hats.tscn" id="3_8aown"]
 
 [node name="MainMenu" type="Node2D" unique_id=2109912654]
 script = ExtResource("1_uahxu")
@@ -71,8 +72,13 @@ text = "Hat:
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Hats" parent="." unique_id=1316857142 instance=ExtResource("3_8aown")]
+position = Vector2(1004, 534)
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="NextHat" to="." method="_on_next_hat_pressed"]
+[connection signal="pressed" from="NextHat" to="Hats" method="updateHat"]
 [connection signal="pressed" from="PrevHat" to="." method="_on_prev_hat_pressed"]
+[connection signal="pressed" from="PrevHat" to="Hats" method="updateHat"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]

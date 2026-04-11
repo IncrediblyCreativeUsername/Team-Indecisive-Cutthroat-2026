@@ -75,7 +75,6 @@ func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
 #tongue hit something
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var startTime = 1-tongueAnimator.current_animation_position
-	velocity = Vector2(tongueForce/get_process_delta_time(), 0).rotated(tonguePivot.rotation)
 	tongueTip.set_deferred("monitoring", false)
 	tongueAnimator.play("Retract")
 	tongueAnimator.seek(startTime)
@@ -83,3 +82,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	#grab object
 	if body.is_in_group("grabbable"):
 		grabbedObject = body
+		grabbedObject.grabbed(global_position)
+	#grapple otherwise
+	else:
+		velocity = Vector2(tongueForce/get_process_delta_time(), 0).rotated(tonguePivot.rotation)
