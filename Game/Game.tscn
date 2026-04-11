@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://co6lho6g8m022" path="res://Game/game.gd" id="1_hqwdr"]
 [ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="2_vrr3t"]
 [ext_resource type="PackedScene" uid="uid://dy7klndipufbg" path="res://Player/Player.tscn" id="3_iv3md"]
+[ext_resource type="PackedScene" uid="uid://dfooacd5orfqh" path="res://Enemy/Enemy.tscn" id="4_37esa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iv3md"]
 size = Vector2(129.59589, 123)
@@ -33,7 +34,88 @@ position = Vector2(-1.1586761, -1.5)
 scale = Vector2(0.9999998, 1)
 shape = SubResource("RectangleShape2D_iv3md")
 
+[node name="TempBox3" type="CharacterBody2D" parent="." unique_id=346039032]
+position = Vector2(1462.0001, -154.00006)
+rotation = -0.64798814
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox3" unique_id=1098224771]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox3" unique_id=565911677]
+position = Vector2(-1.1586761, -1.5)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_iv3md")
+
+[node name="TempBox4" type="CharacterBody2D" parent="." unique_id=1339737106]
+position = Vector2(1776.0001, -192.00002)
+rotation = -1.5486718
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox4" unique_id=937598891]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox4" unique_id=1940523338]
+position = Vector2(-1.1586761, -1.5)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_iv3md")
+
+[node name="TempBox5" type="CharacterBody2D" parent="." unique_id=1695901023]
+position = Vector2(2124, 148.00002)
+rotation = -0.017346501
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox5" unique_id=1381322817]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox5" unique_id=1187805204]
+position = Vector2(-1.1586761, -1.5)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_iv3md")
+
+[node name="TempBox6" type="CharacterBody2D" parent="." unique_id=768558049]
+position = Vector2(2728.9998, -56.99997)
+rotation = -0.017346501
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox6" unique_id=1461770484]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox6" unique_id=422280463]
+position = Vector2(-1.1586761, -1.5)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_iv3md")
+
+[node name="TempBox7" type="CharacterBody2D" parent="." unique_id=1437326961]
+position = Vector2(2398.9998, -311)
+rotation = -0.017346501
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox7" unique_id=362354728]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox7" unique_id=304745676]
+position = Vector2(-1.1586761, -1.5)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_iv3md")
+
+[node name="TempBox8" type="CharacterBody2D" parent="." unique_id=1374717165]
+position = Vector2(2362, 318)
+rotation = -4.644015
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox8" unique_id=1631394766]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox8" unique_id=649383265]
+position = Vector2(-1.1586761, -1.5)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_iv3md")
+
 [node name="Player" parent="." unique_id=1863645860 instance=ExtResource("3_iv3md")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=594023427]
 zoom = Vector2(0.5, 0.5)
+
+[node name="Enemy" parent="." unique_id=400271033 instance=ExtResource("4_37esa")]
+position = Vector2(873, -109)
