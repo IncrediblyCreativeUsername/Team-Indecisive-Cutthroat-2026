@@ -219,7 +219,7 @@ position = Vector2(64, 0)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue/Area2D" unique_id=1333496732]
-position = Vector2(11, 0)
+position = Vector2(16, 0)
 shape = SubResource("CircleShape2D_q3lat")
 
 [node name="TongueAnim" type="AnimationPlayer" parent="Tongue" unique_id=1214662753]
