@@ -13,7 +13,7 @@ func _on_volume_slider_value_changed(value: float) -> void:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	else:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), (value-60)/5)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), (value-75)/3)
 
 func _on_prev_hat_pressed() -> void:
 	if Globals.playerHatNum == 0:

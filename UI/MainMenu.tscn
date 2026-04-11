@@ -60,7 +60,6 @@ value = 60.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1100318440]
 stream = ExtResource("2_b37jj")
-autoplay = true
 
 [node name="HatNumLabel" type="Label" parent="." unique_id=1800883115]
 offset_left = 924.0
