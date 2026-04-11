@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dy7klndipufbg" path="res://Player/Player.tscn" id="3_iv3md"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iv3md"]
-size = Vector2(121, 123)
+size = Vector2(129.59589, 123)
 
 [node name="Game" type="Node2D" unique_id=58104947]
 script = ExtResource("1_hqwdr")
@@ -21,6 +21,19 @@ texture = ExtResource("2_vrr3t")
 position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_iv3md")
 
+[node name="TempBox2" type="CharacterBody2D" parent="." unique_id=1915063983]
+position = Vector2(827.99994, 80.999985)
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox2" unique_id=1046321627]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox2" unique_id=1599316537]
+position = Vector2(-1.1586761, -1.5)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_iv3md")
+
 [node name="Player" parent="." unique_id=1863645860 instance=ExtResource("3_iv3md")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=594023427]
+zoom = Vector2(0.5, 0.5)
