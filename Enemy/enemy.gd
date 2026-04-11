@@ -41,3 +41,6 @@ func animate():
 			sprite.rotation = -PI / 2
 	else:
 		sprite.rotation = 0
+
+func grabbed(grabOrigin : Vector2):
+	print("Enemy grabbed")
