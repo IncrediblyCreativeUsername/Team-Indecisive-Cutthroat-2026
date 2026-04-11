@@ -20,6 +20,22 @@ offset_bottom = 576.0
 text = "Play"
 alignment = 0
 
+[node name="NextHat" type="Button" parent="." unique_id=920197589]
+offset_left = 1087.0
+offset_top = 326.0
+offset_right = 1151.0
+offset_bottom = 390.0
+text = ">"
+alignment = 2
+
+[node name="PrevHat" type="Button" parent="." unique_id=881421806]
+offset_left = 859.0
+offset_top = 326.0
+offset_right = 923.0
+offset_bottom = 390.0
+text = "<"
+alignment = 0
+
 [node name="Quit" type="Button" parent="." unique_id=675368216]
 offset_left = 1.0
 offset_top = 584.0
@@ -45,6 +61,18 @@ value = 75.0
 stream = ExtResource("2_b37jj")
 autoplay = true
 
+[node name="HatNumLabel" type="Label" parent="." unique_id=1800883115]
+offset_left = 924.0
+offset_top = 326.0
+offset_right = 1087.0
+offset_bottom = 390.0
+text = "Hat:
+#0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="NextHat" to="." method="_on_next_hat_pressed"]
+[connection signal="pressed" from="PrevHat" to="." method="_on_prev_hat_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]
