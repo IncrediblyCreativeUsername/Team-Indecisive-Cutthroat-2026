@@ -38,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 		coyoteTimer -= 1
 	
 	#Y movement
-	if Input.is_action_pressed("JUMP") && !tongueExtending:
+	if Input.is_action_pressed("JUMP") && !tongueExtending && !isGrappling:
 		#base jump force
 		if is_on_floor() or coyoteTimer > 0:
 			coyoteTimer = 0
@@ -99,6 +99,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			grabbedObject.grabbed(global_position)
 		#grapple otherwise
 		else:
+			velocity.y = 0
 			velocity = Vector2(tongueForce/get_process_delta_time(), 0).rotated(tonguePivot.rotation)
 			grappleTimer = grappleTime
 			isGrappling = true
