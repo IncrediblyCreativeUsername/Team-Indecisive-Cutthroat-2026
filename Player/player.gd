@@ -4,15 +4,18 @@ extends CharacterBody2D
 @export var jumpForce : int = 2000
 @export var gravity : int = 100
 @export var coyoteTime : int = 15
+@export var grappleTime : int = 30
 @export var friction : int = 500
-@export var tongueForce : float = 2.0
+@export var tongueForce : float = 10.0
 
 var coyoteTimer = 0
+var grappleTimer = 0
 @export var tongueExtending := false
 @onready var tongueAnimator := $Tongue/TongueAnim
 @onready var tonguePivot := $Tongue
 @onready var tongueTip := $Tongue/Area2D
 var grabbedObject
+var isGrappling : bool = false
 
 func _physics_process(_delta: float) -> void:
 	#friction
@@ -64,9 +67,19 @@ func _physics_process(_delta: float) -> void:
 	else:
 		grabbedObject = null
 	
+	if isGrappling:
+		manageGrapple()
+	
 	#move according to velocity and delta
 	move_and_slide()
 
+func manageGrapple():
+	if grappleTimer <= 0:
+		isGrappling = false
+	else:
+		grappleTimer -= 1
+	velocity += Vector2((tongueForce)/get_process_delta_time(), 0).rotated(tonguePivot.rotation)
+	
 #tongue fully extends
 func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Extend":
@@ -86,3 +99,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	#grapple otherwise
 	else:
 		velocity = Vector2(tongueForce/get_process_delta_time(), 0).rotated(tonguePivot.rotation)
+		grappleTimer = grappleTime
+		isGrappling = true
