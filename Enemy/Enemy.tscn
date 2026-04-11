@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vonkd"]
 radius = 63.1981
 
-[node name="Enemy" type="CharacterBody2D" unique_id=400271033]
+[node name="Enemy" type="CharacterBody2D" unique_id=400271033 groups=["grabbable"]]
 script = ExtResource("1_3o4wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1210194941]

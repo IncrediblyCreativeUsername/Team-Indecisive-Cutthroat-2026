@@ -12,6 +12,7 @@ var coyoteTimer = 0
 @onready var tongueAnimator := $Tongue/TongueAnim
 @onready var tonguePivot := $Tongue
 @onready var tongueTip := $Tongue/Area2D
+var grabbedObject
 
 func _physics_process(_delta: float) -> void:
 	#friction
@@ -57,6 +58,12 @@ func _physics_process(_delta: float) -> void:
 		tonguePivot.look_at(get_global_mouse_position())
 		tongueAnimator.play("Extend")
 	
+	#move grabbed object
+	if grabbedObject != null && tongueExtending:
+		grabbedObject.global_position = $Tongue/Area2D.global_position
+	else:
+		grabbedObject = null
+	
 	#move according to velocity and delta
 	move_and_slide()
 
@@ -72,3 +79,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	tongueTip.set_deferred("monitoring", false)
 	tongueAnimator.play("Retract")
 	tongueAnimator.seek(startTime)
+	
+	#grab object
+	if body.is_in_group("grabbable"):
+		grabbedObject = body

@@ -19,6 +19,10 @@ config/icon="res://Art/Placeholder/icon.svg"
 
 Globals="*uid://cxlw4o7bdon6p"
 
+[global_group]
+
+grabbable=""
+
 [input]
 
 MOVE_LEFT={
