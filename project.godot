@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Team Indecisive Cutthroat 2026"
-run/main_scene="uid://btd58e564v10x"
+run/main_scene="uid://duqm4gm0oack8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Art/Placeholder/icon.svg"
 

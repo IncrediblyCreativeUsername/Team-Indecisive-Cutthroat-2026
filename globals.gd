@@ -1,3 +1,5 @@
 extends Node
 
-var gameScene := "Insert game scene here"
+var gameScene := "res://Game/Game.tscn"
+var playerHatNum := 0
+var hatCount := 3
