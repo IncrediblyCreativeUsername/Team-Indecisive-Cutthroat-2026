@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://btd58e564v10x"]
+
+[ext_resource type="Script" uid="uid://co6lho6g8m022" path="res://Game/game.gd" id="1_hqwdr"]
+[ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="2_vrr3t"]
+[ext_resource type="PackedScene" uid="uid://dy7klndipufbg" path="res://Player/Player.tscn" id="3_iv3md"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv3md"]
+size = Vector2(121, 123)
+
+[node name="Game" type="Node2D" unique_id=58104947]
+script = ExtResource("1_hqwdr")
+
+[node name="TempBox1" type="CharacterBody2D" parent="." unique_id=568687720]
+position = Vector2(0, 131)
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox1" unique_id=2078808784]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox1" unique_id=736306725]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_iv3md")
+
+[node name="Player" parent="." unique_id=1863645860 instance=ExtResource("3_iv3md")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=594023427]
