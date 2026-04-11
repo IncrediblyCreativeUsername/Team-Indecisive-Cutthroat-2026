@@ -208,6 +208,7 @@ position = Vector2(0, -64)
 
 [node name="Tongue" type="Node2D" parent="." unique_id=1603243765]
 visible = false
+scale = Vector2(1, 0.5)
 
 [node name="TextureRect" type="TextureRect" parent="Tongue" unique_id=1052084957]
 modulate = Color(1, 0, 0, 1)
