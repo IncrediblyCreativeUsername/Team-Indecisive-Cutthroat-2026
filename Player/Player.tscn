@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dy7klndipufbg"]
 
 [ext_resource type="Script" uid="uid://6jpu650d380y" path="res://Player/player.gd" id="1_3qydi"]
+[ext_resource type="SpriteFrames" uid="uid://bqh5c22glxrd7" path="res://Art/Characters/Animation/anteater_default_Anim.tres" id="2_ddoul"]
 [ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="2_q3lat"]
-[ext_resource type="PackedScene" uid="uid://dc7gxxantt3r8" path="res://Player/Hats.tscn" id="3_tok1r"]
+[ext_resource type="PackedScene" path="res://Player/Hats.tscn" id="3_tok1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tok1r"]
 radius = 62.0
@@ -201,10 +202,16 @@ size = Vector2(256, 128)
 script = ExtResource("1_3qydi")
 friction = 800
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1626357440]
-texture = ExtResource("2_q3lat")
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]
+position = Vector2(-30.999998, -34)
+scale = Vector2(1.4549686, 1.5234376)
+sprite_frames = ExtResource("2_ddoul")
+animation = &"walk"
+frame_progress = 0.15071903
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2001729725]
+position = Vector2(1, 7)
+scale = Vector2(1.9200028, 0.79999983)
 shape = SubResource("CircleShape2D_tok1r")
 
 [node name="Hats" parent="." unique_id=1316857142 instance=ExtResource("3_tok1r")]

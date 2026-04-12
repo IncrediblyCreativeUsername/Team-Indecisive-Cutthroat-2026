@@ -13,8 +13,13 @@ var grapplePoint = Vector2.ZERO
 @onready var tonguePivot := $Tongue
 @onready var tongueTip := $Tongue/Area2D
 @onready var tongueCast := $Tongue/RayCast2D
+@onready var animSprite := $PlayerSprite
 var grabbedObject
 var isGrappling : bool = false
+
+
+func _ready():
+	animSprite.play("stand")
 
 func _physics_process(_delta: float) -> void:
 	#grapple
@@ -38,10 +43,20 @@ func _physics_process(_delta: float) -> void:
 		
 		#X movement
 		
+		
 		if Input.is_action_pressed("MOVE_RIGHT") && !tongueExtending && velocity.x < speed:
 			velocity.x += speed*60*_delta
+			
+			animSprite.flip_h =false
+			animSprite.play("walk")
 		if Input.is_action_pressed("MOVE_LEFT") && !tongueExtending && velocity.x > -speed:
 			velocity.x -= speed*60*_delta
+			
+			animSprite.flip_h = true
+			animSprite.play("walk")
+			
+		if velocity.x == 0 && animSprite.animation != "stand_toungue":
+			animSprite.play("stand")
 		
 		#coyote time resets while on floor
 		if is_on_floor():
@@ -72,15 +87,19 @@ func _physics_process(_delta: float) -> void:
 		if !tongueExtending && Input.is_action_just_pressed("GRAPPLE"):
 			tonguePivot.look_at(get_global_mouse_position())
 			tongueAnimator.play("Extend")
+			animSprite.play("stand_toungue")
 		
 		#move grabbed object
 		if grabbedObject != null && tongueExtending:
 			grabbedObject.global_position = $Tongue/Area2D.global_position
 		else:
 			grabbedObject = null
+			
 		
 		#move according to velocity and delta
 		move_and_slide()
+		
+		
 	
 #tongue fully extends
 func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:

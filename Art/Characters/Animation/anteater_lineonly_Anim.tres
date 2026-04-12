@@ -1,0 +1,57 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bke51mlonx8w0"]
+
+[ext_resource type="Texture2D" uid="uid://br2766c5w5cdy" path="res://Art/Characters/anteater_base.png" id="1_pca1v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co8qp"]
+atlas = ExtResource("1_pca1v")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8tkk"]
+atlas = ExtResource("1_pca1v")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70sug"]
+atlas = ExtResource("1_pca1v")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wpkd"]
+atlas = ExtResource("1_pca1v")
+region = Rect2(0, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwfkk"]
+atlas = ExtResource("1_pca1v")
+region = Rect2(0, 256, 256, 128)
+
+[resource]
+resource_name = "DefaultAnteater"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co8qp")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8tkk")
+}],
+"loop": true,
+"name": &"stand_toungue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_70sug")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4wpkd")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_vwfkk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
