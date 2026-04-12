@@ -12,6 +12,13 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 var wasGrabbed := false
 
+func _ready() -> void:
+	var index = randi_range(0,2);
+	if(1 ==index):
+		sprite.play("alt");
+	
+	
+
 func _physics_process(_delta: float) -> void:
 	#only execute code if onscreen
 	if visibility.is_on_screen():
