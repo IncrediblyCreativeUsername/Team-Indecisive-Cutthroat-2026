@@ -72,3 +72,6 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 				body.velocity.x += knockback
 			else:
 				body.velocity.x -= knockback
+		else:
+			sprite.flip_v = true
+			sprite.position.y = 128
