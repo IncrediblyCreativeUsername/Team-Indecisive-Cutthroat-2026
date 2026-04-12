@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	for item in $Detect.get_overlapping_bodies():
 		if item.is_in_group("edible"):
 			item.wasGrabbed = true
-			item.global_position += (global_position - item.global_position).normalized() * 50
+			item.global_position += ($Eat.global_position - item.global_position).normalized() * 50
 	
 	for item in $Eat.get_overlapping_bodies():
 		if item.is_in_group("edible"):

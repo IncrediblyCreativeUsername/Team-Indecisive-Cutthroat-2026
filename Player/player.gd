@@ -21,6 +21,13 @@ func _physics_process(_delta: float) -> void:
 	if isGrappling:
 		global_position = grapplePoint - (tongueTip.position+Vector2(64+9,0)).rotated(tonguePivot.rotation)
 	
+	#eat
+	if Input.is_action_just_pressed("EAT"):
+		for item in $Eat.get_overlapping_bodies():
+			if item.is_in_group("edible") && item.wasGrabbed:
+				Globals.hp = min(3, Globals.hp + 1)
+				item.queue_free()
+	
 	#movement
 	else:
 		#friction

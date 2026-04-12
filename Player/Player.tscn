@@ -194,6 +194,9 @@ _data = {
 &"Retract": SubResource("Animation_ddoul")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tok1r"]
+size = Vector2(256, 128)
+
 [node name="Player" type="CharacterBody2D" unique_id=1863645860]
 script = ExtResource("1_3qydi")
 friction = 800
@@ -233,6 +236,11 @@ speed_scale = 2.5
 
 [node name="RayCast2D" type="RayCast2D" parent="Tongue" unique_id=325188501]
 target_position = Vector2(1028, 0)
+
+[node name="Eat" type="Area2D" parent="." unique_id=195358897]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eat" unique_id=90089925]
+shape = SubResource("RectangleShape2D_tok1r")
 
 [connection signal="body_entered" from="Tongue/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Tongue/TongueAnim" to="." method="_on_tongue_anim_animation_finished"]
