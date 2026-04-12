@@ -112,10 +112,22 @@ position = Vector2(-1.1586761, -1.5)
 scale = Vector2(0.9999998, 1)
 shape = SubResource("RectangleShape2D_iv3md")
 
+[node name="TempBox9" type="CharacterBody2D" parent="." unique_id=1139552829]
+position = Vector2(0, -351)
+scale = Vector2(5.6097455, 0.39999938)
+
+[node name="Sprite2D" type="Sprite2D" parent="TempBox9" unique_id=1440561660]
+texture = ExtResource("2_vrr3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempBox9" unique_id=1476461710]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_iv3md")
+
 [node name="Player" parent="." unique_id=1863645860 instance=ExtResource("3_iv3md")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=594023427]
 zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
 
 [node name="Enemy" parent="." unique_id=400271033 instance=ExtResource("4_37esa")]
-position = Vector2(873, -109)
+position = Vector2(2891, -179)

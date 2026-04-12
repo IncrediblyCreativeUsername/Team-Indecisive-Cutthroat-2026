@@ -8,6 +8,7 @@
 radius = 65.00192
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
+radius = 18.0
 
 [sub_resource type="Animation" id="Animation_q3lat"]
 resource_name = "Extend"
@@ -195,6 +196,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=1863645860]
 script = ExtResource("1_3qydi")
+friction = 800
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1626357440]
 texture = ExtResource("2_q3lat")
@@ -224,12 +226,14 @@ position = Vector2(64, 0)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue/Area2D" unique_id=1333496732]
-position = Vector2(16, 0)
 shape = SubResource("CircleShape2D_q3lat")
 
 [node name="TongueAnim" type="AnimationPlayer" parent="Tongue" unique_id=1214662753]
 libraries/ = SubResource("AnimationLibrary_tok1r")
-speed_scale = 3.0
+speed_scale = 2.5
+
+[node name="RayCast2D" type="RayCast2D" parent="Tongue" unique_id=325188501]
+target_position = Vector2(1028, 0)
 
 [connection signal="body_entered" from="Tongue/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Tongue/TongueAnim" to="." method="_on_tongue_anim_animation_finished"]
