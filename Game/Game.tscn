@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://btd58e564v10x"]
 
 [ext_resource type="Script" uid="uid://co6lho6g8m022" path="res://Game/game.gd" id="1_hqwdr"]
+[ext_resource type="PackedScene" uid="uid://budf4pylj7s2c" path="res://UI/HUD.tscn" id="2_jxerj"]
 [ext_resource type="PackedScene" uid="uid://dy7klndipufbg" path="res://Player/Player.tscn" id="3_iv3md"]
 [ext_resource type="PackedScene" uid="uid://dfooacd5orfqh" path="res://Enemy/Enemy.tscn" id="4_37esa"]
 [ext_resource type="Texture2D" uid="uid://cnm2fsevalsec" path="res://Art/Environment/Ant_hill_floor.png" id="5_jxerj"]
@@ -448,11 +449,13 @@ sources/1 = SubResource("TileSetAtlasSource_ghvq8")
 [node name="Game" type="Node2D" unique_id=58104947]
 script = ExtResource("1_hqwdr")
 
+[node name="Hud" parent="." unique_id=787718687 instance=ExtResource("2_jxerj")]
+
 [node name="Player" parent="." unique_id=1863645860 instance=ExtResource("3_iv3md")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=594023427]
 zoom = Vector2(0.5, 0.5)
-position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 
 [node name="Enemy" parent="." unique_id=400271033 instance=ExtResource("4_37esa")]
 position = Vector2(2891, -179)
