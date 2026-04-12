@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed : int = 700
+@export var speed : int = 800
 @export var jumpForce : int = 2000
 @export var gravity : int = 100
 @export var coyoteTime : int = 15
@@ -48,15 +48,18 @@ func _physics_process(_delta: float) -> void:
 			velocity.x += speed*60*_delta
 			
 			animSprite.flip_h =false
-			animSprite.play("walk")
+			if self.is_on_floor():
+				animSprite.play("walk")
 		if Input.is_action_pressed("MOVE_LEFT") && !tongueExtending && velocity.x > -speed:
 			velocity.x -= speed*60*_delta
 			
 			animSprite.flip_h = true
-			animSprite.play("walk")
+			if self.is_on_floor():
+				animSprite.play("walk")
 			
 		if velocity.x == 0 && animSprite.animation != "stand_toungue":
-			animSprite.play("stand")
+			if self.is_on_floor():
+				animSprite.play("stand")
 		
 		#coyote time resets while on floor
 		if is_on_floor():
@@ -71,6 +74,7 @@ func _physics_process(_delta: float) -> void:
 				coyoteTimer = 0
 				velocity.y = 0
 				velocity.y -= jumpForce
+				animSprite.play("jump")
 		else:
 			#shorter jump if not held
 			if velocity.y < 0:
@@ -94,7 +98,6 @@ func _physics_process(_delta: float) -> void:
 			grabbedObject.global_position = $Tongue/Area2D.global_position
 		else:
 			grabbedObject = null
-			
 		
 		#move according to velocity and delta
 		move_and_slide()

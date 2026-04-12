@@ -60,7 +60,7 @@ func animate():
 	else:
 		sprite.rotation = 0
 
-func grabbed(grabOrigin : Vector2):
+func grabbed(_grabOrigin : Vector2):
 	wasGrabbed = true
 
 

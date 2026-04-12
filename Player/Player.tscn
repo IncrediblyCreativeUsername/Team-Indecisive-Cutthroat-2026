@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://6jpu650d380y" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="SpriteFrames" uid="uid://bqh5c22glxrd7" path="res://Art/Characters/Animation/anteater_default_Anim.tres" id="2_ddoul"]
 [ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="2_q3lat"]
-[ext_resource type="PackedScene" path="res://Player/Hats.tscn" id="3_tok1r"]
+[ext_resource type="PackedScene" uid="uid://dc7gxxantt3r8" path="res://Player/Hats.tscn" id="3_tok1r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tok1r"]
-radius = 62.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
+size = Vector2(138.10013, 72.623184)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
 radius = 18.0
@@ -199,6 +199,9 @@ _data = {
 size = Vector2(256, 128)
 
 [node name="Player" type="CharacterBody2D" unique_id=1863645860]
+scale = Vector2(0.56, 0.56)
+floor_block_on_wall = false
+floor_max_angle = 3.1415927
 script = ExtResource("1_3qydi")
 friction = 800
 
@@ -207,19 +210,19 @@ position = Vector2(-30.999998, -34)
 scale = Vector2(1.4549686, 1.5234376)
 sprite_frames = ExtResource("2_ddoul")
 animation = &"walk"
-frame_progress = 0.15071903
+frame_progress = 0.27149966
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2001729725]
-position = Vector2(1, 7)
-scale = Vector2(1.9200028, 0.79999983)
-shape = SubResource("CircleShape2D_tok1r")
+position = Vector2(-5.357143, 19.642857)
+scale = Vector2(1.773725, 1.3836911)
+shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Hats" parent="." unique_id=1316857142 instance=ExtResource("3_tok1r")]
 position = Vector2(0, -64)
 
 [node name="Tongue" type="Node2D" parent="." unique_id=1603243765]
 visible = false
-scale = Vector2(1, 0.5)
+scale = Vector2(2, 0.5)
 
 [node name="TextureRect" type="TextureRect" parent="Tongue" unique_id=1052084957]
 modulate = Color(1, 0, 0, 1)

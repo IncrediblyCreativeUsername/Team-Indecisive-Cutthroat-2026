@@ -2,6 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://b44jqk17m07vm" path="res://Art/Characters/anteater_default.png" id="1_orlid"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wa8t"]
+atlas = ExtResource("1_orlid")
+region = Rect2(256, 256, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j2ni"]
+atlas = ExtResource("1_orlid")
+region = Rect2(256, 0, 256, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8g4oa"]
 atlas = ExtResource("1_orlid")
 region = Rect2(0, 0, 256, 128)
@@ -22,33 +30,24 @@ region = Rect2(0, 128, 256, 128)
 atlas = ExtResource("1_orlid")
 region = Rect2(0, 256, 256, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_orlid"]
-atlas = ExtResource("1_orlid")
-region = Rect2(256, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_foh6w"]
-atlas = ExtResource("1_orlid")
-region = Rect2(256, 256, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8hld"]
-atlas = ExtResource("1_orlid")
-region = Rect2(256, 128, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0j2ni"]
-atlas = ExtResource("1_orlid")
-region = Rect2(256, 0, 256, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0k0e"]
 atlas = ExtResource("1_orlid")
 region = Rect2(256, 128, 256, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wa8t"]
-atlas = ExtResource("1_orlid")
-region = Rect2(256, 256, 256, 128)
-
 [resource]
 resource_name = "DefaultAnteater"
 animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5wa8t")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0j2ni")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8g4oa")
@@ -74,37 +73,10 @@ animations = [{
 }, {
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_j23h2")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_orlid")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_foh6w")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_f8hld")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_vlldt")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_s1rgi")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_j23h2")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_vlldt")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_s1rgi")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_j23h2")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 2.0,

@@ -19,6 +19,11 @@ config/icon="res://Art/Placeholder/icon.svg"
 
 Globals="*uid://cxlw4o7bdon6p"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [global_group]
 
 grabbable=""
