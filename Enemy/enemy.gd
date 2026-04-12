@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 @export var gravity : int = 100
 @export var speed : int = 400
+@export var damage : int = 1
 
 @onready var player = get_parent().find_child("Player")
 
 @onready var sprite = $Sprite2D
+var wasGrabbed := false
 
 func _physics_process(_delta: float) -> void:
 	#X movement
@@ -43,4 +45,12 @@ func animate():
 		sprite.rotation = 0
 
 func grabbed(grabOrigin : Vector2):
-	print("Enemy grabbed")
+	wasGrabbed = true
+
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		if wasGrabbed:
+			pass
+		else:
+			pass

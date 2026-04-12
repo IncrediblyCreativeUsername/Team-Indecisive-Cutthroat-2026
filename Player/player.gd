@@ -96,7 +96,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			grabbedObject.grabbed(global_position)
 		#grapple otherwise
 		else:
-			velocity = Vector2.ZERO
-			#grapplePoint = tongueTip.global_position
+			await get_tree().process_frame
 			grapplePoint = tongueCast.get_collision_point() + Vector2(64,0).rotated(tonguePivot.rotation)
 			isGrappling = true
+			velocity = Vector2.ZERO
