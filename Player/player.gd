@@ -16,12 +16,18 @@ var grapplePoint = Vector2.ZERO
 @onready var animSprite := $PlayerSprite
 var grabbedObject
 var isGrappling : bool = false
-
+var paused : bool = false
 
 func _ready():
 	animSprite.play("stand")
 
 func _physics_process(_delta: float) -> void:
+	#pause
+	if Input.is_action_just_pressed("PAUSE"):
+		get_parent().find_child("Pause").visible = true
+		get_parent().find_child("Hud").visible = false
+		get_tree().paused = true
+	
 	#grapple
 	if isGrappling:
 		global_position = grapplePoint - (tongueTip.position+Vector2(64+9,0)).rotated(tonguePivot.rotation)
