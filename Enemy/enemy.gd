@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed : int = 400
 @export var damage : int = 1
 @export var knockback : int = 1000
+@export var hungerRestore : int = 20
 
 @onready var player = get_parent().find_child("Player")
 @onready var visibility := $VisibleOnScreenEnabler2D

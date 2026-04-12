@@ -22,6 +22,7 @@ Globals="*uid://cxlw4o7bdon6p"
 [global_group]
 
 grabbable=""
+edible=""
 
 [input]
 
