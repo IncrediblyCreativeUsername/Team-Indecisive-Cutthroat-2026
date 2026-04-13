@@ -18,6 +18,8 @@ var grabbedObject
 var isGrappling : bool = false
 var paused : bool = false
 
+@onready var droppedAnt = preload("res://Enemy/Enemy.tscn")
+
 func _ready():
 	animSprite.play("stand")
 
@@ -34,10 +36,28 @@ func _physics_process(_delta: float) -> void:
 	
 	#eat
 	if Input.is_action_just_pressed("EAT"):
-		for item in $Eat.get_overlapping_bodies():
-			if item.is_in_group("edible") && item.wasGrabbed:
-				Globals.hp = min(3, Globals.hp + 1)
-				item.queue_free()
+		if Globals.heldAnt:
+			Globals.heldAnt = false
+			speed = 800
+			Globals.hp = min(3, Globals.hp + 1)
+		else:
+			for item in $Eat.get_overlapping_bodies():
+				if item.is_in_group("edible") && item.wasGrabbed:
+					Globals.heldAnt = true
+					speed = 400
+					item.queue_free()
+	#drop held ant
+	if Input.is_action_just_pressed("DROP"):
+		if Globals.heldAnt:
+			Globals.heldAnt = false
+			speed = 800
+			var ant = droppedAnt.instantiate()
+			if animSprite.flip_h:
+				ant.global_position = global_position + Vector2(-160,0)
+			else:
+				ant.global_position = global_position + Vector2(160,0)
+			ant.grabbed(Vector2.ZERO)
+			get_parent().add_child(ant)
 	
 	#movement
 	else:

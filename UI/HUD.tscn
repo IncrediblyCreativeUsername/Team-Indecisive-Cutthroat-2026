@@ -1,7 +1,12 @@
-[gd_scene format=3 uid="uid://budf4pylj7s2c"]
+[gd_scene format=3 uid="uid://cwe4mi0dh22ai"]
 
 [ext_resource type="Script" uid="uid://tr3d1h67uo2h" path="res://UI/hud.gd" id="1_ijstf"]
 [ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="1_yixhe"]
+[ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="3_4n7mi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk570"]
+atlas = ExtResource("3_4n7mi")
+region = Rect2(0, 0, 128, 128)
 
 [node name="Hud" type="CanvasLayer" unique_id=787718687]
 script = ExtResource("1_ijstf")
@@ -21,3 +26,12 @@ offset_bottom = 27.0
 value = 25.0
 rounded = true
 fill_mode = 1
+
+[node name="HeldAnt" type="TextureRect" parent="." unique_id=150594468]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 128.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_uk570")

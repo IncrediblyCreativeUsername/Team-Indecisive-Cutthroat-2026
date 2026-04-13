@@ -7,10 +7,12 @@ var playerHatNum := 0
 var hatCount := 3
 var hp := 3
 var hunger := 100.0
+var heldAnt := false
 
 func resetValues():
 	hp = 3
 	hunger = 100
+	heldAnt = false
 
 func hurt(damage):
 	hp -= damage
