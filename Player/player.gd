@@ -17,13 +17,19 @@ var grapplePoint = Vector2.ZERO
 var grabbedObject
 var isGrappling : bool = false
 var paused : bool = false
+var grappleCooldownMax = 15
+var grappleCooldown = 0
 
 @onready var droppedAnt = preload("res://Enemy/Enemy.tscn")
 
 func _ready():
 	animSprite.play("stand")
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	#Preventing a strange bug where the retract animation is interrupted from causing a softlock. I'm still not sure why
+	if !tongueAnimator.is_playing():
+		isGrappling = false
+	
 	#pause
 	if Input.is_action_just_pressed("PAUSE"):
 		get_parent().find_child("Pause").visible = true
@@ -32,7 +38,11 @@ func _physics_process(_delta: float) -> void:
 	
 	#grapple
 	if isGrappling:
-		global_position = grapplePoint - (tongueTip.position+Vector2(64+9,0)).rotated(tonguePivot.rotation)
+		var grappleDirection : Vector2 = tongueTip.global_position - self.global_position
+		move_and_collide(delta * grappleDirection * 10)
+	else:
+		if grappleCooldown > 0:
+			grappleCooldown -= 1
 	
 	#eat
 	if Input.is_action_just_pressed("EAT"):
@@ -63,21 +73,21 @@ func _physics_process(_delta: float) -> void:
 	else:
 		#friction
 		if velocity.x > 0:
-			velocity.x = max(0, (velocity.x-friction)*60*_delta)
+			velocity.x = max(0, (velocity.x-friction)*60*delta)
 		if velocity.x < 0:
-			velocity.x = min((velocity.x+friction)*60*_delta, 0)
+			velocity.x = min((velocity.x+friction)*60*delta, 0)
 		
 		#X movement
 		
 		
 		if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed:
-			velocity.x += speed*60*_delta
+			velocity.x += speed*60*delta
 			
 			animSprite.flip_h =false
 			if self.is_on_floor():
 				animSprite.play("walk")
 		if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed:
-			velocity.x -= speed*60*_delta
+			velocity.x -= speed*60*delta
 			
 			animSprite.flip_h = true
 			if self.is_on_floor() && !tongueExtending:
@@ -113,7 +123,7 @@ func _physics_process(_delta: float) -> void:
 		
 		velocity.y += gravity
 		#shoot out tongue
-		if !tongueExtending && Input.is_action_just_pressed("GRAPPLE"):
+		if !tongueExtending && Input.is_action_just_pressed("GRAPPLE") && grappleCooldown <= 0:
 			tonguePivot.look_at(get_global_mouse_position())
 			tongueAnimator.play("Extend")
 			animSprite.play("stand_toungue")
@@ -137,7 +147,7 @@ func _physics_process(_delta: float) -> void:
 func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Extend":
 		tongueAnimator.play("Retract")
-	if anim_name == "Retract":
+	elif anim_name == "Retract":
 		isGrappling = false
 
 #tongue hit something
@@ -157,4 +167,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			await get_tree().process_frame
 			grapplePoint = tongueCast.get_collision_point() + Vector2(64,0).rotated(tonguePivot.rotation)
 			isGrappling = true
+			grappleCooldown = grappleCooldownMax
 			velocity = Vector2.ZERO

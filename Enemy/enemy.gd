@@ -28,12 +28,15 @@ func _physics_process(_delta: float) -> void:
 			#failsafe to leave head of player
 			if abs(player.global_position.x - global_position.x) < 128 &&  player.global_position.y - global_position.y > 64:
 				velocity.x += 1
+				sprite.flip_h = true
 			#standard targeting
 			elif abs(player.global_position.x - global_position.x) > 10:
 				if player.global_position.x >= global_position.x:
 					velocity.x += 1
+					sprite.flip_h = true
 				if player.global_position.x <= global_position.x:
 					velocity.x -= 1
+					sprite.flip_h = false
 			
 			if is_on_wall():
 				if player.global_position.y <= self.global_position.x:
