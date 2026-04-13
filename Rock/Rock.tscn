@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d2unaxpm6c284"]
+
+[ext_resource type="Script" uid="uid://buusaq1v8ps7l" path="res://Rock/rock.gd" id="1_t6u7i"]
+[ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="2_t6u7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epr5s"]
+size = Vector2(128, 128)
+
+[node name="Rock" type="CharacterBody2D" unique_id=400271033 groups=["grabbable"]]
+collision_layer = 5
+script = ExtResource("1_t6u7i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=926023749]
+texture = ExtResource("2_t6u7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=226660341]
+shape = SubResource("RectangleShape2D_epr5s")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1615933641]
+rect = Rect2(-64, -64, 127, 128)
