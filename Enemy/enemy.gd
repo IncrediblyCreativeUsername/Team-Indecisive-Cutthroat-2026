@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var gravity : int = 100
-@export var speed : int = 400
+@export var speed : int = 600
 @export var damage : int = 1
 @export var knockback : int = 1000
 @export var hungerRestore : int = 20
