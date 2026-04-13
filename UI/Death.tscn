@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cj1cbudf36pqb"]
+
+[ext_resource type="Script" uid="uid://dusbxf8ia3lj3" path="res://UI/death.gd" id="1_ar5s2"]
+
+[node name="Death" type="Node2D" unique_id=1756477584]
+script = ExtResource("1_ar5s2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2075284731]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1448149937]
+offset_right = 1152.0
+offset_bottom = 175.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "Death"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Restart" type="Button" parent="." unique_id=994972089]
+offset_top = 512.0
+offset_right = 256.0
+offset_bottom = 576.0
+text = "Restart"
+alignment = 0
+
+[node name="MainMenu" type="Button" parent="." unique_id=1381414753]
+offset_left = 1.0
+offset_top = 584.0
+offset_right = 257.0
+offset_bottom = 648.0
+text = "Main Menu"
+alignment = 0
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
