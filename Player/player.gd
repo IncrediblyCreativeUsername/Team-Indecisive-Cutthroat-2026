@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var coyoteTimer = 0
 var grapplePoint = Vector2.ZERO
+var grappleSpeed : float = 0.0;
 @export var tongueExtending := false
 @onready var tongueAnimator := $Tongue/TongueAnim
 @onready var tonguePivot := $Tongue
@@ -38,8 +39,9 @@ func _physics_process(delta: float) -> void:
 	
 	#grapple
 	if isGrappling:
-		var grappleDirection : Vector2 = tongueTip.global_position - self.global_position
-		move_and_collide(delta * grappleDirection * 10)
+		var grappleDirection : Vector2 = (grapplePoint - self.global_position).normalized()
+		#move_and_collide(delta * grappleDirection * 10)
+		velocity += grappleDirection * (grappleSpeed + 600)
 	else:
 		if grappleCooldown > 0:
 			grappleCooldown -= 1
@@ -166,6 +168,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			await get_tree().process_frame
 			grapplePoint = tongueCast.get_collision_point() + Vector2(64,0).rotated(tonguePivot.rotation)
+			grappleSpeed = self.global_position.distance_to(grapplePoint)
+			if velocity.y > 0:
+				velocity.y = 0
 			isGrappling = true
 			grappleCooldown = grappleCooldownMax
 			velocity = Vector2.ZERO
