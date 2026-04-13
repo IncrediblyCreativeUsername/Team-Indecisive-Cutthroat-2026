@@ -46,19 +46,23 @@ func _physics_process(_delta: float) -> void:
 		elif !is_on_wall():
 			velocity.y = 0
 		
-		
+		animate()
 		#move according to velocity and delta
 		move_and_slide()
 
 func animate():
-	#rotate sprite for wall climb
-	if is_on_wall():
-		if player.global_position.x <= self.global_position.x:
-			sprite.rotation = PI / 2
-		if player.global_position.x >= self.global_position.x:
-			sprite.rotation = -PI / 2
-	else:
-		sprite.rotation = 0
+	##rotate sprite for wall climb
+	#if is_on_wall():
+		#if player.global_position.x <= self.global_position.x:
+			#sprite.rotation = PI / 2
+		#if player.global_position.x >= self.global_position.x:
+			#sprite.rotation = -PI / 2
+	#else:
+		#sprite.rotation = 0
+	#
+	if wasGrabbed:
+		sprite.flip_v = true
+		sprite.position.y = 128
 
 func grabbed(_grabOrigin : Vector2):
 	wasGrabbed = true

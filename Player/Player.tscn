@@ -203,10 +203,6 @@ scale = Vector2(0.56, 0.56)
 floor_block_on_wall = false
 floor_max_angle = 3.1415927
 script = ExtResource("1_3qydi")
-speed = null
-jumpForce = null
-gravity = null
-coyoteTime = null
 friction = 800
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]

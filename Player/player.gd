@@ -112,7 +112,6 @@ func _physics_process(_delta: float) -> void:
 				velocity.y -= gravity * 0.8
 		
 		velocity.y += gravity
-		print((get_global_mouse_position() - global_position).rotated(PI / 2).angle())
 		#shoot out tongue
 		if !tongueExtending && Input.is_action_just_pressed("GRAPPLE"):
 			tonguePivot.look_at(get_global_mouse_position())
