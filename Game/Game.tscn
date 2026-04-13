@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://btd58e564v10x"]
 
 [ext_resource type="Script" uid="uid://co6lho6g8m022" path="res://Game/game.gd" id="1_hqwdr"]
-[ext_resource type="PackedScene" path="res://UI/HUD.tscn" id="2_jxerj"]
+[ext_resource type="PackedScene" uid="uid://cwe4mi0dh22ai" path="res://UI/HUD.tscn" id="2_jxerj"]
 [ext_resource type="PackedScene" uid="uid://dy7klndipufbg" path="res://Player/Player.tscn" id="3_iv3md"]
 [ext_resource type="PackedScene" uid="uid://dfooacd5orfqh" path="res://Enemy/Enemy.tscn" id="4_37esa"]
 [ext_resource type="PackedScene" uid="uid://da15vktx8ws2l" path="res://UI/Pause.tscn" id="4_fuqhk"]
@@ -28,7 +28,7 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_speed = 3.0
 
 [node name="Enemy" parent="." unique_id=400271033 instance=ExtResource("4_37esa")]
-position = Vector2(2891, -179)
+position = Vector2(2285, -737)
 
 [node name="Nephew" parent="." unique_id=1379414758 instance=ExtResource("6_ghvq8")]
 position = Vector2(1445, -1782)

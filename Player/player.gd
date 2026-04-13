@@ -70,21 +70,21 @@ func _physics_process(_delta: float) -> void:
 		#X movement
 		
 		
-		if Input.is_action_pressed("MOVE_RIGHT") && !tongueExtending && velocity.x < speed:
+		if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed:
 			velocity.x += speed*60*_delta
 			
 			animSprite.flip_h =false
 			if self.is_on_floor():
 				animSprite.play("walk")
-		if Input.is_action_pressed("MOVE_LEFT") && !tongueExtending && velocity.x > -speed:
+		if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed:
 			velocity.x -= speed*60*_delta
 			
 			animSprite.flip_h = true
-			if self.is_on_floor():
+			if self.is_on_floor() && !tongueExtending:
 				animSprite.play("walk")
 			
 		if velocity.x == 0 && animSprite.animation != "stand_toungue":
-			if self.is_on_floor():
+			if self.is_on_floor() && !tongueExtending:
 				animSprite.play("stand")
 		
 		#coyote time resets while on floor
