@@ -205,6 +205,8 @@ collision_layer = 2
 floor_block_on_wall = false
 floor_max_angle = 3.1415927
 script = ExtResource("1_3qydi")
+speed = 1000
+jumpForce = 2200
 friction = 800
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]

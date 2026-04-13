@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	if isGrappling:
 		var grappleDirection : Vector2 = (grapplePoint - self.global_position).normalized()
 		#move_and_collide(delta * grappleDirection * 10)
-		velocity += grappleDirection * (grappleSpeed + 600)
+		velocity += grappleDirection * (grappleSpeed/1.5 + 1000)
 	else:
 		if grappleCooldown > 0:
 			grappleCooldown -= 1
@@ -169,8 +169,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			await get_tree().process_frame
 			grapplePoint = tongueCast.get_collision_point() + Vector2(64,0).rotated(tonguePivot.rotation)
 			grappleSpeed = self.global_position.distance_to(grapplePoint)
-			if velocity.y > 0:
-				velocity.y = 0
+			if grapplePoint.y < self.global_position.y:
+				if velocity.y > 0:
+					velocity.y = 0
+			elif grapplePoint.y > self.global_position.y:
+				if velocity.y < 0:
+					velocity.y = 0
 			isGrappling = true
 			grappleCooldown = grappleCooldownMax
 			velocity = Vector2.ZERO
