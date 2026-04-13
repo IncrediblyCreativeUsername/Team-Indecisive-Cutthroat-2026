@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://da15vktx8ws2l" path="res://UI/Pause.tscn" id="4_fuqhk"]
 [ext_resource type="PackedScene" uid="uid://bohevvymyfxhh" path="res://Tilemap/Tilemap.tscn" id="6_fuqhk"]
 [ext_resource type="PackedScene" uid="uid://dgkriuiho5nhi" path="res://Nephew/nephew.tscn" id="6_ghvq8"]
+[ext_resource type="PackedScene" uid="uid://d2unaxpm6c284" path="res://Rock/Rock.tscn" id="8_oscxy"]
 
 [node name="Game" type="Node2D" unique_id=58104947]
 script = ExtResource("1_hqwdr")
@@ -35,3 +36,6 @@ position = Vector2(1445, -1782)
 
 [node name="Enemy2" parent="." unique_id=1802749959 instance=ExtResource("4_37esa")]
 position = Vector2(-42, -1334)
+
+[node name="Rock" parent="." unique_id=116595279 instance=ExtResource("8_oscxy")]
+position = Vector2(-63, -832)
