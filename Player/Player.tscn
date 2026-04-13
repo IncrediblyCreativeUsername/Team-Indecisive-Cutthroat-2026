@@ -196,7 +196,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tok1r"]
-size = Vector2(256, 128)
+size = Vector2(256, 142.57143)
 
 [node name="Player" type="CharacterBody2D" unique_id=1863645860]
 scale = Vector2(0.56, 0.56)
@@ -250,6 +250,7 @@ target_position = Vector2(1028, 0)
 [node name="Eat" type="Area2D" parent="." unique_id=195358897]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eat" unique_id=90089925]
+position = Vector2(0, 7.285713)
 shape = SubResource("RectangleShape2D_tok1r")
 
 [connection signal="body_entered" from="Tongue/Area2D" to="." method="_on_area_2d_body_entered"]
