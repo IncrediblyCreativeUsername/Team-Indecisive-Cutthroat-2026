@@ -14,6 +14,7 @@ var grappleSpeed : float = 0.0;
 @onready var tonguePivot := $Tongue
 @onready var tongueTip := $Tongue/Area2D
 @onready var tongueCast := $Tongue/RayCast2D
+@onready var tongueTexture := $Tongue/TextureRect
 @onready var animSprite := $PlayerSprite
 @onready var Hats := $Hats
 var grabbedObject
@@ -141,12 +142,10 @@ func _physics_process(delta: float) -> void:
 			animSprite.play("stand_tongue")
 			Hats.updateAnim("stand_tongue")
 			if (get_global_mouse_position() - global_position).rotated(PI / 2).angle() > 0:
-				animSprite.flip_h = false
-				Hats.currentHat.flip_h = false
+				flip(false)
 				
 			else:
-				animSprite.flip_h = true
-				Hats.currentHat.flip_h = true
+				flip(true)
 		
 		#move grabbed object
 		if grabbedObject != null && tongueExtending:
@@ -192,3 +191,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			isGrappling = true
 			grappleCooldown = grappleCooldownMax
 			velocity = Vector2.ZERO
+
+func flip(flipped):
+	if flipped:
+		animSprite.flip_h = true
+		Hats.currentHat.flip_h = true
+		tonguePivot.position.x = -180
+	else:
+		animSprite.flip_h = false
+		Hats.currentHat.flip_h = false
+		tonguePivot.position.x = 115

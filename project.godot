@@ -15,12 +15,17 @@ run/main_scene="uid://duqm4gm0oack8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Art/Placeholder/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bmq1qna7oijmk"
+
 [autoload]
 
 Globals="*uid://cxlw4o7bdon6p"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -96,3 +101,4 @@ DROP={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.12, 0.0952, 0.045599997, 1)
