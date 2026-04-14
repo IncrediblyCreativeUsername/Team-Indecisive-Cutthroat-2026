@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var visibility := $VisibleOnScreenEnabler2D
 
 @onready var sprite = $Sprite2D
-var wasGrabbed := false
+@export var wasGrabbed := false
 var damageCooldown = 0
 
 func _ready() -> void:

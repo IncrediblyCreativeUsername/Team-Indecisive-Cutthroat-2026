@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	#pause
 	if Input.is_action_just_pressed("PAUSE"):
 		get_parent().find_child("Pause").visible = true
+		get_parent().find_child("Pause").pauseAudio()
 		get_parent().find_child("Hud").visible = false
 		get_tree().paused = true
 	
