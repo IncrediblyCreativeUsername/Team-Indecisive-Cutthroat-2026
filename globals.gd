@@ -12,6 +12,7 @@ var heldAnt := false
 var player
 var invincibilityFrames = 40
 var invincible = 0
+var hungerDrain := 1.0
 
 func resetValues():
 	hp = 5
@@ -31,7 +32,7 @@ func die():
 	get_tree().change_scene_to_file(Globals.deathScene)
 
 func _process(delta: float) -> void:
-	hunger -= 1*delta
+	hunger -= hungerDrain*delta
 	if hunger <= 0:
 		die()
 		#get_tree().reload_current_scene()

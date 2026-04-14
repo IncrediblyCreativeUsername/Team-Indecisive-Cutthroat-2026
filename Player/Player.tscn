@@ -229,7 +229,7 @@ position = Vector2(-32.142857, -30.357143)
 scale = Vector2(1.523, 1.523)
 
 [node name="MouseCast" type="RayCast2D" parent="." unique_id=1514625385]
-target_position = Vector2(1028, 0)
+target_position = Vector2(2256, 0)
 
 [node name="Tongue" type="Node2D" parent="." unique_id=1603243765]
 visible = false

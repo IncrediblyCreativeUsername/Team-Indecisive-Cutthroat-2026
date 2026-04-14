@@ -11,7 +11,7 @@ script = ExtResource("1_uahxu")
 offset_right = 1152.0
 offset_bottom = 175.0
 theme_override_font_sizes/font_size = 128
-text = "Insert Name Here"
+text = "Aunt Eater"
 horizontal_alignment = 1
 autowrap_mode = 2
 

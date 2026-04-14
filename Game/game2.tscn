@@ -13,6 +13,7 @@
 
 [node name="Game" type="Node2D" unique_id=58104947]
 script = ExtResource("1_as50m")
+hungerDrain = 0.7
 
 [node name="Hud" parent="." unique_id=787718687 instance=ExtResource("3_58alt")]
 
