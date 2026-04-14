@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var speed : int = 600
 @export var damage : int = 1
 @export var knockback : int = 2000
-@export var hungerRestore : int = 20
+@export var hungerRestore : int = 25
 @export var damageCooldownMax : int = 30
 
 @onready var player = Globals.player

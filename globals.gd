@@ -7,7 +7,7 @@ var deathScene := "res://UI/GameEnd.tscn"
 var playerHatNum := 0
 var hatCount := 10
 var hp := 3
-var hunger := 100.0
+var hunger := 50.0
 var heldAnt := false
 var player
 var invincibilityFrames = 40
@@ -15,7 +15,7 @@ var invincible = 0
 
 func resetValues():
 	hp = 3
-	hunger = 100
+	hunger = 50
 	heldAnt = false
 
 func hurt(damage):
@@ -31,7 +31,7 @@ func die():
 	get_tree().change_scene_to_file(Globals.deathScene)
 
 func _process(delta: float) -> void:
-	hunger -= 0.75*delta
+	hunger -= 1*delta
 	if hunger <= 0:
 		die()
 		#get_tree().reload_current_scene()
