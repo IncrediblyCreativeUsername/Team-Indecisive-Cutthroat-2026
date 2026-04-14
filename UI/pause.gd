@@ -6,6 +6,7 @@ var lpf : AudioEffectLowPassFilter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioServer.add_bus_effect(0,AudioEffectLowPassFilter.new(),0)
 	lpf = AudioServer.get_bus_effect(0, 0)
 	lpf.cutoff_hz = 20000.0
 	pass # Replace with function body.
@@ -21,7 +22,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_return_to_game_pressed() -> void:
-	lpf.cutoff_hz = 20000.0
+	#lpf.cutoff_hz = 20000.0
 	menu_open = false
 	visible = false
 	get_parent().find_child("Hud").visible = true
@@ -42,3 +43,4 @@ func _on_volume_slider_value_changed(value: float) -> void:
 
 func pauseAudio():
 	lpf.cutoff_hz = 500.0
+	pass

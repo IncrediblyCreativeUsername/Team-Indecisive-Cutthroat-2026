@@ -212,6 +212,7 @@ script = ExtResource("1_3qydi")
 friction = 800
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]
+z_index = 1
 position = Vector2(-30.999998, -34)
 scale = Vector2(1.4549686, 1.5234376)
 sprite_frames = ExtResource("2_ddoul")
