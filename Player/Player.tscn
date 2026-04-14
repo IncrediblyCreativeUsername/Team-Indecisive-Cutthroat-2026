@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://6jpu650d380y" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="SpriteFrames" uid="uid://bqh5c22glxrd7" path="res://Art/Characters/Animation/anteater_default_Anim.tres" id="2_ddoul"]
 [ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="2_q3lat"]
-[ext_resource type="PackedScene" uid="uid://dc7gxxantt3r8" path="res://Player/Hats.tscn" id="3_tok1r"]
+[ext_resource type="PackedScene" uid="uid://d2faiy2b0xqm2" path="res://Player/Hats.tscn" id="3_tok1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
 size = Vector2(138.10013, 72.623184)
@@ -215,12 +215,13 @@ animation = &"walk"
 frame_progress = 0.27149966
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2001729725]
-position = Vector2(-5.357143, 19.642857)
+position = Vector2(-5.357143, 19.642855)
 scale = Vector2(1.773725, 1.3836911)
 shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Hats" parent="." unique_id=1316857142 instance=ExtResource("3_tok1r")]
-position = Vector2(0, -64)
+position = Vector2(-32.142857, -30.357143)
+scale = Vector2(1.523, 1.523)
 
 [node name="Tongue" type="Node2D" parent="." unique_id=1603243765]
 visible = false

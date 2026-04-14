@@ -15,6 +15,7 @@ var grappleSpeed : float = 0.0;
 @onready var tongueTip := $Tongue/Area2D
 @onready var tongueCast := $Tongue/RayCast2D
 @onready var animSprite := $PlayerSprite
+@onready var Hats := $Hats
 var grabbedObject
 var isGrappling : bool = false
 var paused : bool = false
@@ -25,6 +26,7 @@ var grappleCooldown = 0
 
 func _ready():
 	animSprite.play("stand")
+	Hats.updateAnim("stand")
 	Globals.player = self
 
 func _physics_process(delta: float) -> void:
@@ -87,18 +89,23 @@ func _physics_process(delta: float) -> void:
 			velocity.x += speed*60*delta
 			
 			animSprite.flip_h =false
+			Hats.currentHat.flip_h = false
 			if self.is_on_floor():
 				animSprite.play("walk")
+				Hats.updateAnim("walk")
 		if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed:
 			velocity.x -= speed*60*delta
 			
 			animSprite.flip_h = true
+			Hats.currentHat.flip_h = true
 			if self.is_on_floor() && !tongueExtending:
 				animSprite.play("walk")
+				Hats.updateAnim("walk")
 			
-		if velocity.x == 0 && animSprite.animation != "stand_toungue":
+		if velocity.x == 0 && animSprite.animation != "stand_tongue":
 			if self.is_on_floor() && !tongueExtending:
 				animSprite.play("stand")
+				Hats.updateAnim("stand")
 		
 		#coyote time resets while on floor
 		if is_on_floor():
@@ -114,6 +121,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = 0
 				velocity.y -= jumpForce
 				animSprite.play("jump")
+				Hats.updateAnim("jump")
 		else:
 			#shorter jump if not held
 			if velocity.y < 0:
@@ -129,11 +137,15 @@ func _physics_process(delta: float) -> void:
 		if !tongueExtending && Input.is_action_just_pressed("GRAPPLE") && grappleCooldown <= 0:
 			tonguePivot.look_at(get_global_mouse_position())
 			tongueAnimator.play("Extend")
-			animSprite.play("stand_toungue")
+			animSprite.play("stand_tongue")
+			Hats.updateAnim("stand_tongue")
 			if (get_global_mouse_position() - global_position).rotated(PI / 2).angle() > 0:
 				animSprite.flip_h = false
+				Hats.currentHat.flip_h = false
+				
 			else:
 				animSprite.flip_h = true
+				Hats.currentHat.flip_h = true
 		
 		#move grabbed object
 		if grabbedObject != null && tongueExtending:

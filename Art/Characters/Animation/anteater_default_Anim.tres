@@ -61,7 +61,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6ysni")
 }],
 "loop": true,
-"name": &"stand_toungue",
+"name": &"stand_tongue",
 "speed": 5.0
 }, {
 "frames": [{
@@ -89,6 +89,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_5wa8t")
 }],
 "loop": true,
-"name": &"walk_tounge",
+"name": &"walk_tongue",
 "speed": 5.0
 }]

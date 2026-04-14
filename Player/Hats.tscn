@@ -1,21 +1,30 @@
-[gd_scene format=3 uid="uid://dc7gxxantt3r8"]
+[gd_scene format=3 uid="uid://d2faiy2b0xqm2"]
 
 [ext_resource type="Script" uid="uid://ct30poidubrop" path="res://Player/hats.gd" id="1_gm011"]
-[ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="2_kl26w"]
+[ext_resource type="SpriteFrames" uid="uid://bvtlovk3r4ng1" path="res://Art/HatRes/Cap.tres" id="2_7h3dq"]
+[ext_resource type="SpriteFrames" uid="uid://bdx8gcwvf3ov" path="res://Art/HatRes/Pirate.tres" id="3_7h3dq"]
 
 [node name="Hats" type="Node2D" unique_id=1316857142]
 script = ExtResource("1_gm011")
 
-[node name="Hat0" type="Sprite2D" parent="." unique_id=729947882]
-visible = false
-
-[node name="Hat1" type="Sprite2D" parent="." unique_id=334499436]
-visible = false
-position = Vector2(0, -64)
-texture = ExtResource("2_kl26w")
-
-[node name="Hat2" type="Sprite2D" parent="." unique_id=349237176]
-visible = false
+[node name="Hat1" type="AnimatedSprite2D" parent="." unique_id=98010022]
 modulate = Color(0, 0.7490196, 0.32941177, 1)
-position = Vector2(0, -64)
-texture = ExtResource("2_kl26w")
+position = Vector2(0, -1)
+sprite_frames = ExtResource("2_7h3dq")
+animation = &"stand_tongue"
+
+[node name="Hat2" type="AnimatedSprite2D" parent="." unique_id=655698553]
+modulate = Color(0, 0.7490196, 0.32941177, 1)
+position = Vector2(0, -1)
+sprite_frames = ExtResource("3_7h3dq")
+animation = &"stand_tongue"
+
+[node name="Hat3" type="AnimatedSprite2D" parent="." unique_id=1877250235]
+modulate = Color(0, 0.7490196, 0.32941177, 1)
+sprite_frames = ExtResource("3_7h3dq")
+animation = &"stand_tongue"
+
+[node name="Hat4" type="AnimatedSprite2D" parent="." unique_id=1340910683]
+modulate = Color(0, 0.7490196, 0.32941177, 1)
+sprite_frames = ExtResource("3_7h3dq")
+animation = &"stand_tongue"
