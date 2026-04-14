@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bwm6a7p5kawas" path="res://UI/bossbar.gd" id="1_r43jt"]
 
 [node name="Bossbar" type="CanvasLayer" unique_id=474634526]
+process_mode = 3
 script = ExtResource("1_r43jt")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1476827161]

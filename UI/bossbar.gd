@@ -12,4 +12,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if get_tree().paused:
+		visible = false
 	healthbar.anchor_right = 0.05 + 0.9 * health / maxHealth

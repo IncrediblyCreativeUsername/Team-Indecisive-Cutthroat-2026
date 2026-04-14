@@ -1,7 +1,34 @@
 [gd_scene format=3 uid="uid://dgkriuiho5nhi"]
 
 [ext_resource type="Script" uid="uid://uco18uskl6ql" path="res://Nephew/nephew.gd" id="1_pxkv6"]
-[ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="1_x2bx4"]
+[ext_resource type="Texture2D" uid="uid://b44jqk17m07vm" path="res://Art/Characters/anteater_default.png" id="2_8q7wn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr8ds"]
+atlas = ExtResource("2_8q7wn")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdr06"]
+atlas = ExtResource("2_8q7wn")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ekepi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr8ds")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdr06")
+}],
+"loop": true,
+"name": &"eat",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2bx4"]
 size = Vector2(1024, 1024)
@@ -12,10 +39,13 @@ size = Vector2(256, 256)
 [node name="Nephew" type="Node2D" unique_id=1379414758]
 script = ExtResource("1_pxkv6")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1777363454]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=57127814]
 z_index = -1
+position = Vector2(512, 0)
 scale = Vector2(8, 8)
-texture = ExtResource("1_x2bx4")
+sprite_frames = SubResource("SpriteFrames_ekepi")
+animation = &"eat"
+flip_h = true
 
 [node name="Detect" type="Area2D" parent="." unique_id=1670387203]
 collision_layer = 0
@@ -25,6 +55,7 @@ collision_mask = 5
 shape = SubResource("RectangleShape2D_x2bx4")
 
 [node name="Eat" type="Area2D" parent="." unique_id=1132845267]
+position = Vector2(-210, 35)
 collision_layer = 0
 collision_mask = 5
 
