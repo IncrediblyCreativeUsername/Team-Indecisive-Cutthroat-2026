@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b4w6kdudqm68g"]
+
+[ext_resource type="Script" uid="uid://7y37y6xdt8nt" path="res://Boss/boss.gd" id="1_4xi7c"]
+[ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="2_4xi7c"]
+[ext_resource type="PackedScene" uid="uid://vxxr7h30akbh" path="res://UI/Bossbar.tscn" id="3_sdoex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epr5s"]
+size = Vector2(256, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vonkd"]
+size = Vector2(384, 384)
+
+[node name="Boss" type="CharacterBody2D" unique_id=400271033 groups=["grabbable"]]
+collision_layer = 4
+script = ExtResource("1_4xi7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254119740]
+scale = Vector2(3, 3)
+texture = ExtResource("2_4xi7c")
+
+[node name="spawn" type="Sprite2D" parent="." unique_id=1444110771]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4xi7c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=226660341]
+shape = SubResource("RectangleShape2D_epr5s")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=841689919]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=248920273]
+shape = SubResource("RectangleShape2D_vonkd")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1615933641]
+rect = Rect2(-1216, -704, 2432, 1408)
+
+[node name="Bossbar" parent="." unique_id=462255486 instance=ExtResource("3_sdoex")]
+visible = false
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

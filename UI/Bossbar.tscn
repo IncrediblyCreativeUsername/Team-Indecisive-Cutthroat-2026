@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://vxxr7h30akbh"]
+
+[ext_resource type="Script" uid="uid://bwm6a7p5kawas" path="res://UI/bossbar.gd" id="1_r43jt"]
+
+[node name="Bossbar" type="CanvasLayer" unique_id=474634526]
+script = ExtResource("1_r43jt")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1476827161]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.9
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Health" type="ColorRect" parent="." unique_id=1890588291]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.9
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1025610140]
+anchors_preset = -1
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Queen Ant"
+horizontal_alignment = 1
+vertical_alignment = 2
