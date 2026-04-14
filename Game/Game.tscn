@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://da15vktx8ws2l" path="res://UI/Pause.tscn" id="4_fuqhk"]
 [ext_resource type="PackedScene" uid="uid://bohevvymyfxhh" path="res://Tilemap/Tilemap.tscn" id="6_fuqhk"]
 [ext_resource type="PackedScene" uid="uid://dgkriuiho5nhi" path="res://Nephew/nephew.tscn" id="6_ghvq8"]
-[ext_resource type="PackedScene" uid="uid://d2unaxpm6c284" path="res://Rock/Rock.tscn" id="8_oscxy"]
 [ext_resource type="AudioStream" uid="uid://caqdoipvw60sr" path="res://Art/Sounds/Music/AnteaterLevelMusic(NameTBD).wav" id="9_eqev2"]
 [ext_resource type="PackedScene" uid="uid://b4w6kdudqm68g" path="res://Boss/Boss.tscn" id="10_q6w4l"]
 
@@ -133,9 +132,6 @@ position = Vector2(3043, 318)
 
 [node name="Enemy7" parent="." unique_id=697022856 instance=ExtResource("4_37esa")]
 position = Vector2(1781, 3107)
-
-[node name="Rock" parent="." unique_id=1088549404 instance=ExtResource("8_oscxy")]
-position = Vector2(-586, -604)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=2112822668]
 process_mode = 3
