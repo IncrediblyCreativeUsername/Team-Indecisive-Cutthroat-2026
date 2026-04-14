@@ -54,10 +54,10 @@ func _physics_process(delta: float) -> void:
 	
 	#eat
 	if Input.is_action_just_pressed("EAT"):
-		if Globals.heldAnt && Globals.hp < 3:
+		if Globals.heldAnt && Globals.hp < 5:
 			Globals.heldAnt = false
 			speed = 1000
-			Globals.hp = min(3, Globals.hp + 1)
+			Globals.hp = min(5, Globals.hp + 2)
 		else:
 			for item in $Eat.get_overlapping_bodies():
 				if item.is_in_group("edible") && item.wasGrabbed:
