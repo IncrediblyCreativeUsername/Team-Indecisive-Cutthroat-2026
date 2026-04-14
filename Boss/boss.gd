@@ -29,6 +29,7 @@ func _physics_process(_delta: float) -> void:
 	bossbar.health = health
 	if health <= 0:
 		queue_free()
+		get_tree().change_scene_to_file(Globals.deathScene)
 	elif health <= 5:
 		speedMod = 2
 	
