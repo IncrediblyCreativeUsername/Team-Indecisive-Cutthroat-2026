@@ -31,7 +31,7 @@ position = Vector2(756, -1389)
 floor_max_angle = 0.87266463
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=594023427]
-zoom = Vector2(0.35, 0.35)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_speed = 3.0
 
 [node name="Nephew" parent="." unique_id=1379414758 instance=ExtResource("7_54uxu")]
