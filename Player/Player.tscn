@@ -225,6 +225,7 @@ scale = Vector2(1.773725, 1.3836911)
 shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Hats" parent="." unique_id=1316857142 instance=ExtResource("3_tok1r")]
+z_index = 1
 position = Vector2(-32.142857, -30.357143)
 scale = Vector2(1.523, 1.523)
 

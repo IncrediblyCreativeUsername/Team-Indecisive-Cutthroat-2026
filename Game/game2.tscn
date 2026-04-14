@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dy7klndipufbg" path="res://Player/Player.tscn" id="5_tvcsn"]
 [ext_resource type="PackedScene" uid="uid://dfooacd5orfqh" path="res://Enemy/Enemy.tscn" id="6_o8kjv"]
 [ext_resource type="PackedScene" uid="uid://dgkriuiho5nhi" path="res://Nephew/nephew.tscn" id="7_54uxu"]
-[ext_resource type="PackedScene" uid="uid://d2unaxpm6c284" path="res://Rock/Rock.tscn" id="8_weqps"]
 [ext_resource type="PackedScene" uid="uid://b4w6kdudqm68g" path="res://Boss/Boss.tscn" id="10_58alt"]
 
 [node name="Game" type="Node2D" unique_id=58104947]
@@ -139,9 +138,6 @@ position = Vector2(-2654, 5321)
 position = Vector2(-772, 1316)
 
 [node name="Rocks" type="Node2D" parent="." unique_id=1803373562]
-
-[node name="Rock" parent="Rocks" unique_id=116595279 instance=ExtResource("8_weqps")]
-position = Vector2(-1098, 13)
 
 [node name="Boss" parent="." unique_id=611915068 instance=ExtResource("10_58alt")]
 position = Vector2(-12653, 10435)
