@@ -43,8 +43,12 @@ func _physics_process(_delta: float) -> void:
 		lifetime += _delta
 		velocity.y = cos(lifetime * speedMod * PI) * speed * speedMod
 		velocity.x = cos(lifetime * speedMod * PI * 0.25) * speed * speedMod
-		$spawn.global_position = spawnpoint
 		move_and_slide()
+		
+		if velocity.x > 0:
+			sprite.flip_h = true
+		else:
+			sprite.flip_h = false
 
 func grabbed(_grabOrigin : Vector2):
 	damageCooldown = damageCooldownMax
