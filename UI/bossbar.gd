@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-var maxHealth : int = 10
-var health : int = maxHealth
+var maxAnger : int = 20
+var anger : int = 0
 
-@onready var healthbar := $Health
+@onready var angerbar := $Anger
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,4 +14,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if get_tree().paused:
 		visible = false
-	healthbar.anchor_right = 0.05 + 0.9 * health / maxHealth
+	angerbar.anchor_right = 0.05 + 0.45 * anger / maxAnger

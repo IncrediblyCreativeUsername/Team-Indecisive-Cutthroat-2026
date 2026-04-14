@@ -6,7 +6,7 @@ var mainMenuScene := "res://UI/MainMenu.tscn"
 var deathScene := "res://UI/GameEnd.tscn"
 var playerHatNum := 0
 var hatCount := 10
-var hp := 3
+var hp := 5
 var hunger := 50.0
 var heldAnt := false
 var player
@@ -14,7 +14,7 @@ var invincibilityFrames = 40
 var invincible = 0
 
 func resetValues():
-	hp = 3
+	hp = 5
 	hunger = 50
 	heldAnt = false
 

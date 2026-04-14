@@ -22,4 +22,7 @@ func _process(_delta: float) -> void:
 	for item in eat.get_overlapping_bodies():
 		if item.is_in_group("edible"):
 			Globals.hunger = min(100, Globals.hunger + item.hungerRestore)
-			item.queue_free()
+			if item.has_method("victory"):
+				item.victory()
+			else:
+				item.queue_free()

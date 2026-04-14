@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-@export var health : int = 10
+@export var anger : int = 0
 @export var gravity : int = 0
 @export var speed : int = 600
 @export var speedMod : int = 1
 @export var damage : int = 1
 @export var knockback : int = 2000
+@export var hungerRestore : int = 100
 @export var damageCooldownMax : int = 30
+@export var wasGrabbed := false
 
 @onready var player = Globals.player
 @onready var visibility := $VisibleOnScreenEnabler2D
@@ -22,16 +24,13 @@ var spawnpoint : Vector2
 
 func _ready() -> void:
 	spawnpoint = global_position
-	bossbar.maxHealth = health
-	bossbar.health = health
+	bossbar.maxAnger = 10
+	bossbar.anger = 0
 
 func _physics_process(_delta: float) -> void:
-	bossbar.health = health
-	if health <= 0:
-		queue_free()
-		get_tree().change_scene_to_file(Globals.deathScene)
-	elif health <= 5:
-		speedMod = 2
+	
+	bossbar.anger = anger
+	speedMod = 1 + (anger / 20.0)
 	
 	if damageCooldown > 0:
 		damageCooldown -= 1
@@ -39,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 		$DamageArea.set_deferred("monitoring",true)
 	
 	#only execute code if onscreen
-	if visibility.is_on_screen():
+	if visibility.is_on_screen() && !wasGrabbed:
 		bossbar.visible = true
 		lifetime += _delta
 		velocity.y = cos(lifetime * speedMod * PI) * speed * speedMod
@@ -54,7 +53,8 @@ func _physics_process(_delta: float) -> void:
 func grabbed(_grabOrigin : Vector2):
 	damageCooldown = damageCooldownMax
 	$DamageArea.set_deferred("monitoring",false)
-	health -= 1
+	if anger < 20:
+		anger += 1
 	var ant = spawnedAnt.instantiate()
 	ant.global_position = global_position
 	get_parent().add_child(ant)
@@ -74,3 +74,7 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	bossbar.visible = false
+	
+func victory():
+	queue_free()
+	get_tree().change_scene_to_file(Globals.deathScene)

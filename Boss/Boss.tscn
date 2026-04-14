@@ -14,7 +14,7 @@ size = Vector2(256, 256)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vonkd"]
 size = Vector2(384, 384)
 
-[node name="Boss" type="CharacterBody2D" unique_id=400271033 groups=["grabbable"]]
+[node name="Boss" type="CharacterBody2D" unique_id=400271033 groups=["edible", "grabbable"]]
 collision_layer = 4
 script = ExtResource("1_4xi7c")
 

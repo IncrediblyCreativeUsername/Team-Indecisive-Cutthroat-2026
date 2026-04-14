@@ -67,4 +67,4 @@ stream = ExtResource("9_eqev2")
 autoplay = true
 
 [node name="Boss" parent="." unique_id=548690208 instance=ExtResource("10_q6w4l")]
-position = Vector2(1517, 4367)
+position = Vector2(1415, 4445)
