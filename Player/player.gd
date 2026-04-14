@@ -17,6 +17,7 @@ var grappleSpeed : float = 0.0;
 @onready var tongueTexture := $Tongue/TextureRect
 @onready var animSprite := $PlayerSprite
 @onready var Hats := $Hats
+@onready var mouseCast := $MouseCast
 var grabbedObject
 var isGrappling : bool = false
 var paused : bool = false
@@ -138,7 +139,12 @@ func _physics_process(delta: float) -> void:
 			velocity.y += gravity
 		#shoot out tongue
 		if !tongueExtending && Input.is_action_just_pressed("GRAPPLE") && grappleCooldown <= 0:
-			tonguePivot.look_at(get_global_mouse_position())
+			mouseCast.look_at(get_global_mouse_position())
+			await get_tree().process_frame
+			if mouseCast.is_colliding():
+				tonguePivot.look_at(mouseCast.get_collision_point())
+			else:
+				tonguePivot.look_at(get_global_mouse_position())
 			tongueAnimator.play("Extend")
 			animSprite.play("stand_tongue")
 			Hats.updateAnim("stand_tongue")

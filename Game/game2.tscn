@@ -42,132 +42,100 @@ position = Vector2(10746, -1004)
 
 [node name="Enemy" parent="Enemies" unique_id=400271033 instance=ExtResource("6_o8kjv")]
 position = Vector2(8282, 188)
-damageCooldownMax = 30
 wasGrabbed = true
 
 [node name="Enemy2" parent="Enemies" unique_id=50652945 instance=ExtResource("6_o8kjv")]
 position = Vector2(7519, 1872)
-damageCooldownMax = 30
 
 [node name="Enemy3" parent="Enemies" unique_id=497586856 instance=ExtResource("6_o8kjv")]
 position = Vector2(5837, 3402)
-damageCooldownMax = 30
 
 [node name="Enemy4" parent="Enemies" unique_id=1196641915 instance=ExtResource("6_o8kjv")]
 position = Vector2(6469, 5060)
-damageCooldownMax = 30
 
 [node name="Enemy18" parent="Enemies" unique_id=1120437695 instance=ExtResource("6_o8kjv")]
 position = Vector2(10129, 3745)
-damageCooldownMax = 30
 
 [node name="Enemy19" parent="Enemies" unique_id=1831300755 instance=ExtResource("6_o8kjv")]
 position = Vector2(10776, 7105)
-damageCooldownMax = 30
 
 [node name="Enemy24" parent="Enemies" unique_id=1865202598 instance=ExtResource("6_o8kjv")]
 position = Vector2(9444, 6033)
-damageCooldownMax = 30
 
 [node name="Enemy26" parent="Enemies" unique_id=2137190103 instance=ExtResource("6_o8kjv")]
 position = Vector2(9554, 7704)
-damageCooldownMax = 30
 
 [node name="Enemy25" parent="Enemies" unique_id=609756057 instance=ExtResource("6_o8kjv")]
 position = Vector2(7958, 6245)
-damageCooldownMax = 30
 
 [node name="Enemy20" parent="Enemies" unique_id=235555042 instance=ExtResource("6_o8kjv")]
 position = Vector2(1688, 7001)
-damageCooldownMax = 30
 
 [node name="Enemy22" parent="Enemies" unique_id=1561324921 instance=ExtResource("6_o8kjv")]
 position = Vector2(-1749, 6857)
-damageCooldownMax = 30
 
 [node name="Enemy27" parent="Enemies" unique_id=1283849637 instance=ExtResource("6_o8kjv")]
 position = Vector2(-4298, 8120)
-damageCooldownMax = 30
 
 [node name="Enemy29" parent="Enemies" unique_id=2006299428 instance=ExtResource("6_o8kjv")]
 position = Vector2(-4128, 9911)
-damageCooldownMax = 30
 
 [node name="Enemy30" parent="Enemies" unique_id=1390874733 instance=ExtResource("6_o8kjv")]
 position = Vector2(-5704, 10152)
-damageCooldownMax = 30
 
 [node name="Enemy31" parent="Enemies" unique_id=2053126719 instance=ExtResource("6_o8kjv")]
 position = Vector2(-6876, 10328)
-damageCooldownMax = 30
 
 [node name="Enemy32" parent="Enemies" unique_id=1745605293 instance=ExtResource("6_o8kjv")]
 position = Vector2(-8589, 10061)
-damageCooldownMax = 30
 
 [node name="Enemy28" parent="Enemies" unique_id=832032307 instance=ExtResource("6_o8kjv")]
 position = Vector2(-5726, 8132)
-damageCooldownMax = 30
 
 [node name="Enemy21" parent="Enemies" unique_id=2037966102 instance=ExtResource("6_o8kjv")]
 position = Vector2(6219, 9121)
-damageCooldownMax = 30
 
 [node name="Enemy23" parent="Enemies" unique_id=1879847992 instance=ExtResource("6_o8kjv")]
 position = Vector2(2958, 9388)
-damageCooldownMax = 30
 
 [node name="Enemy6" parent="Enemies" unique_id=1759688915 instance=ExtResource("6_o8kjv")]
 position = Vector2(3846, 4944)
-damageCooldownMax = 30
 
 [node name="Enemy12" parent="Enemies" unique_id=1500518272 instance=ExtResource("6_o8kjv")]
 position = Vector2(3988, 6981)
-damageCooldownMax = 30
 
 [node name="Enemy13" parent="Enemies" unique_id=682279251 instance=ExtResource("6_o8kjv")]
 position = Vector2(5328, 7370)
-damageCooldownMax = 30
 
 [node name="Enemy14" parent="Enemies" unique_id=458697923 instance=ExtResource("6_o8kjv")]
 position = Vector2(6689, 7364)
-damageCooldownMax = 30
 
 [node name="Enemy15" parent="Enemies" unique_id=297389731 instance=ExtResource("6_o8kjv")]
 position = Vector2(4685, 6088)
-damageCooldownMax = 30
 
 [node name="Enemy11" parent="Enemies" unique_id=974089825 instance=ExtResource("6_o8kjv")]
 position = Vector2(1200, 5187)
-damageCooldownMax = 30
 
 [node name="Enemy5" parent="Enemies" unique_id=754461254 instance=ExtResource("6_o8kjv")]
 position = Vector2(3030, 2904)
-damageCooldownMax = 30
 
 [node name="Enemy7" parent="Enemies" unique_id=306402693 instance=ExtResource("6_o8kjv")]
 position = Vector2(-3612, 479)
-damageCooldownMax = 30
 
 [node name="Enemy8" parent="Enemies" unique_id=1691162132 instance=ExtResource("6_o8kjv")]
 position = Vector2(4612, 1605)
-damageCooldownMax = 30
 
 [node name="Enemy9" parent="Enemies" unique_id=1449024499 instance=ExtResource("6_o8kjv")]
 position = Vector2(-686, 3396)
-damageCooldownMax = 30
 
 [node name="Enemy16" parent="Enemies" unique_id=1482753709 instance=ExtResource("6_o8kjv")]
 position = Vector2(-3620, 3785)
-damageCooldownMax = 30
 
 [node name="Enemy17" parent="Enemies" unique_id=633370024 instance=ExtResource("6_o8kjv")]
 position = Vector2(-2654, 5321)
-damageCooldownMax = 30
 
 [node name="Enemy10" parent="Enemies" unique_id=380241865 instance=ExtResource("6_o8kjv")]
 position = Vector2(-772, 1316)
-damageCooldownMax = 30
 
 [node name="Rocks" type="Node2D" parent="." unique_id=1803373562]
 
