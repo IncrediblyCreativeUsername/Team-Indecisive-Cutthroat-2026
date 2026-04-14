@@ -36,7 +36,10 @@ animations = [{
 "name": &"stand_tongue",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq0m8")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0

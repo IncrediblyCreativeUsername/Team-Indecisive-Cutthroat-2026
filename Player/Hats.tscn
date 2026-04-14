@@ -7,24 +7,29 @@
 [node name="Hats" type="Node2D" unique_id=1316857142]
 script = ExtResource("1_gm011")
 
+[node name="Hat0" type="AnimatedSprite2D" parent="." unique_id=1139734948]
+position = Vector2(0, -1)
+sprite_frames = ExtResource("2_7h3dq")
+animation = &"walk"
+
 [node name="Hat1" type="AnimatedSprite2D" parent="." unique_id=98010022]
-modulate = Color(0, 0.7490196, 0.32941177, 1)
+visible = false
+position = Vector2(0, -1)
+sprite_frames = ExtResource("2_7h3dq")
+animation = &"walk"
+
+[node name="Hat2" type="AnimatedSprite2D" parent="." unique_id=655698553]
+visible = false
 position = Vector2(0, -1)
 sprite_frames = ExtResource("2_7h3dq")
 animation = &"stand_tongue"
 
-[node name="Hat2" type="AnimatedSprite2D" parent="." unique_id=655698553]
-modulate = Color(0, 0.7490196, 0.32941177, 1)
-position = Vector2(0, -1)
-sprite_frames = ExtResource("3_7h3dq")
-animation = &"stand_tongue"
-
 [node name="Hat3" type="AnimatedSprite2D" parent="." unique_id=1877250235]
-modulate = Color(0, 0.7490196, 0.32941177, 1)
+visible = false
 sprite_frames = ExtResource("3_7h3dq")
 animation = &"stand_tongue"
 
 [node name="Hat4" type="AnimatedSprite2D" parent="." unique_id=1340910683]
-modulate = Color(0, 0.7490196, 0.32941177, 1)
+visible = false
 sprite_frames = ExtResource("3_7h3dq")
 animation = &"stand_tongue"

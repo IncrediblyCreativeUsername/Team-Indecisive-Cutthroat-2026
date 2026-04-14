@@ -1,0 +1,61 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://8hejmaeh23ha"]
+
+[ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="1_tvuwc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h3dq"]
+atlas = ExtResource("1_tvuwc")
+region = Rect2(1280, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kydf7"]
+atlas = ExtResource("1_tvuwc")
+region = Rect2(1024, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvuwc"]
+atlas = ExtResource("1_tvuwc")
+region = Rect2(512, 384, 256, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h3dq")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kydf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvuwc")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h3dq")
+}],
+"loop": true,
+"name": &"stand_tongue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kydf7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h3dq")
+}],
+"loop": true,
+"name": &"walk_tongue",
+"speed": 5.0
+}]
