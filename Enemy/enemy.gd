@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
 @export var gravity : int = 100
-@export var speed : int = 400
+@export var speed : int = 600
 @export var damage : int = 1
-@export var knockback : int = 1000
+@export var knockback : int = 2000
 @export var hungerRestore : int = 20
+@export var damageCooldownMax : int = 30
 
 @onready var player = Globals.player
 @onready var visibility := $VisibleOnScreenEnabler2D
 
 @onready var sprite = $Sprite2D
 var wasGrabbed := false
+var damageCooldown = 0
 
 func _ready() -> void:
 	var index = randi_range(0,2);
@@ -20,17 +22,23 @@ func _ready() -> void:
 	
 
 func _physics_process(_delta: float) -> void:
+	if damageCooldown > 0:
+		damageCooldown -= 1
+	if damageCooldown <= 0 && $DamageArea.monitoring == false:
+		$DamageArea.set_deferred("monitoring",true)
+		
+	
 	#only execute code if onscreen
 	if visibility.is_on_screen():
 		#X movement
 		velocity.x = 0
 		if !wasGrabbed:
-			#failsafe to leave head of player
-			if abs(player.global_position.x - global_position.x) < 128 &&  player.global_position.y - global_position.y > 64:
-				velocity.x += 1
-				sprite.flip_h = true
+			#failsafe to leave head of player -- NO LONGER NEEDED (NO COLLISONS)
+			#if abs(player.global_position.x - global_position.x) < 128 &&  player.global_position.y - global_position.y > 64:
+			#	velocity.x += 1
+			#	sprite.flip_h = true
 			#standard targeting
-			elif abs(player.global_position.x - global_position.x) > 10:
+			if abs(player.global_position.x - global_position.x) > 10:
 				if player.global_position.x >= global_position.x:
 					velocity.x += 1
 					sprite.flip_h = true
@@ -75,6 +83,8 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if !wasGrabbed:
 			Globals.hurt(damage)
+			$DamageArea.set_deferred("monitoring",false)
+			damageCooldown = damageCooldownMax
 			if velocity.x > 0:
 				body.velocity.x += knockback
 			else:

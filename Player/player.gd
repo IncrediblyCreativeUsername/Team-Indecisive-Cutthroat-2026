@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed : int = 800
-@export var jumpForce : int = 2000
+@export var speed : int = 1000
+@export var jumpForce : int = 2200
 @export var gravity : int = 100
 @export var coyoteTime : int = 15
 @export var friction : int = 500
@@ -42,28 +42,28 @@ func _physics_process(delta: float) -> void:
 	if isGrappling:
 		var grappleDirection : Vector2 = (grapplePoint - self.global_position).normalized()
 		#move_and_collide(delta * grappleDirection * 10)
-		velocity += grappleDirection * (grappleSpeed + 600)
+		velocity += grappleDirection * (grappleSpeed/1.5 + 1000)
 	else:
 		if grappleCooldown > 0:
 			grappleCooldown -= 1
 	
 	#eat
 	if Input.is_action_just_pressed("EAT"):
-		if Globals.heldAnt:
+		if Globals.heldAnt && Globals.hp < 3:
 			Globals.heldAnt = false
-			speed = 800
+			speed = 1000
 			Globals.hp = min(3, Globals.hp + 1)
 		else:
 			for item in $Eat.get_overlapping_bodies():
 				if item.is_in_group("edible") && item.wasGrabbed:
 					Globals.heldAnt = true
-					speed = 400
+					speed = 660
 					item.queue_free()
 	#drop held ant
 	if Input.is_action_just_pressed("DROP"):
 		if Globals.heldAnt:
 			Globals.heldAnt = false
-			speed = 800
+			speed = 1000
 			var ant = droppedAnt.instantiate()
 			if animSprite.flip_h:
 				ant.global_position = global_position + Vector2(-160,0)
@@ -170,8 +170,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			await get_tree().process_frame
 			grapplePoint = tongueCast.get_collision_point() + Vector2(64,0).rotated(tonguePivot.rotation)
 			grappleSpeed = self.global_position.distance_to(grapplePoint)
-			if velocity.y > 0:
-				velocity.y = 0
+			if grapplePoint.y < self.global_position.y:
+				if velocity.y > 0:
+					velocity.y = 0
+			elif grapplePoint.y > self.global_position.y:
+				if velocity.y < 0:
+					velocity.y = 0
 			isGrappling = true
 			grappleCooldown = grappleCooldownMax
 			velocity = Vector2.ZERO
