@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 	#eat
 	if Input.is_action_just_pressed("EAT"):
-		if Globals.heldAnt:
+		if Globals.heldAnt && Globals.hp < 3:
 			Globals.heldAnt = false
 			speed = 1000
 			Globals.hp = min(3, Globals.hp + 1)
