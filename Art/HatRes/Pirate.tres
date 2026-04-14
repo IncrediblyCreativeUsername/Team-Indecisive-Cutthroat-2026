@@ -1,13 +1,13 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://bdx8gcwvf3ov"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://c1c5jgad2qvc4"]
 
-[ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="1_nxy2u"]
+[ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="1_qp01n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7h3dq"]
-atlas = ExtResource("1_nxy2u")
+atlas = ExtResource("1_qp01n")
 region = Rect2(1280, 128, 256, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kydf7"]
-atlas = ExtResource("1_nxy2u")
+atlas = ExtResource("1_qp01n")
 region = Rect2(1024, 128, 256, 128)
 
 [resource]

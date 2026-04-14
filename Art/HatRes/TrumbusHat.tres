@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://goatqa246eh3"]
+
+[ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="1_g7voa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7voa"]
+atlas = ExtResource("1_g7voa")
+region = Rect2(1280, 640, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_552pu"]
+atlas = ExtResource("1_g7voa")
+region = Rect2(1024, 640, 256, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7voa")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_552pu")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7voa")
+}],
+"loop": true,
+"name": &"stand_tongue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_552pu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7voa")
+}],
+"loop": true,
+"name": &"walk_tongue",
+"speed": 5.0
+}]

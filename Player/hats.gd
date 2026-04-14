@@ -14,4 +14,5 @@ func updateHat():
 			
 
 func updateAnim(animName):
-	currentHat.play(animName)
+	if (Globals.playerHatNum != 0):
+		currentHat.play(animName)

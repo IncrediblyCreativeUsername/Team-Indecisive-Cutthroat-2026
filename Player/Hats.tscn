@@ -2,34 +2,65 @@
 
 [ext_resource type="Script" uid="uid://ct30poidubrop" path="res://Player/hats.gd" id="1_gm011"]
 [ext_resource type="SpriteFrames" uid="uid://bvtlovk3r4ng1" path="res://Art/HatRes/Cap.tres" id="2_7h3dq"]
-[ext_resource type="SpriteFrames" uid="uid://bdx8gcwvf3ov" path="res://Art/HatRes/Pirate.tres" id="3_7h3dq"]
+[ext_resource type="SpriteFrames" uid="uid://c1c5jgad2qvc4" path="res://Art/HatRes/Pirate.tres" id="3_7h3dq"]
+[ext_resource type="SpriteFrames" uid="uid://dbbje75n0w86l" path="res://Art/HatRes/Party.tres" id="4_kydf7"]
+[ext_resource type="SpriteFrames" uid="uid://bdx8gcwvf3ov" path="res://Art/HatRes/TopHat.tres" id="5_8bq08"]
+[ext_resource type="SpriteFrames" uid="uid://8hejmaeh23ha" path="res://Art/HatRes/Goblin.tres" id="5_kjueo"]
+[ext_resource type="SpriteFrames" uid="uid://b5v6vtno3qdrj" path="res://Art/HatRes/Digger.tres" id="6_8bq08"]
+[ext_resource type="SpriteFrames" uid="uid://bf3b5fpkqfxei" path="res://Art/HatRes/Puncher.tres" id="7_vrntm"]
+[ext_resource type="SpriteFrames" uid="uid://goatqa246eh3" path="res://Art/HatRes/TrumbusHat.tres" id="8_hmwvv"]
+[ext_resource type="SpriteFrames" uid="uid://c5ucegecfya8a" path="res://Art/HatRes/Trumbus.tres" id="9_yo3c7"]
 
 [node name="Hats" type="Node2D" unique_id=1316857142]
 script = ExtResource("1_gm011")
 
 [node name="Hat0" type="AnimatedSprite2D" parent="." unique_id=1139734948]
 position = Vector2(0, -1)
-sprite_frames = ExtResource("2_7h3dq")
-animation = &"walk"
+animation = &""
 
-[node name="Hat1" type="AnimatedSprite2D" parent="." unique_id=98010022]
+[node name="cap" type="AnimatedSprite2D" parent="." unique_id=98010022]
 visible = false
 position = Vector2(0, -1)
 sprite_frames = ExtResource("2_7h3dq")
 animation = &"walk"
 
-[node name="Hat2" type="AnimatedSprite2D" parent="." unique_id=655698553]
+[node name="pirate" type="AnimatedSprite2D" parent="." unique_id=1877250235]
+visible = false
+sprite_frames = ExtResource("3_7h3dq")
+animation = &"stand_tongue"
+
+[node name="party" type="AnimatedSprite2D" parent="." unique_id=655698553]
 visible = false
 position = Vector2(0, -1)
-sprite_frames = ExtResource("2_7h3dq")
+sprite_frames = ExtResource("4_kydf7")
 animation = &"stand_tongue"
 
-[node name="Hat3" type="AnimatedSprite2D" parent="." unique_id=1877250235]
+[node name="tophat" type="AnimatedSprite2D" parent="." unique_id=713332924]
 visible = false
-sprite_frames = ExtResource("3_7h3dq")
+sprite_frames = ExtResource("5_8bq08")
 animation = &"stand_tongue"
 
-[node name="Hat4" type="AnimatedSprite2D" parent="." unique_id=1340910683]
+[node name="goblin" type="AnimatedSprite2D" parent="." unique_id=1340910683]
 visible = false
-sprite_frames = ExtResource("3_7h3dq")
-animation = &"stand_tongue"
+sprite_frames = ExtResource("5_kjueo")
+animation = &"jump"
+
+[node name="digger" type="AnimatedSprite2D" parent="." unique_id=455022122]
+visible = false
+sprite_frames = ExtResource("6_8bq08")
+animation = &"jump"
+
+[node name="puncher" type="AnimatedSprite2D" parent="." unique_id=1872048912]
+visible = false
+sprite_frames = ExtResource("7_vrntm")
+animation = &"jump"
+
+[node name="trumbushat" type="AnimatedSprite2D" parent="." unique_id=2048073483]
+visible = false
+sprite_frames = ExtResource("8_hmwvv")
+animation = &"jump"
+
+[node name="trumbus" type="AnimatedSprite2D" parent="." unique_id=70786422]
+visible = false
+sprite_frames = ExtResource("9_yo3c7")
+animation = &"jump"

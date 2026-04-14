@@ -2,15 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="1_tvuwc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7h3dq"]
-atlas = ExtResource("1_tvuwc")
-region = Rect2(1280, 128, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kydf7"]
-atlas = ExtResource("1_tvuwc")
-region = Rect2(1024, 128, 256, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tvuwc"]
+atlas = ExtResource("1_tvuwc")
+region = Rect2(768, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nrh7"]
 atlas = ExtResource("1_tvuwc")
 region = Rect2(512, 384, 256, 128)
 
@@ -18,7 +14,7 @@ region = Rect2(512, 384, 256, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7h3dq")
+"texture": SubResource("AtlasTexture_tvuwc")
 }],
 "loop": true,
 "name": &"jump",
@@ -26,10 +22,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kydf7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tvuwc")
+"texture": SubResource("AtlasTexture_8nrh7")
 }],
 "loop": true,
 "name": &"stand",
@@ -37,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7h3dq")
+"texture": SubResource("AtlasTexture_tvuwc")
 }],
 "loop": true,
 "name": &"stand_tongue",
@@ -45,7 +38,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kydf7")
+"texture": SubResource("AtlasTexture_8nrh7")
 }],
 "loop": true,
 "name": &"walk",
@@ -53,7 +46,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7h3dq")
+"texture": SubResource("AtlasTexture_tvuwc")
 }],
 "loop": true,
 "name": &"walk_tongue",

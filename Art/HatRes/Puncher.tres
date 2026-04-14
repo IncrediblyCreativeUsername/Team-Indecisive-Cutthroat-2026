@@ -1,0 +1,101 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bf3b5fpkqfxei"]
+
+[ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="1_kbefa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfin8"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(256, 640, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykydp"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(256, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrem1"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(0, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_146um"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(256, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbefa"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(0, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjn3y"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(0, 512, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j52jd"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(0, 640, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdfp3"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(256, 384, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5a6p"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(256, 512, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8bpg"]
+atlas = ExtResource("1_kbefa")
+region = Rect2(256, 640, 256, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfin8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykydp")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrem1")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_146um")
+}],
+"loop": true,
+"name": &"stand_tongue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbefa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjn3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j52jd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdfp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5a6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8bpg")
+}],
+"loop": true,
+"name": &"walk_tongue",
+"speed": 5.0
+}]
