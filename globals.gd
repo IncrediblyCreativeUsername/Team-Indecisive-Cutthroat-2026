@@ -31,7 +31,7 @@ func die():
 	get_tree().change_scene_to_file(Globals.deathScene)
 
 func _process(delta: float) -> void:
-	hunger -= 0.75*delta
+	hunger -= 0.7*delta
 	if hunger <= 0:
 		die()
 		#get_tree().reload_current_scene()

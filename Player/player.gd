@@ -130,11 +130,12 @@ func _physics_process(delta: float) -> void:
 				velocity.y /= 1.3
 		
 		#air time
-		if velocity.y < 0:
-			if velocity.y > 100:
-				velocity.y -= gravity * 0.8
-		
-		velocity.y += gravity
+		if !isGrappling:
+			if velocity.y < 0:
+				if velocity.y > 100:
+					velocity.y -= gravity * 0.8
+			
+			velocity.y += gravity
 		#shoot out tongue
 		if !tongueExtending && Input.is_action_just_pressed("GRAPPLE") && grappleCooldown <= 0:
 			tonguePivot.look_at(get_global_mouse_position())
