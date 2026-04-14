@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var knockback : int = 1000
 @export var hungerRestore : int = 20
 
-@onready var player = get_parent().find_child("Player")
+@onready var player = Globals.player
 @onready var visibility := $VisibleOnScreenEnabler2D
 
 @onready var sprite = $Sprite2D

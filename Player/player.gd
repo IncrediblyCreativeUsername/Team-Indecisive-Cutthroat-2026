@@ -25,6 +25,7 @@ var grappleCooldown = 0
 
 func _ready():
 	animSprite.play("stand")
+	Globals.player = self
 
 func _physics_process(delta: float) -> void:
 	#Preventing a strange bug where the retract animation is interrupted from causing a softlock. I'm still not sure why
