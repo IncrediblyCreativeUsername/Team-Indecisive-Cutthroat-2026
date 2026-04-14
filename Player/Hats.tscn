@@ -11,12 +11,14 @@
 [ext_resource type="SpriteFrames" uid="uid://goatqa246eh3" path="res://Art/HatRes/TrumbusHat.tres" id="8_hmwvv"]
 [ext_resource type="SpriteFrames" uid="uid://c5ucegecfya8a" path="res://Art/HatRes/Trumbus.tres" id="9_yo3c7"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_8bq08"]
+
 [node name="Hats" type="Node2D" unique_id=1316857142]
 script = ExtResource("1_gm011")
 
 [node name="Hat0" type="AnimatedSprite2D" parent="." unique_id=1139734948]
 position = Vector2(0, -1)
-animation = &""
+sprite_frames = SubResource("SpriteFrames_8bq08")
 
 [node name="cap" type="AnimatedSprite2D" parent="." unique_id=98010022]
 visible = false
