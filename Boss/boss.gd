@@ -18,6 +18,8 @@ var damageCooldown = 0
 
 var spawnpoint : Vector2
 
+@onready var spawnedAnt = preload("res://Enemy/Enemy.tscn")
+
 func _ready() -> void:
 	spawnpoint = global_position
 	bossbar.maxHealth = health
@@ -48,6 +50,9 @@ func grabbed(_grabOrigin : Vector2):
 	damageCooldown = damageCooldownMax
 	$DamageArea.set_deferred("monitoring",false)
 	health -= 1
+	var ant = spawnedAnt.instantiate()
+	ant.global_position = global_position
+	get_parent().add_child(ant)
 	#wasGrabbed = true
 
 
