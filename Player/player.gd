@@ -44,11 +44,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().paused = true
 	
 	#grapple
-	if isGrappling:
-		var grappleDirection : Vector2 = (grapplePoint - self.global_position).normalized()
-		#move_and_collide(delta * grappleDirection * 10)
-		velocity += grappleDirection * (grappleSpeed/1.5 + 1000)
-	else:
+	if !isGrappling:
 		if grappleCooldown > 0:
 			grappleCooldown -= 1
 	
@@ -80,79 +76,77 @@ func _physics_process(delta: float) -> void:
 	#movement
 	else:
 		#friction
-		if velocity.x > 0:
-			velocity.x = max(0, (velocity.x-friction)*60*delta)
-		if velocity.x < 0:
-			velocity.x = min((velocity.x+friction)*60*delta, 0)
-		
-		#X movement
-		
-		
-		if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed:
-			velocity.x += speed*60*delta
-			
-			animSprite.flip_h =false
-			Hats.currentHat.flip_h = false
-			if self.is_on_floor():
-				animSprite.play("walk")
-				Hats.updateAnim("walk")
-		if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed:
-			velocity.x -= speed*60*delta
-			
-			animSprite.flip_h = true
-			Hats.currentHat.flip_h = true
-			if self.is_on_floor() && !tongueExtending:
-				animSprite.play("walk")
-				Hats.updateAnim("walk")
-			
-		if velocity.x == 0 && animSprite.animation != "stand_tongue":
-			if self.is_on_floor() && !tongueExtending:
-				animSprite.play("stand")
-				Hats.updateAnim("stand")
-		
-		#coyote time resets while on floor
-		if is_on_floor():
-			coyoteTimer = coyoteTime
-		else:
-			coyoteTimer -= 1
-		
-		#Y movement
-		if Input.is_action_pressed("JUMP") && !tongueExtending && !isGrappling:
-			#base jump force
-			if is_on_floor() or coyoteTimer > 0:
-				coyoteTimer = 0
-				velocity.y = 0
-				velocity.y -= jumpForce
-				animSprite.play("jump")
-				Hats.updateAnim("jump")
-		else:
-			#shorter jump if not held
-			if velocity.y < 0:
-				velocity.y /= 1.3
-		
-		#air time
 		if !isGrappling:
+			if velocity.x > 0:
+				velocity.x = max(0, (velocity.x-friction)*60*delta)
+			if velocity.x < 0:
+				velocity.x = min((velocity.x+friction)*60*delta, 0)
+		
+			#X movement
+			if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed:
+				velocity.x += speed*60*delta
+				
+				animSprite.flip_h =false
+				Hats.currentHat.flip_h = false
+				if self.is_on_floor():
+					animSprite.play("walk")
+					Hats.updateAnim("walk")
+			if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed:
+				velocity.x -= speed*60*delta
+				
+				animSprite.flip_h = true
+				Hats.currentHat.flip_h = true
+				if self.is_on_floor() && !tongueExtending:
+					animSprite.play("walk")
+					Hats.updateAnim("walk")
+				
+			if velocity.x == 0 && animSprite.animation != "stand_tongue":
+				if self.is_on_floor() && !tongueExtending:
+					animSprite.play("stand")
+					Hats.updateAnim("stand")
+			
+			#coyote time resets while on floor
+			if is_on_floor():
+				coyoteTimer = coyoteTime
+			else:
+				coyoteTimer -= 1
+			
+			#Y movement
+			if Input.is_action_pressed("JUMP") && !tongueExtending && !isGrappling:
+				#base jump force
+				if is_on_floor() or coyoteTimer > 0:
+					coyoteTimer = 0
+					velocity.y = 0
+					velocity.y -= jumpForce
+					animSprite.play("jump")
+					Hats.updateAnim("jump")
+			else:
+				#shorter jump if not held
+				if velocity.y < 0:
+					velocity.y /= 1.3
+			
+			#air time
 			if velocity.y < 0:
 				if velocity.y > 100:
 					velocity.y -= gravity * 0.8
 			
 			velocity.y += gravity
-		#shoot out tongue
-		if !tongueExtending && Input.is_action_just_pressed("GRAPPLE") && grappleCooldown <= 0:
-			mouseCast.look_at(get_global_mouse_position())
-			await get_tree().process_frame
-			if mouseCast.is_colliding():
-				tonguePivot.look_at(mouseCast.get_collision_point())
-			else:
-				tonguePivot.look_at(get_global_mouse_position())
-			tongueAnimator.play("Extend")
-			animSprite.play("stand_tongue")
-			Hats.updateAnim("stand_tongue")
-			if (get_global_mouse_position() - global_position).rotated(PI / 2).angle() > 0:
-				flip(false)
-				
-			else:
-				flip(true)
+			#shoot out tongue
+			if !tongueExtending && Input.is_action_just_pressed("GRAPPLE") && grappleCooldown <= 0:
+				mouseCast.look_at(get_global_mouse_position())
+				await get_tree().process_frame
+				if mouseCast.is_colliding():
+					tonguePivot.look_at(mouseCast.get_collision_point())
+				else:
+					tonguePivot.look_at(get_global_mouse_position())
+				tongueAnimator.play("Extend")
+				animSprite.play("stand_tongue")
+				Hats.updateAnim("stand_tongue")
+				if (get_global_mouse_position() - global_position).rotated(PI / 2).angle() > 0:
+					flip(false)
+					
+				else:
+					flip(true)
 		
 		#move grabbed object
 		if grabbedObject != null && tongueExtending:
@@ -170,7 +164,9 @@ func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Extend":
 		tongueAnimator.play("Retract")
 	elif anim_name == "Retract":
-		isGrappling = false
+		if isGrappling:
+			velocity *= 2.0
+			isGrappling = false
 
 #tongue hit something
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -189,23 +185,18 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			await get_tree().process_frame
 			grapplePoint = tongueCast.get_collision_point() + Vector2(64,0).rotated(tonguePivot.rotation)
-			grappleSpeed = self.global_position.distance_to(grapplePoint)
-			if grapplePoint.y < self.global_position.y:
-				if velocity.y > 0:
-					velocity.y = 0
-			elif grapplePoint.y > self.global_position.y:
-				if velocity.y < 0:
-					velocity.y = 0
+			velocity = (grapplePoint - tonguePivot.global_position) * tongueAnimator.speed_scale
 			isGrappling = true
 			grappleCooldown = grappleCooldownMax
-			velocity = Vector2.ZERO
 
 func flip(flipped):
 	if flipped:
 		animSprite.flip_h = true
 		Hats.currentHat.flip_h = true
-		tonguePivot.position.x = -180
+		tonguePivot.position.x = -117
+		animSprite.position.x = 397
 	else:
 		animSprite.flip_h = false
 		Hats.currentHat.flip_h = false
 		tonguePivot.position.x = 115
+		animSprite.position.x = 338

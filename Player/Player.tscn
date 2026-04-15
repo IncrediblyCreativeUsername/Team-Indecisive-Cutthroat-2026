@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="4_ddoul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
-size = Vector2(138.10013, 72.623184)
+size = Vector2(131.46915, 72.623184)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8g4oa"]
 atlas = ExtResource("4_ddoul")
@@ -201,7 +201,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tok1r"]
-size = Vector2(256, 142.57143)
+size = Vector2(256, 126.78571)
 
 [node name="Player" type="CharacterBody2D" unique_id=1863645860]
 scale = Vector2(0.56, 0.56)
@@ -212,14 +212,16 @@ script = ExtResource("1_3qydi")
 friction = 800
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]
-position = Vector2(-30.999998, -34)
+position = Vector2(397, 29)
 scale = Vector2(1.4549686, 1.5234376)
 sprite_frames = ExtResource("2_ddoul")
 animation = &"walk"
 frame_progress = 0.27149966
+offset = Vector2(-252.41843, -40.615383)
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2001729725]
-position = Vector2(-5.357143, 19.642855)
+position = Vector2(0.52362597, 12.499992)
 scale = Vector2(1.773725, 1.3836911)
 shape = SubResource("RectangleShape2D_ddoul")
 
@@ -234,7 +236,7 @@ target_position = Vector2(2256, 0)
 [node name="Tongue" type="Node2D" parent="." unique_id=1603243765]
 visible = false
 z_index = -1
-position = Vector2(115, -2)
+position = Vector2(-117, 6)
 scale = Vector2(2, 0.5)
 
 [node name="TextureRect" type="TextureRect" parent="Tongue" unique_id=1052084957]
@@ -271,7 +273,7 @@ collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eat" unique_id=90089925]
-position = Vector2(0, 7.285713)
+position = Vector2(0, 8.035709)
 shape = SubResource("RectangleShape2D_tok1r")
 
 [connection signal="body_entered" from="Tongue/Area2D" to="." method="_on_area_2d_body_entered"]

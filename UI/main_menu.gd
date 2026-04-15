@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var hatLabel := $HatNumLabel
 
+func _ready() -> void:
+	$"Volume Slider".value = (AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))*3)+75
+
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file(Globals.gameScene)
 	Globals.resetValues()
