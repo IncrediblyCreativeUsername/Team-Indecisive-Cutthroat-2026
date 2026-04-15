@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="4_ddoul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
-size = Vector2(131.46915, 72.623184)
+size = Vector2(58.392044, 178.0951)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8g4oa"]
 atlas = ExtResource("4_ddoul")
@@ -210,6 +210,7 @@ floor_block_on_wall = false
 floor_max_angle = 3.1415927
 script = ExtResource("1_3qydi")
 friction = 800
+grappleMomentum = 1.5
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]
 position = Vector2(397, 29)
@@ -221,7 +222,8 @@ offset = Vector2(-252.41843, -40.615383)
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2001729725]
-position = Vector2(0.52362597, 12.499992)
+position = Vector2(-3.2986377e-06, 8.92857)
+rotation = 1.5707964
 scale = Vector2(1.773725, 1.3836911)
 shape = SubResource("RectangleShape2D_ddoul")
 
@@ -263,7 +265,7 @@ shape = SubResource("CircleShape2D_q3lat")
 
 [node name="TongueAnim" type="AnimationPlayer" parent="Tongue" unique_id=1214662753]
 libraries/ = SubResource("AnimationLibrary_tok1r")
-speed_scale = 4.0
+speed_scale = 5.0
 
 [node name="RayCast2D" type="RayCast2D" parent="Tongue" unique_id=325188501]
 target_position = Vector2(1028, 0)

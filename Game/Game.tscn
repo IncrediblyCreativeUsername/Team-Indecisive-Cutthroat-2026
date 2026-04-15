@@ -37,7 +37,7 @@ offset_left = -5314.0
 offset_top = -1423.0
 offset_right = -4739.0
 offset_bottom = -1292.0
-text = "WASD or Arrow Keys to Move"
+text = "[W][A][S][D] or [Arrow Keys] to Move"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Tutorial Text" unique_id=525670209]
 layout_mode = 0
@@ -45,7 +45,7 @@ offset_left = -4286.0
 offset_top = -1106.0
 offset_right = -3711.0
 offset_bottom = -975.0
-text = "Left Click to Grapple with your Tongue"
+text = "[Left Click] to Grapple with your Tongue"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Tutorial Text" unique_id=1409358590]
 layout_mode = 0
@@ -53,8 +53,8 @@ offset_left = -2433.0
 offset_top = -1291.0
 offset_right = -1858.0
 offset_bottom = -1043.0
-text = "E to Pick Up Dead Ants
-	Q to Drop Them"
+text = "[E] to Pick Up Dead Ants
+	[Q] to Drop Them"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="Tutorial Text" unique_id=1890589680]
 layout_mode = 0
@@ -63,7 +63,7 @@ offset_top = -1344.0
 offset_right = -170.0
 offset_bottom = -1111.0
 text = "Your Nephew, Philip, Is Starving, Bring Him Ants -->
-Or Eat Them Yourself (E) To Heal."
+Or Eat Them Yourself [E] To Heal."
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="Tutorial Text" unique_id=390889380]
 layout_mode = 0

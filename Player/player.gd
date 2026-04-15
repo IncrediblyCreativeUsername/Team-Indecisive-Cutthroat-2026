@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var gravity : int = 100
 @export var coyoteTime : int = 15
 @export var friction : int = 500
+@export var grappleMomentum : float = 1.0
 
 var coyoteTimer = 0
 var grapplePoint = Vector2.ZERO
@@ -83,7 +84,7 @@ func _physics_process(delta: float) -> void:
 				velocity.x = min((velocity.x+friction)*60*delta, 0)
 		
 			#X movement
-			if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed:
+			if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed && !tongueExtending:
 				velocity.x += speed*60*delta
 				
 				animSprite.flip_h =false
@@ -91,7 +92,7 @@ func _physics_process(delta: float) -> void:
 				if self.is_on_floor():
 					animSprite.play("walk")
 					Hats.updateAnim("walk")
-			if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed:
+			if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed && !tongueExtending:
 				velocity.x -= speed*60*delta
 				
 				animSprite.flip_h = true
@@ -165,7 +166,7 @@ func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
 		tongueAnimator.play("Retract")
 	elif anim_name == "Retract":
 		if isGrappling:
-			velocity *= 2.0
+			velocity *= grappleMomentum
 			isGrappling = false
 
 #tongue hit something

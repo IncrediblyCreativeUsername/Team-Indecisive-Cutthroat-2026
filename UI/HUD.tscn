@@ -38,3 +38,12 @@ offset_left = -128.0
 offset_bottom = 128.0
 grow_horizontal = 0
 texture = SubResource("AtlasTexture_uk570")
+
+[node name="Label" type="Label" parent="HeldAnt" unique_id=1689686417]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 124.0
+offset_right = 95.0
+offset_bottom = 173.0
+text = "[E] Eat
+[Q] Drop"
