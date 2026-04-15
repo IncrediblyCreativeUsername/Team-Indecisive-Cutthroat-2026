@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_return_to_game_pressed() -> void:
-	#lpf.cutoff_hz = 20000.0
+	lpf.cutoff_hz = 20000.0
 	menu_open = false
 	visible = false
 	get_parent().find_child("Hud").visible = true
