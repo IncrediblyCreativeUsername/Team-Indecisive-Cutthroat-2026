@@ -227,11 +227,11 @@ func flip(flipped):
 		tonguePivot.position.x = -117
 		animSprite.position.x = 397
 		Hats.position.x = 397
-		cam.position.x = -350
+		cam.flip(true)
 	else:
 		animSprite.flip_h = false
 		Hats.currentHat.flip_h = false
 		tonguePivot.position.x = 115
 		animSprite.position.x = 338
 		Hats.position.x = 338
-		cam.position.x = 350
+		cam.flip(false)
