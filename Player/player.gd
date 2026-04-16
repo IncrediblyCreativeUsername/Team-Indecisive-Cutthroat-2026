@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-@export var speed : int = 1000
+@export var baseSpeed : int = 1000
+@onready var speed := baseSpeed
 @export var jumpForce : int = 2200
 @export var gravity : int = 100
 @export var coyoteTime : int = 15
 @export var friction : int = 500
+@export var drag : int = 500
 @export var grappleMomentum : float = 1.0
 
 var coyoteTimer = 0
@@ -62,13 +64,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("EAT"):
 		if Globals.heldAnt && Globals.hp < 5:
 			Globals.heldAnt = false
-			speed = 1000
+			speed = baseSpeed
 			Globals.hp = min(5, Globals.hp + 2)
 		else:
 			for item in $Eat.get_overlapping_bodies():
 				if item.is_in_group("edible") && item.wasGrabbed:
 					Globals.heldAnt = true
-					speed = 660
+					speed = baseSpeed*0.75
 					item.queue_free()
 	#drop held ant
 	if Input.is_action_just_pressed("DROP"):
@@ -87,10 +89,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		#friction
 		if !isGrappling:
-			if velocity.x > 0:
-				velocity.x = max(0, (velocity.x-friction)*60*delta)
-			if velocity.x < 0:
-				velocity.x = min((velocity.x+friction)*60*delta, 0)
+			if is_on_floor():
+				if velocity.x > 0:
+					velocity.x = max(0, (velocity.x-friction)*60*delta)
+				if velocity.x < 0:
+					velocity.x = min((velocity.x+friction)*60*delta, 0)
+			else:
+				if velocity.x > 0:
+					velocity.x = max(0, (velocity.x-drag)*60*delta)
+				if velocity.x < 0:
+					velocity.x = min((velocity.x+drag)*60*delta, 0)
 		
 			#X movement
 			if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed:
@@ -136,11 +144,11 @@ func _physics_process(delta: float) -> void:
 			if velocity.y < 0:
 				if velocity.y > 100:
 					velocity.y -= gravity * 0.8
-				cam.position.y = -200
-			elif velocity.y > 0:
-				cam.position.y = 75
-			else:
-				cam.position.y = -200
+				#cam.position.y = -200
+			#elif velocity.y > 0:
+				#cam.position.y = 75
+			#else:
+				#cam.position.y = -200
 			
 			velocity.y += gravity
 			#shoot out tongue

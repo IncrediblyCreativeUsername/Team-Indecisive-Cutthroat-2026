@@ -210,8 +210,8 @@ collision_layer = 2
 floor_block_on_wall = false
 floor_max_angle = 3.1415927
 script = ExtResource("1_3qydi")
-friction = 800
-grappleMomentum = 1.25
+friction = 900
+drag = 700
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]
 position = Vector2(338, 29)
@@ -264,7 +264,7 @@ shape = SubResource("CircleShape2D_q3lat")
 
 [node name="TongueAnim" type="AnimationPlayer" parent="Tongue" unique_id=1214662753]
 libraries/ = SubResource("AnimationLibrary_tok1r")
-speed_scale = 7.0
+speed_scale = 5.0
 
 [node name="RayCast2D" type="RayCast2D" parent="Tongue" unique_id=325188501]
 target_position = Vector2(2056, 0)
@@ -278,6 +278,7 @@ position = Vector2(0, 8.035709)
 shape = SubResource("RectangleShape2D_tok1r")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=717058259]
+position = Vector2(0, 150)
 zoom = Vector2(0.45, 0.45)
 limit_enabled = false
 position_smoothing_enabled = true

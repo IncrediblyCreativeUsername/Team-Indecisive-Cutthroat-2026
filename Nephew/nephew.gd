@@ -26,3 +26,7 @@ func _process(_delta: float) -> void:
 				item.victory()
 			else:
 				item.queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	Globals.hungry = true
