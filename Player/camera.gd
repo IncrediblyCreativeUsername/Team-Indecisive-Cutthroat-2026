@@ -6,7 +6,7 @@ var smoothedPosition := Vector2(0, 150)
 @export var smoothSpeed := 6.0
 
 func addShake(strength, duration):
-	if !shaking:
+	if !shaking && Globals.screenShake:
 		shaking = true
 		shake(strength)
 		await get_tree().create_timer(duration).timeout
@@ -23,15 +23,15 @@ func flip(newFlipped):
 	if newFlipped != flipped:
 		flipped = newFlipped
 		if flipped:
-			smoothedPosition.x = -400
+			smoothedPosition.x = -500
 		else:
-			smoothedPosition.x = 400
+			smoothedPosition.x = 500
 
 func _process(delta: float) -> void:
 	smoothedPosition.y = 150 + 900*(Input.get_action_strength("MOVE_DOWN") - Input.get_action_strength("MOVE_UP"))
 	
-	if smoothedPosition != position:
+	if smoothedPosition != position && Globals.smootheCam:
 		if position.distance_to(smoothedPosition) > smoothSpeed*delta*60:
-			position += position.direction_to(smoothedPosition)*smoothSpeed*delta*60
+			position += position.direction_to(smoothedPosition).normalized()*smoothSpeed*delta*60
 		else:
 			position = smoothedPosition

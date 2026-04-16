@@ -8,6 +8,14 @@ func _ready() -> void:
 	lpf = AudioServer.get_bus_effect(0, 0)
 	lpf.cutoff_hz = 20000.0
 	hatLabel.text = "Hat:\n#" + str(Globals.playerHatNum)
+	if Globals.smootheCam:
+		$SmootheCam.text = "Smoothe Camera: ON"
+	else:
+		$SmootheCam.text = "Smoothe Camera: OFF"
+	if Globals.screenShake:
+		$ScreenShake.text = "Screen Shake: ON"
+	else:
+		$ScreenShake.text = "Screen Shake: OFF"
 	$"Volume Slider".value = (AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))*3)+75
 
 func _on_play_pressed() -> void:
@@ -37,3 +45,17 @@ func _on_next_hat_pressed() -> void:
 	else:
 		Globals.playerHatNum += 1
 	hatLabel.text = "Hat:\n#" + str(Globals.playerHatNum)
+
+func _on_screen_shake_pressed() -> void:
+	Globals.screenShake = !Globals.screenShake
+	if Globals.screenShake:
+		$ScreenShake.text = "Screen Shake: ON"
+	else:
+		$ScreenShake.text = "Screen Shake: OFF"
+
+func _on_smooth_cam_pressed() -> void:
+	Globals.smootheCam = !Globals.smootheCam
+	if Globals.smootheCam:
+		$SmootheCam.text = "Smoothe Camera: ON"
+	else:
+		$SmootheCam.text = "Smoothe Camera: OFF"

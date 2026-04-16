@@ -47,6 +47,21 @@ text = "Quit
 "
 alignment = 0
 
+[node name="ScreenShake" type="Button" parent="." unique_id=1560806556]
+offset_top = 313.0
+offset_right = 256.0
+offset_bottom = 377.0
+text = "Screen Shake: ON"
+alignment = 0
+
+[node name="SmootheCam" type="Button" parent="." unique_id=12573520]
+offset_left = 1.0
+offset_top = 385.0
+offset_right = 257.0
+offset_bottom = 449.0
+text = "Smooth Camera: ON"
+alignment = 0
+
 [node name="Volume slider label" type="Label" parent="." unique_id=90093605]
 offset_top = 456.0
 offset_right = 64.0
@@ -82,4 +97,6 @@ position = Vector2(1264, 568)
 [connection signal="pressed" from="PrevHat" to="." method="_on_prev_hat_pressed"]
 [connection signal="pressed" from="PrevHat" to="Hats" method="updateHat"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ScreenShake" to="." method="_on_screen_shake_pressed"]
+[connection signal="pressed" from="SmootheCam" to="." method="_on_smooth_cam_pressed"]
 [connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]
