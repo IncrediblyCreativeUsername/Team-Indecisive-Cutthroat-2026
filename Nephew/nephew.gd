@@ -11,11 +11,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	sprite.play("default")
+	#sprite.play("default"), #testing non animated sprite
 	
 	for item in detect.get_overlapping_bodies():
 		if item.is_in_group("edible"):
-			sprite.play("eat")
+			#sprite.play("eat")
 			item.wasGrabbed = true
 			item.global_position += (eat.global_position - item.global_position).normalized() * 50
 	

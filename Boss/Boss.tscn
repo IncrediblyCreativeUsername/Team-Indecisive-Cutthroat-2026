@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b4w6kdudqm68g"]
 
 [ext_resource type="Script" uid="uid://7y37y6xdt8nt" path="res://Boss/boss.gd" id="1_4xi7c"]
-[ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="2_62g1u"]
+[ext_resource type="Texture2D" uid="uid://c8iqvf6dky84h" path="res://Art/Characters/anteater_largeChars.png" id="2_sdoex"]
 [ext_resource type="PackedScene" uid="uid://vxxr7h30akbh" path="res://UI/Bossbar.tscn" id="3_sdoex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdoex"]
-atlas = ExtResource("2_62g1u")
-region = Rect2(0, 0, 128, 128)
+atlas = ExtResource("2_sdoex")
+region = Rect2(768, 128, 384, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epr5s"]
 size = Vector2(256, 256)
@@ -19,8 +19,8 @@ collision_layer = 4
 script = ExtResource("1_4xi7c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254119740]
-position = Vector2(0, -256)
-scale = Vector2(6, 6)
+position = Vector2(0, -5)
+scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_sdoex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=226660341]
