@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bqh5c22glxrd7" path="res://Art/Characters/Animation/anteater_default_Anim.tres" id="2_ddoul"]
 [ext_resource type="PackedScene" uid="uid://d2faiy2b0xqm2" path="res://Player/Hats.tscn" id="3_tok1r"]
 [ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="4_ddoul"]
+[ext_resource type="Script" uid="uid://dmfqdbnskrsap" path="res://Player/camera.gd" id="5_8g4oa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
 size = Vector2(58.392044, 178.0951)
@@ -266,7 +267,7 @@ libraries/ = SubResource("AnimationLibrary_tok1r")
 speed_scale = 5.0
 
 [node name="RayCast2D" type="RayCast2D" parent="Tongue" unique_id=325188501]
-target_position = Vector2(1028, 0)
+target_position = Vector2(2056, 0)
 
 [node name="Eat" type="Area2D" parent="." unique_id=195358897]
 collision_layer = 0
@@ -275,6 +276,14 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eat" unique_id=90089925]
 position = Vector2(0, 8.035709)
 shape = SubResource("RectangleShape2D_tok1r")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=717058259]
+position = Vector2(600, -200)
+zoom = Vector2(0.45, 0.45)
+limit_enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+script = ExtResource("5_8g4oa")
 
 [connection signal="body_entered" from="Tongue/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Tongue/TongueAnim" to="." method="_on_tongue_anim_animation_finished"]

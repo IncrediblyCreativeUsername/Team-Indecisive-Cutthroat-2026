@@ -23,6 +23,7 @@ func hurt(damage):
 	if invincible <= 0:
 		invincible = invincibilityFrames
 		hp -= damage
+		player.cam.addShake(12, 0.1)
 		if hp <= 0:
 			die()
 			#get_tree().reload_current_scene()

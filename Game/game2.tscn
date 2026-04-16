@@ -32,10 +32,6 @@ position = Vector2(756, -1389)
 floor_max_angle = 0.87266463
 startFlipped = true
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=594023427]
-zoom = Vector2(0.425, 0.425)
-position_smoothing_speed = 3.0
-
 [node name="Nephew" parent="." unique_id=1379414758 instance=ExtResource("7_54uxu")]
 position = Vector2(10684, -884)
 
@@ -154,10 +150,10 @@ theme_override_font_sizes/normal_font_size = 48
 text = "[Space] to jump"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Tutorial" unique_id=1484842353]
-offset_left = 2905.0
-offset_top = -211.0
-offset_right = 3480.0
-offset_bottom = -49.0
+offset_left = 4479.0
+offset_top = -303.0
+offset_right = 5054.0
+offset_bottom = -141.0
 theme_override_font_sizes/normal_font_size = 48
 text = "[Left Click] to Grapple with your Tongue"
 
