@@ -1,5 +1,7 @@
 shader_type canvas_item;
 
+uniform float intensity = 0.2;
+uniform float brightness = 0.6;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
 const float CELLS = 10.0;
@@ -39,7 +41,7 @@ vec4 voronoi(vec2 uv) {
         }
     }
 	
-    return vec4(vec3(abs(sin(rand(nearestGridPos))) * 0.5 + 0.5),1.);   
+    return vec4(vec3(abs(sin(rand(nearestGridPos))) * intensity + brightness),1.);   
 }
 
 void vertex() {

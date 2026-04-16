@@ -5,6 +5,7 @@ extends Node2D
 var lpf : AudioEffectLowPassFilter
 
 func _ready() -> void:
+	Globals.hungry = false
 	lpf = AudioServer.get_bus_effect(0, 0)
 	lpf.cutoff_hz = 20000.0
 	hatLabel.text = "Hat:\n#" + str(Globals.playerHatNum)
