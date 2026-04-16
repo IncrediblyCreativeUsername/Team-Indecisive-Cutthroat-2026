@@ -13,8 +13,9 @@ size = Vector2(58.392044, 178.0951)
 atlas = ExtResource("4_ddoul")
 region = Rect2(768, 128, 128, 128)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
-radius = 20.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8g4oa"]
+radius = 20.75
+height = 140.2857
 
 [sub_resource type="Animation" id="Animation_q3lat"]
 resource_name = "Extend"
@@ -212,7 +213,7 @@ floor_max_angle = 3.1415927
 script = ExtResource("1_3qydi")
 friction = 900
 drag = 700
-grappleMomentum = 1.1
+grappleMomentum = 1.25
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]
 position = Vector2(338, 29)
@@ -261,7 +262,7 @@ collision_mask = 5
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tongue/Area2D" unique_id=1333496732]
-shape = SubResource("CircleShape2D_q3lat")
+shape = SubResource("CapsuleShape2D_8g4oa")
 
 [node name="TongueAnim" type="AnimationPlayer" parent="Tongue" unique_id=1214662753]
 libraries/ = SubResource("AnimationLibrary_tok1r")
@@ -279,12 +280,14 @@ position = Vector2(0, 8.035709)
 shape = SubResource("RectangleShape2D_tok1r")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=717058259]
-position = Vector2(0, 150)
-zoom = Vector2(0.45, 0.45)
+position = Vector2(0, -125)
+zoom = Vector2(0.475, 0.475)
 limit_enabled = false
 position_smoothing_speed = 6.0
 script = ExtResource("5_8g4oa")
-smoothSpeed = 24.0
+smoothSpeed = 10.0
+horizDist = 550
+vertDist = 700
 
 [connection signal="body_entered" from="Tongue/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Tongue/TongueAnim" to="." method="_on_tongue_anim_animation_finished"]

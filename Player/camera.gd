@@ -2,8 +2,11 @@ extends Camera2D
 
 @onready var shaking := false
 @onready var flipped := false
+@onready var defaultPos := position
 var smoothedPosition := Vector2(0, 150)
 @export var smoothSpeed := 6.0
+@export var horizDist := 400
+@export var vertDist := 400
 
 func addShake(strength, duration):
 	if !shaking && Globals.screenShake:
@@ -23,12 +26,12 @@ func flip(newFlipped):
 	if newFlipped != flipped:
 		flipped = newFlipped
 		if flipped:
-			smoothedPosition.x = -500
+			smoothedPosition.x = -horizDist
 		else:
-			smoothedPosition.x = 500
+			smoothedPosition.x = horizDist
 
 func _process(delta: float) -> void:
-	smoothedPosition.y = 150 + 900*(Input.get_action_strength("MOVE_DOWN") - Input.get_action_strength("MOVE_UP"))
+	smoothedPosition.y = defaultPos.y + vertDist*(Input.get_action_strength("MOVE_DOWN"))
 	
 	if smoothedPosition != position && Globals.smootheCam:
 		if position.distance_to(smoothedPosition) > smoothSpeed*delta*60:
