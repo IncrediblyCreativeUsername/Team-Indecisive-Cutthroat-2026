@@ -18,51 +18,71 @@ script = ExtResource("1_gm011")
 
 [node name="Hat0" type="AnimatedSprite2D" parent="." unique_id=1139734948]
 position = Vector2(0, -1)
+scale = Vector2(1.455, 1.523)
 sprite_frames = SubResource("SpriteFrames_8bq08")
+offset = Vector2(-252.418, -40.615)
 
 [node name="cap" type="AnimatedSprite2D" parent="." unique_id=98010022]
 visible = false
 position = Vector2(0, -1)
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("2_7h3dq")
 animation = &"walk"
+offset = Vector2(-252.418, -40.615)
 
 [node name="pirate" type="AnimatedSprite2D" parent="." unique_id=1877250235]
 visible = false
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("3_7h3dq")
 animation = &"stand_tongue"
+offset = Vector2(-252.418, -40.615)
 
 [node name="party" type="AnimatedSprite2D" parent="." unique_id=655698553]
 visible = false
 position = Vector2(0, -1)
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("4_kydf7")
 animation = &"stand_tongue"
+offset = Vector2(-252.418, -40.615)
 
 [node name="tophat" type="AnimatedSprite2D" parent="." unique_id=713332924]
 visible = false
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("5_8bq08")
 animation = &"stand_tongue"
+offset = Vector2(-252.418, -40.615)
 
 [node name="goblin" type="AnimatedSprite2D" parent="." unique_id=1340910683]
 visible = false
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("5_kjueo")
 animation = &"jump"
+offset = Vector2(-252.418, -40.615)
 
 [node name="digger" type="AnimatedSprite2D" parent="." unique_id=455022122]
 visible = false
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("6_8bq08")
 animation = &"jump"
+offset = Vector2(-252.418, -40.615)
 
 [node name="puncher" type="AnimatedSprite2D" parent="." unique_id=1872048912]
 visible = false
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("7_vrntm")
 animation = &"jump"
+offset = Vector2(-252.418, -40.615)
 
 [node name="trumbushat" type="AnimatedSprite2D" parent="." unique_id=2048073483]
 visible = false
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("8_hmwvv")
 animation = &"jump"
+offset = Vector2(-252.418, -40.615)
 
 [node name="trumbus" type="AnimatedSprite2D" parent="." unique_id=70786422]
 visible = false
+scale = Vector2(1.455, 1.523)
 sprite_frames = ExtResource("9_yo3c7")
 animation = &"jump"
+offset = Vector2(-252.418, -40.615)

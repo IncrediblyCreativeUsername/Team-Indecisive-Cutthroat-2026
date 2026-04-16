@@ -11,7 +11,6 @@ func updateHat():
 		
 		if (x == Globals.playerHatNum):
 			currentHat = get_child(x)
-			
 
 func updateAnim(animName):
 	if (Globals.playerHatNum != 0):

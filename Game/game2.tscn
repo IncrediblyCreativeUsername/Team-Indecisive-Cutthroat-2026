@@ -30,18 +30,19 @@ tile_map_data = PackedByteArray("AAABAAEAAAAJAAMAAAAAAAUAAAAKAAAAAAD//wYAAAAJAAI
 [node name="Player" parent="." unique_id=1863645860 instance=ExtResource("5_tvcsn")]
 position = Vector2(756, -1389)
 floor_max_angle = 0.87266463
+startFlipped = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=594023427]
 zoom = Vector2(0.425, 0.425)
 position_smoothing_speed = 3.0
 
 [node name="Nephew" parent="." unique_id=1379414758 instance=ExtResource("7_54uxu")]
-position = Vector2(10746, -1004)
+position = Vector2(10684, -884)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1533341434]
 
 [node name="Enemy" parent="Enemies" unique_id=400271033 instance=ExtResource("6_o8kjv")]
-position = Vector2(8282, 188)
+position = Vector2(7926, 192)
 wasGrabbed = true
 
 [node name="Enemy2" parent="Enemies" unique_id=50652945 instance=ExtResource("6_o8kjv")]
@@ -141,3 +142,73 @@ position = Vector2(-772, 1316)
 
 [node name="Boss" parent="." unique_id=611915068 instance=ExtResource("10_58alt")]
 position = Vector2(-12653, 10435)
+
+[node name="Tutorial" type="Node2D" parent="." unique_id=1649808262]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorial" unique_id=740503119]
+offset_left = -6.0
+offset_top = -375.0
+offset_right = 569.0
+offset_bottom = -244.0
+theme_override_font_sizes/normal_font_size = 48
+text = "[Space] to jump"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Tutorial" unique_id=1484842353]
+offset_left = 2905.0
+offset_top = -211.0
+offset_right = 3480.0
+offset_bottom = -49.0
+theme_override_font_sizes/normal_font_size = 48
+text = "[Left Click] to Grapple with your Tongue"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Tutorial" unique_id=34659223]
+offset_left = 7784.0
+offset_top = -145.0
+offset_right = 8359.0
+offset_bottom = 103.0
+theme_override_font_sizes/normal_font_size = 48
+text = "[E] to Pick Up Dead Ants
+[Q] to Drop Them"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Tutorial" unique_id=24314692]
+offset_left = 8676.0
+offset_top = -403.0
+offset_right = 9338.0
+offset_bottom = -108.0
+theme_override_font_sizes/normal_font_size = 48
+text = "Your Nephew, Philip, Is Starving, Bring Him Ants -->
+Or Eat Them Yourself [E] To Heal."
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Tutorial" unique_id=1427199470]
+offset_left = 9636.0
+offset_top = -822.0
+offset_right = 10211.0
+offset_bottom = -589.0
+theme_override_font_sizes/normal_font_size = 48
+text = "If his Hunger Bar (Top Right) Runs Out, You Lose."
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Tutorial" unique_id=435417536]
+offset_left = 10720.0
+offset_top = -1205.0
+offset_right = 11295.0
+offset_bottom = -972.0
+theme_override_font_sizes/normal_font_size = 48
+text = "Philip"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Tutorial" unique_id=1233201785]
+offset_left = 527.0
+offset_top = -1839.0
+offset_right = 1280.0
+offset_bottom = -1419.0
+theme_override_font_sizes/normal_font_size = 48
+text = "The Queen Cursed you to Become the Size of an Ant. Defeat her to End the Curse.
+
+[W][A][S][D] or [Arrow Keys] to Move"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Tutorial" unique_id=96751306]
+offset_left = -8471.0
+offset_top = 8216.0
+offset_right = -7634.0
+offset_bottom = 8501.0
+theme_override_font_sizes/normal_font_size = 48
+text = "You are No Longer Strong Enough to Defeat the Queen. You Must Lead her to your Nephew."

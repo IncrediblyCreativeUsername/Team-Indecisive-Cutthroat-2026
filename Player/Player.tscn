@@ -213,13 +213,12 @@ friction = 800
 grappleMomentum = 1.5
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1795922126]
-position = Vector2(397, 29)
+position = Vector2(338, 29)
 scale = Vector2(1.4549686, 1.5234376)
 sprite_frames = ExtResource("2_ddoul")
 animation = &"walk"
 frame_progress = 0.27149966
 offset = Vector2(-252.41843, -40.615383)
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2001729725]
 position = Vector2(-3.2986377e-06, 8.92857)
@@ -229,8 +228,7 @@ shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Hats" parent="." unique_id=1316857142 instance=ExtResource("3_tok1r")]
 z_index = 1
-position = Vector2(-32.142857, -30.357143)
-scale = Vector2(1.523, 1.523)
+position = Vector2(0, 29)
 
 [node name="MouseCast" type="RayCast2D" parent="." unique_id=1514625385]
 target_position = Vector2(2256, 0)
@@ -238,7 +236,7 @@ target_position = Vector2(2256, 0)
 [node name="Tongue" type="Node2D" parent="." unique_id=1603243765]
 visible = false
 z_index = -1
-position = Vector2(-117, 6)
+position = Vector2(115, 6)
 scale = Vector2(2, 0.5)
 
 [node name="TextureRect" type="TextureRect" parent="Tongue" unique_id=1052084957]

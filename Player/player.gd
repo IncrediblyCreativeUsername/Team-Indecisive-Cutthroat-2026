@@ -24,6 +24,7 @@ var isGrappling : bool = false
 var paused : bool = false
 var grappleCooldownMax = 15
 var grappleCooldown = 0
+@export var startFlipped := false
 
 @onready var droppedAnt = preload("res://Enemy/Enemy.tscn")
 
@@ -31,6 +32,7 @@ func _ready():
 	animSprite.play("stand")
 	Hats.updateAnim("stand")
 	Globals.player = self
+	flip(startFlipped)
 
 func _physics_process(delta: float) -> void:
 	#Preventing a strange bug where the retract animation is interrupted from causing a softlock. I'm still not sure why
@@ -196,8 +198,10 @@ func flip(flipped):
 		Hats.currentHat.flip_h = true
 		tonguePivot.position.x = -117
 		animSprite.position.x = 397
+		Hats.position.x = 397
 	else:
 		animSprite.flip_h = false
 		Hats.currentHat.flip_h = false
 		tonguePivot.position.x = 115
 		animSprite.position.x = 338
+		Hats.position.x = 338

@@ -73,7 +73,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Hats" parent="." unique_id=1316857142 instance=ExtResource("3_8aown")]
-position = Vector2(1004, 534)
+position = Vector2(1264, 568)
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="NextHat" to="." method="_on_next_hat_pressed"]

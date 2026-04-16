@@ -3,6 +3,7 @@ extends Node2D
 @onready var hatLabel := $HatNumLabel
 
 func _ready() -> void:
+	hatLabel.text = "Hat:\n#" + str(Globals.playerHatNum)
 	$"Volume Slider".value = (AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))*3)+75
 
 func _on_play_pressed() -> void:
