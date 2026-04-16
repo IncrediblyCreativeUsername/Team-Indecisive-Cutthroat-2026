@@ -25,6 +25,7 @@ var isGrappling : bool = false
 var paused : bool = false
 var grappleCooldownMax = 15
 var grappleCooldown = 0
+var prevSpeed = Vector2.ZERO
 @export var startFlipped := false
 
 @onready var droppedAnt = preload("res://Enemy/Enemy.tscn")
@@ -41,6 +42,9 @@ func _physics_process(delta: float) -> void:
 	#Preventing a strange bug where the retract animation is interrupted from causing a softlock. I'm still not sure why
 	if !tongueAnimator.is_playing():
 		isGrappling = false
+	#points tongue towards original target
+	if tongueExtending && !isGrappling:
+		tonguePivot.look_at(grapplePoint)
 	
 	#pause
 	if Input.is_action_just_pressed("PAUSE"):
@@ -89,14 +93,14 @@ func _physics_process(delta: float) -> void:
 				velocity.x = min((velocity.x+friction)*60*delta, 0)
 		
 			#X movement
-			if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed && !tongueExtending:
+			if Input.is_action_pressed("MOVE_RIGHT") && velocity.x < speed:
 				velocity.x += speed*60*delta
 				
 				flip(false)
 				if self.is_on_floor():
 					animSprite.play("walk")
 					Hats.updateAnim("walk")
-			if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed && !tongueExtending:
+			if Input.is_action_pressed("MOVE_LEFT") && velocity.x > -speed:
 				velocity.x -= speed*60*delta
 				
 				flip(true)
@@ -140,8 +144,10 @@ func _physics_process(delta: float) -> void:
 				await get_tree().process_frame
 				if mouseCast.is_colliding():
 					tonguePivot.look_at(mouseCast.get_collision_point())
+					grapplePoint = get_global_mouse_position()
 				else:
 					tonguePivot.look_at(get_global_mouse_position())
+					grapplePoint = tonguePivot.global_position + Vector2(964,0).rotated(tonguePivot.rotation)
 				tongueAnimator.play("Extend")
 				animSprite.play("stand_tongue")
 				Hats.updateAnim("stand_tongue")
@@ -162,7 +168,7 @@ func _physics_process(delta: float) -> void:
 		
 		#add screen shake when landing
 		if prevVel.y > 0 && velocity.y == 0 && is_on_floor():
-			cam.addShake(clamp(2, prevVel.y/400, 7), 0.05)
+			cam.addShake(clamp(2, prevVel.y/200, 5), 0.075)
 	
 #tongue fully extends
 func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
@@ -171,13 +177,17 @@ func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
 	elif anim_name == "Retract":
 		if isGrappling:
 			velocity *= grappleMomentum
+			velocity.x += prevSpeed.x
+			if prevSpeed.y < 0:
+				velocity.y += prevSpeed.y
 			isGrappling = false
 
 #tongue hit something
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
-		var startTime = min(0.01, 1.0-tongueAnimator.current_animation_position)
-		print(str(tongueAnimator.current_animation_position))
+		var startTime = 1.0-tongueAnimator.current_animation_position
+		if startTime == 1.0:
+			startTime = 0.0
 		tongueTip.set_deferred("monitoring", false)
 		tongueAnimator.play("Retract")
 		tongueAnimator.seek(startTime)
@@ -191,6 +201,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			await get_tree().process_frame
 			grapplePoint = tongueCast.get_collision_point()
+			prevSpeed = velocity
 			velocity = (grapplePoint - tonguePivot.global_position) * tongueAnimator.speed_scale
 			cam.addShake(15, 0.05)
 			isGrappling = true
