@@ -15,6 +15,9 @@ var invincible = 0
 var hungerDrain := 1.0
 var hungry := false
 
+func _ready():
+	AudioServer.add_bus_effect(0,AudioEffectLowPassFilter.new(),0)
+
 func resetValues():
 	hp = 5
 	hunger = 50

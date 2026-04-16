@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://duqm4gm0oack8"]
 
 [ext_resource type="Script" uid="uid://db1yirjf8h55l" path="res://UI/main_menu.gd" id="1_uahxu"]
-[ext_resource type="AudioStream" uid="uid://dfwpcy45xc0au" path="res://Art/Sounds/Placeholder/TesSong.mp3" id="2_b37jj"]
+[ext_resource type="AudioStream" uid="uid://du2lg3r71wpae" path="res://Art/Sounds/Music/AnteaterMenuMusic(NameTBD).wav" id="2_8aown"]
 [ext_resource type="PackedScene" uid="uid://d2faiy2b0xqm2" path="res://Player/Hats.tscn" id="3_8aown"]
 
 [node name="MainMenu" type="Node2D" unique_id=2109912654]
@@ -60,7 +60,8 @@ offset_bottom = 491.0
 value = 60.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1100318440]
-stream = ExtResource("2_b37jj")
+stream = ExtResource("2_8aown")
+autoplay = true
 
 [node name="HatNumLabel" type="Label" parent="." unique_id=1800883115]
 offset_left = 924.0

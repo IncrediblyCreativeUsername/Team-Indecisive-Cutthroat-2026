@@ -2,7 +2,11 @@ extends Node2D
 
 @onready var hatLabel := $HatNumLabel
 
+var lpf : AudioEffectLowPassFilter
+
 func _ready() -> void:
+	lpf = AudioServer.get_bus_effect(0, 0)
+	lpf.cutoff_hz = 20000.0
 	hatLabel.text = "Hat:\n#" + str(Globals.playerHatNum)
 	$"Volume Slider".value = (AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))*3)+75
 

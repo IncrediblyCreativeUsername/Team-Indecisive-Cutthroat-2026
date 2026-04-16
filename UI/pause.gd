@@ -6,7 +6,6 @@ var lpf : AudioEffectLowPassFilter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	AudioServer.add_bus_effect(0,AudioEffectLowPassFilter.new(),0)
 	lpf = AudioServer.get_bus_effect(0, 0)
 	lpf.cutoff_hz = 20000.0
 	$"Volume Slider".value = (AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))*3)+75
