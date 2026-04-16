@@ -28,6 +28,8 @@ func flip(newFlipped):
 			smoothedPosition.x = 400
 
 func _process(delta: float) -> void:
+	smoothedPosition.y = 150 + 900*(Input.get_action_strength("MOVE_DOWN") - Input.get_action_strength("MOVE_UP"))
+	
 	if smoothedPosition != position:
 		if position.distance_to(smoothedPosition) > smoothSpeed*delta*60:
 			position += position.direction_to(smoothedPosition)*smoothSpeed*delta*60

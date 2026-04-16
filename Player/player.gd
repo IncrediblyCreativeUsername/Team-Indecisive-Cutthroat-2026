@@ -181,7 +181,7 @@ func _physics_process(delta: float) -> void:
 		
 		#add screen shake when landing
 		if prevVel.y > 0 && velocity.y == 0 && is_on_floor():
-			cam.addShake(clamp(2, prevVel.y/200, 5), 0.075)
+			cam.addShake(min(prevVel.y/800, 15), 0.1)
 	
 #tongue fully extends
 func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
@@ -216,7 +216,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			grapplePoint = tongueCast.get_collision_point()
 			prevSpeed = velocity
 			velocity = (grapplePoint - tonguePivot.global_position) * tongueAnimator.speed_scale
-			cam.addShake(15, 0.05)
+			cam.addShake(10, (1.0-startTime)/tongueAnimator.speed_scale)
 			isGrappling = true
 			grappleCooldown = grappleCooldownMax
 
