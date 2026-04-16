@@ -136,6 +136,11 @@ func _physics_process(delta: float) -> void:
 			if velocity.y < 0:
 				if velocity.y > 100:
 					velocity.y -= gravity * 0.8
+				cam.position.y = -200
+			elif velocity.y > 0:
+				cam.position.y = 75
+			else:
+				cam.position.y = -200
 			
 			velocity.y += gravity
 			#shoot out tongue
