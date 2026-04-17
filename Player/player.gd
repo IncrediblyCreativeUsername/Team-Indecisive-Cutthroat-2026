@@ -167,7 +167,8 @@ func _physics_process(delta: float) -> void:
 		
 		#move grabbed object
 		if grabbedObject != null && tongueExtending:
-			grabbedObject.global_position = $Tongue/Area2D.global_position
+			if !grabbedObject.is_in_group("boss"):
+				grabbedObject.global_position = $Tongue/Area2D.global_position
 		else:
 			grabbedObject = null
 		
