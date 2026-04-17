@@ -86,6 +86,7 @@ HSlider/icons/grabber_highlight = SubResource("GradientTexture2D_xekm5")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_kvop3")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_j1h6c")
 HSlider/styles/slider = SubResource("StyleBoxFlat_otn5y")
+Label/constants/outline_size = 8
 ProgressBar/constants/outline_size = 8
 ProgressBar/fonts/font = ExtResource("1_rysx2")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_hwhvl")
