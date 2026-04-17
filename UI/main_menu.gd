@@ -61,9 +61,9 @@ func _on_screen_shake_pressed() -> void:
 func _on_smooth_cam_pressed() -> void:
 	Globals.smootheCam = !Globals.smootheCam
 	if Globals.smootheCam:
-		$SmootheCam.text = "Smoothe Camera: ON"
+		$SmootheCam.text = "Smooth Camera: ON"
 	else:
-		$SmootheCam.text = "Smoothe Camera: OFF"
+		$SmootheCam.text = "Smooth Camera: OFF"
 
 
 func _on_screen_flash_pressed() -> void:
