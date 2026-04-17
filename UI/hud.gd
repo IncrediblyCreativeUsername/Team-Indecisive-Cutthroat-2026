@@ -19,14 +19,11 @@ func _process(_delta: float) -> void:
 	hunger.value = Globals.hunger
 	heldAnt.visible = Globals.heldAnt
 	
-	if hpOffsetScale > 0:
-		hpOffsetScale -= _delta
-		hpOffset = Vector2(sin(lifetime * 20),sin(lifetime * 50)) * hpOffsetScale * 10.
-	
+	#health shake effect
+	var iFramesRatio = float(Globals.invincible)/float(Globals.invincibilityFrames)
+	hpOffset = Vector2(sin(lifetime * 20),sin(lifetime * 50)) * iFramesRatio * 5.
+	hp.self_modulate = Color(1,1-iFramesRatio,1-iFramesRatio)
+	$Health2.self_modulate = Color(1,1-iFramesRatio,1-iFramesRatio)
 	hp.position = hpPos + hpOffset
 	$Health2.position = hpPos + hpOffset
-
-
-func _on_health_resized() -> void:
-	hpOffsetScale = 0.5
-	
+	hp.material.set_shader_parameter("flash",iFramesRatio * 0.5)

@@ -205,3 +205,6 @@ offset_right = -3921.0
 offset_bottom = 5963.0
 theme_override_font_sizes/normal_font_size = 48
 text = "You are No Longer Strong Enough to Defeat the Queen. You Must Lead her to your Nephew."
+
+[node name="Enemy" parent="." unique_id=1750229680 instance=ExtResource("6_o8kjv")]
+position = Vector2(1386, -1452)
