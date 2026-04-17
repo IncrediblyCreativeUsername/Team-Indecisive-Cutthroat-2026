@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dusbxf8ia3lj3" path="res://UI/game_end.gd" id="1_tupwa"]
 [ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="2_fm4hu"]
+[ext_resource type="AudioStream" uid="uid://js0y0y3qge2b" path="res://Art/Sounds/Music/AnteaterLoseMusic(NameTBD).wav" id="3_xo4jt"]
+[ext_resource type="AudioStream" uid="uid://24gw55a2o352" path="res://Art/Sounds/Music/AnteaterWinMusic(NameTBD).wav" id="4_ml4rr"]
 
 [node name="GameEnd" type="Node2D" unique_id=1756477584]
 script = ExtResource("1_tupwa")
@@ -41,6 +43,13 @@ offset_bottom = 648.0
 theme = ExtResource("2_fm4hu")
 text = "Main Menu"
 alignment = 0
+
+[node name="LoseAudio" type="AudioStreamPlayer" parent="." unique_id=345149924]
+stream = ExtResource("3_xo4jt")
+
+[node name="WinAudio" type="AudioStreamPlayer" parent="." unique_id=2021308471]
+stream = ExtResource("4_ml4rr")
+volume_db = 3.0
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

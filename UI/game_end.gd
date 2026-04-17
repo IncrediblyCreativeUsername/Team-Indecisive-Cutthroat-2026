@@ -5,11 +5,14 @@ extends Node2D
 func _ready() -> void:
 	if Globals.hp <= 0:
 		$Title.text = "You Died"
+		$LoseAudio.play()
 	elif Globals.hunger <= 0:
 		$Title.text = "Your Nephew Starved"
+		$LoseAudio.play(0)
 	else:
 		$Title.text = "Defeated\nQueen Ant"
 		$Title.add_theme_color_override("font_color",Color(0,1,0))
+		$WinAudio.play(0)
 	Globals.resetValues()
 
 
