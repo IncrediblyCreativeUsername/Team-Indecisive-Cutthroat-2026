@@ -18,6 +18,7 @@ extends CharacterBody2D
 @onready var bossbar = $Bossbar
 var lifetime : float = 0
 var damageCooldown = 0
+var hitFlash = 0
 
 var spawnpoint : Vector2
 
@@ -32,6 +33,9 @@ func _physics_process(_delta: float) -> void:
 	
 	bossbar.anger = anger
 	speedMod = 1 + (anger / 20.0)
+	
+	if hitFlash > 0:
+		hitFlash -= 1
 	
 	if damageCooldown > 0:
 		damageCooldown -= 1
@@ -64,9 +68,14 @@ func _physics_process(_delta: float) -> void:
 			sprite.flip_h = true
 		else:
 			sprite.flip_h = false
+		
+		#damage flash
+		var damageFlash = float(hitFlash)/float(damageCooldownMax)
+		sprite.self_modulate = Color(1,1-damageFlash,1-damageFlash)
 
 func grabbed(_grabOrigin : Vector2):
 	damageCooldown = damageCooldownMax
+	hitFlash = damageCooldownMax
 	$DamageArea.set_deferred("monitoring",false)
 	if anger < 20:
 		anger += 1
