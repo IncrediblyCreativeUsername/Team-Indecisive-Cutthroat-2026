@@ -3,6 +3,7 @@ extends Node2D
 @onready var sprite := $AnimatedSprite2D
 @onready var detect := $Detect
 @onready var eat := $Eat
+@onready var eatParticles := $"Eat particles"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +26,7 @@ func _process(_delta: float) -> void:
 			if item.has_method("victory"):
 				item.victory()
 			else:
+				eatParticles.emitting = true
 				item.queue_free()
 
 

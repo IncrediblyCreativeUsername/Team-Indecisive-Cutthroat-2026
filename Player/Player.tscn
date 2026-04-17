@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://d2faiy2b0xqm2" path="res://Player/Hats.tscn" id="3_tok1r"]
 [ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://dmfqdbnskrsap" path="res://Player/camera.gd" id="5_8g4oa"]
+[ext_resource type="Texture2D" uid="uid://c04kn8micvhow" path="res://Art/Dirt particles.png" id="6_6ysni"]
+[ext_resource type="Texture2D" uid="uid://c2awleddkrx1r" path="res://Art/WaterParticle.png" id="7_vlldt"]
+[ext_resource type="Texture2D" uid="uid://cfif14l1m4m3h" path="res://Art/AntParticles.png" id="8_s1rgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
 size = Vector2(58.392044, 178.0951)
@@ -205,6 +208,39 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tok1r"]
 size = Vector2(256, 126.78571)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlldt"]
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.099999994
+scale_max = 0.25
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ysni"]
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 225.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.29999998
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s1rgi"]
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 225.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.14999999
+
 [node name="Player" type="CharacterBody2D" unique_id=1863645860]
 scale = Vector2(0.56, 0.56)
 collision_layer = 2
@@ -288,6 +324,45 @@ script = ExtResource("5_8g4oa")
 smoothSpeed = 30.0
 horizDist = 250
 vertDist = 500
+
+[node name="Particles" type="Node2D" parent="." unique_id=1446608639]
+
+[node name="Land particles" type="GPUParticles2D" parent="Particles" unique_id=1572181546]
+position = Vector2(0, 57.142853)
+emitting = false
+amount = 16
+texture = ExtResource("6_6ysni")
+lifetime = 0.15000000000000002
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_vlldt")
+
+[node name="Grapple particles" type="GPUParticles2D" parent="Particles" unique_id=2022994414]
+top_level = true
+position = Vector2(0, 114.285706)
+emitting = false
+amount = 20
+texture = ExtResource("6_6ysni")
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_6ysni")
+
+[node name="Tongue particles" type="GPUParticles2D" parent="Particles" unique_id=1842819810]
+position = Vector2(115, 10)
+emitting = false
+amount = 16
+texture = ExtResource("7_vlldt")
+lifetime = 0.15000000000000002
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_s1rgi")
+
+[node name="Eat particles" type="GPUParticles2D" parent="Particles" unique_id=1492410097]
+position = Vector2(115, 10)
+emitting = false
+amount = 6
+texture = ExtResource("8_s1rgi")
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_6ysni")
 
 [connection signal="body_entered" from="Tongue/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Tongue/TongueAnim" to="." method="_on_tongue_anim_animation_finished"]

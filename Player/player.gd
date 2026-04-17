@@ -29,6 +29,11 @@ var grappleCooldownMax = 15
 var grappleCooldown = 0
 var prevSpeed = Vector2.ZERO
 @export var startFlipped := false
+#particles
+@onready var landParticles := $"Particles/Land particles"
+@onready var grappleParticles := $"Particles/Grapple particles"
+@onready var tongueParticles := $"Particles/Tongue particles"
+@onready var eatParticles := $"Particles/Eat particles"
 
 @onready var droppedAnt = preload("res://Enemy/Enemy.tscn")
 
@@ -66,6 +71,7 @@ func _physics_process(delta: float) -> void:
 			Globals.heldAnt = false
 			speed = baseSpeed
 			Globals.hp = min(5, Globals.hp + 2)
+			eatParticles.emitting = true
 		else:
 			for item in $Eat.get_overlapping_bodies():
 				if item.is_in_group("edible") && item.wasGrabbed:
@@ -157,6 +163,7 @@ func _physics_process(delta: float) -> void:
 					tonguePivot.look_at(get_global_mouse_position())
 					grapplePoint = tonguePivot.global_position + Vector2(964,0).rotated(tonguePivot.rotation)
 				tongueAnimator.play("Extend")
+				tongueParticles.emitting = true
 				animSprite.play("stand_tongue")
 				Hats.updateAnim("stand_tongue")
 				if (get_global_mouse_position() - global_position).rotated(PI / 2).angle() > 0:
@@ -175,8 +182,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 		#add screen shake when landing
-		if prevVel.y > 0 && velocity.y == 0 && is_on_floor():
-			cam.addShake(min(prevVel.y/800, 15), 0.1)
+		if prevVel.y > 2250 && velocity.y == 0 && is_on_floor():
+			cam.addShake(min(prevVel.y/350, 15), 0.1)
+			landParticles.emitting = true
 	
 #tongue fully extends
 func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
@@ -209,6 +217,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			await get_tree().process_frame
 			grapplePoint = tongueCast.get_collision_point()
+			grappleParticles.global_position = grapplePoint
+			grappleParticles.emitting = true
 			prevSpeed = velocity
 			velocity = (grapplePoint - tonguePivot.global_position) * tongueAnimator.speed_scale
 			cam.addShake(10, (1.0-startTime)/tongueAnimator.speed_scale)
@@ -220,6 +230,8 @@ func flip(flipped):
 		animSprite.flip_h = true
 		Hats.currentHat.flip_h = true
 		tonguePivot.position.x = -117
+		tongueParticles.position.x = -117
+		eatParticles.position.x = -117
 		animSprite.position.x = 397
 		Hats.position.x = 397
 		cam.flip(true)
@@ -227,6 +239,8 @@ func flip(flipped):
 		animSprite.flip_h = false
 		Hats.currentHat.flip_h = false
 		tonguePivot.position.x = 115
+		tongueParticles.position.x = 115
+		eatParticles.position.x = 115
 		animSprite.position.x = 338
 		Hats.position.x = 338
 		cam.flip(false)
