@@ -23,7 +23,6 @@ offset_right = 272.0
 offset_bottom = 576.0
 theme = ExtResource("2_t6syg")
 text = "Play"
-alignment = 0
 
 [node name="NextHat" type="Button" parent="." unique_id=920197589]
 offset_left = 1087.0
@@ -32,7 +31,6 @@ offset_right = 1151.0
 offset_bottom = 390.0
 theme = ExtResource("2_t6syg")
 text = ">"
-alignment = 2
 
 [node name="PrevHat" type="Button" parent="." unique_id=881421806]
 offset_left = 859.0
@@ -41,7 +39,6 @@ offset_right = 923.0
 offset_bottom = 390.0
 theme = ExtResource("2_t6syg")
 text = "<"
-alignment = 0
 
 [node name="Quit" type="Button" parent="." unique_id=675368216]
 offset_left = 1.0
@@ -51,7 +48,6 @@ offset_bottom = 648.0
 theme = ExtResource("2_t6syg")
 text = "Quit
 "
-alignment = 0
 
 [node name="ScreenShake" type="Button" parent="." unique_id=1560806556]
 offset_top = 313.0
@@ -59,7 +55,6 @@ offset_right = 272.0
 offset_bottom = 377.0
 theme = ExtResource("2_t6syg")
 text = "Screen Shake: ON"
-alignment = 0
 
 [node name="ScreenFlash" type="Button" parent="." unique_id=854237453]
 offset_top = 241.0
@@ -67,7 +62,6 @@ offset_right = 272.0
 offset_bottom = 305.0
 theme = ExtResource("2_t6syg")
 text = "Screen Flashes: ON"
-alignment = 0
 
 [node name="SmootheCam" type="Button" parent="." unique_id=12573520]
 offset_left = 1.0
@@ -76,7 +70,6 @@ offset_right = 273.0
 offset_bottom = 449.0
 theme = ExtResource("2_t6syg")
 text = "Smooth Camera: ON"
-alignment = 0
 
 [node name="Volume slider label" type="Label" parent="." unique_id=90093605]
 offset_top = 456.0
@@ -84,6 +77,7 @@ offset_right = 272.0
 offset_bottom = 479.0
 theme = ExtResource("2_t6syg")
 text = "Volume:"
+horizontal_alignment = 1
 
 [node name="Volume Slider" type="HSlider" parent="." unique_id=1306812822]
 offset_top = 475.0
