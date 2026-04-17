@@ -37,6 +37,14 @@ var prevSpeed = Vector2.ZERO
 
 @onready var droppedAnt = preload("res://Enemy/Enemy.tscn")
 
+#sfx
+@onready var jumpSFX := $SFX/Jump
+@onready var landSFX := $SFX/Land
+@onready var shootGrappleSFX := $"SFX/Shoot Grapple"
+@onready var landGrappleSFX := $"SFX/Land Grapple"
+@onready var pickupSFX := $"SFX/Pick Up Ant"
+@onready var eatSFX := $"SFX/Eat Ant"
+
 func _ready():
 	animSprite.play("stand")
 	Hats.updateAnim("stand")
@@ -72,11 +80,13 @@ func _physics_process(delta: float) -> void:
 			speed = baseSpeed
 			Globals.hp = min(5, Globals.hp + 2)
 			eatParticles.emitting = true
+			eatSFX.play()
 		else:
 			for item in $Eat.get_overlapping_bodies():
 				if item.is_in_group("edible") && item.wasGrabbed:
 					Globals.heldAnt = true
 					speed = baseSpeed*0.75
+					pickupSFX.play()
 					item.queue_free()
 	#drop held ant
 	if Input.is_action_just_pressed("DROP"):
@@ -141,6 +151,7 @@ func _physics_process(delta: float) -> void:
 					velocity.y = -jumpForce
 					animSprite.play("jump")
 					Hats.updateAnim("jump")
+					jumpSFX.play()
 			else:
 				#shorter jump if not held
 				if velocity.y < 0:
@@ -156,12 +167,14 @@ func _physics_process(delta: float) -> void:
 			if !tongueExtending && Input.is_action_just_pressed("GRAPPLE") && grappleCooldown <= 0:
 				mouseCast.look_at(get_global_mouse_position())
 				await get_tree().process_frame
+				cam.addShake(10, 0.05)
 				if mouseCast.is_colliding():
 					tonguePivot.look_at(mouseCast.get_collision_point())
 					grapplePoint = get_global_mouse_position()
 				else:
 					tonguePivot.look_at(get_global_mouse_position())
 					grapplePoint = tonguePivot.global_position + Vector2(964,0).rotated(tonguePivot.rotation)
+				shootGrappleSFX.play()
 				tongueAnimator.play("Extend")
 				tongueParticles.emitting = true
 				animSprite.play("stand_tongue")
@@ -186,6 +199,7 @@ func _physics_process(delta: float) -> void:
 		if prevVel.y > 2250 && velocity.y == 0 && is_on_floor():
 			cam.addShake(min(prevVel.y/350, 15), 0.1)
 			landParticles.emitting = true
+			landSFX.play()
 	
 #tongue fully extends
 func _on_tongue_anim_animation_finished(anim_name: StringName) -> void:
@@ -209,6 +223,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		tongueAnimator.play("Retract")
 		tongueAnimator.seek(startTime)
 		
+		landGrappleSFX.play()
 		#grab object
 		if body.is_in_group("grabbable"):
 			await get_tree().process_frame
@@ -222,7 +237,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			grappleParticles.emitting = true
 			prevSpeed = velocity
 			velocity = (grapplePoint - tonguePivot.global_position) * tongueAnimator.speed_scale
-			cam.addShake(10, (1.0-startTime)/tongueAnimator.speed_scale)
+			cam.addShake(15, (1.0-startTime)/tongueAnimator.speed_scale)
 			isGrappling = true
 			grappleCooldown = grappleCooldownMax
 

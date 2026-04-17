@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://c04kn8micvhow" path="res://Art/Dirt particles.png" id="6_6ysni"]
 [ext_resource type="Texture2D" uid="uid://c2awleddkrx1r" path="res://Art/WaterParticle.png" id="7_vlldt"]
 [ext_resource type="Texture2D" uid="uid://cfif14l1m4m3h" path="res://Art/AntParticles.png" id="8_s1rgi"]
+[ext_resource type="AudioStream" uid="uid://c3827ynjqcuo7" path="res://Art/Sounds/Placeholder/Jump.wav" id="9_3mea3"]
+[ext_resource type="AudioStream" uid="uid://dmb3w32vittb2" path="res://Art/Sounds/Placeholder/Land.wav" id="10_7v5gs"]
+[ext_resource type="AudioStream" uid="uid://chnr0yu8fwx8c" path="res://Art/Sounds/Placeholder/Shoot Grapple.wav" id="11_8sa4y"]
+[ext_resource type="AudioStream" uid="uid://c7p6omx4t3etc" path="res://Art/Sounds/Placeholder/Hit Grapple.wav" id="12_3nb2p"]
+[ext_resource type="AudioStream" uid="uid://cbkdafrs7ho7p" path="res://Art/Sounds/Placeholder/Pickup Ant.wav" id="14_evw08"]
+[ext_resource type="AudioStream" uid="uid://cet1qxn520kah" path="res://Art/Sounds/Placeholder/Eat ant.wav" id="15_roy6y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
 size = Vector2(58.392044, 178.0951)
@@ -363,6 +369,27 @@ texture = ExtResource("8_s1rgi")
 lifetime = 0.3
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_6ysni")
+
+[node name="SFX" type="Node2D" parent="." unique_id=541068880]
+
+[node name="Jump" type="AudioStreamPlayer" parent="SFX" unique_id=1712221209]
+stream = ExtResource("9_3mea3")
+volume_db = -4.0
+
+[node name="Land" type="AudioStreamPlayer" parent="SFX" unique_id=327145756]
+stream = ExtResource("10_7v5gs")
+
+[node name="Shoot Grapple" type="AudioStreamPlayer" parent="SFX" unique_id=1345780444]
+stream = ExtResource("11_8sa4y")
+
+[node name="Land Grapple" type="AudioStreamPlayer" parent="SFX" unique_id=606546145]
+stream = ExtResource("12_3nb2p")
+
+[node name="Pick Up Ant" type="AudioStreamPlayer" parent="SFX" unique_id=19746297]
+stream = ExtResource("14_evw08")
+
+[node name="Eat Ant" type="AudioStreamPlayer" parent="SFX" unique_id=487226200]
+stream = ExtResource("15_roy6y")
 
 [connection signal="body_entered" from="Tongue/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Tongue/TongueAnim" to="." method="_on_tongue_anim_animation_finished"]

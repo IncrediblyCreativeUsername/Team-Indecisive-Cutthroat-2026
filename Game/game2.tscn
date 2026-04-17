@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dgkriuiho5nhi" path="res://Nephew/nephew.tscn" id="7_54uxu"]
 [ext_resource type="Shader" uid="uid://d07agehs0byvk" path="res://Background/dirt.gdshader" id="7_bwt71"]
 [ext_resource type="PackedScene" uid="uid://b4w6kdudqm68g" path="res://Boss/Boss.tscn" id="10_58alt"]
+[ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="12_tvcsn"]
 
 [sub_resource type="Environment" id="Environment_2fq00"]
 background_mode = 3
@@ -143,6 +144,7 @@ offset_left = -6.0
 offset_top = -375.0
 offset_right = 569.0
 offset_bottom = -244.0
+theme = ExtResource("12_tvcsn")
 theme_override_font_sizes/normal_font_size = 48
 text = "[Space] to jump"
 
@@ -151,6 +153,7 @@ offset_left = 4479.0
 offset_top = -303.0
 offset_right = 5054.0
 offset_bottom = -141.0
+theme = ExtResource("12_tvcsn")
 theme_override_font_sizes/normal_font_size = 48
 text = "[Left Click] to Grapple with your Tongue"
 
@@ -159,6 +162,7 @@ offset_left = 7784.0
 offset_top = -145.0
 offset_right = 8359.0
 offset_bottom = 103.0
+theme = ExtResource("12_tvcsn")
 theme_override_font_sizes/normal_font_size = 48
 text = "[E] to Pick Up Dead Ants
 [Q] to Drop Them"
@@ -168,6 +172,7 @@ offset_left = 8676.0
 offset_top = -403.0
 offset_right = 9338.0
 offset_bottom = -108.0
+theme = ExtResource("12_tvcsn")
 theme_override_font_sizes/normal_font_size = 48
 text = "Your Nephew, Philip, Is Starving, Bring Him Ants -->
 Or Eat Them Yourself [E] To Heal."
@@ -177,6 +182,7 @@ offset_left = 9636.0
 offset_top = -822.0
 offset_right = 10211.0
 offset_bottom = -589.0
+theme = ExtResource("12_tvcsn")
 theme_override_font_sizes/normal_font_size = 48
 text = "If his Hunger Bar (Top Right) Runs Out, You Lose."
 
@@ -185,6 +191,7 @@ offset_left = 10720.0
 offset_top = -1205.0
 offset_right = 11295.0
 offset_bottom = -972.0
+theme = ExtResource("12_tvcsn")
 theme_override_font_sizes/normal_font_size = 48
 text = "Philip"
 
@@ -193,6 +200,7 @@ offset_left = 527.0
 offset_top = -1839.0
 offset_right = 1280.0
 offset_bottom = -1419.0
+theme = ExtResource("12_tvcsn")
 theme_override_font_sizes/normal_font_size = 48
 text = "The Queen Cursed you to Become the Size of an Ant. Defeat her to End the Curse.
 
@@ -203,5 +211,6 @@ offset_left = -4758.0
 offset_top = 5678.0
 offset_right = -3921.0
 offset_bottom = 5963.0
+theme = ExtResource("12_tvcsn")
 theme_override_font_sizes/normal_font_size = 48
 text = "You are No Longer Strong Enough to Defeat the Queen. You Must Lead her to your Nephew."

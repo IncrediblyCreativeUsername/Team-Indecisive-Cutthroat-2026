@@ -21,6 +21,8 @@ func shake(strength):
 		await get_tree().process_frame
 		if shaking:
 			shake(strength)
+		else:
+			offset = Vector2.ZERO
 
 func flip(newFlipped):
 	if newFlipped != flipped:

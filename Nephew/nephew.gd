@@ -4,6 +4,7 @@ extends Node2D
 @onready var detect := $Detect
 @onready var eat := $Eat
 @onready var eatParticles := $"Eat particles"
+@onready var eatSFX := $EatSFX
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,10 +24,11 @@ func _process(_delta: float) -> void:
 	for item in eat.get_overlapping_bodies():
 		if item.is_in_group("edible"):
 			Globals.hunger = min(100, Globals.hunger + item.hungerRestore)
+			eatParticles.emitting = true
+			eatSFX.play()
 			if item.has_method("victory"):
 				item.victory()
 			else:
-				eatParticles.emitting = true
 				item.queue_free()
 
 

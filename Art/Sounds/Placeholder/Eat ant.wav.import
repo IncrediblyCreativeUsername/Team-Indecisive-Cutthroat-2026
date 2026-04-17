@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cet1qxn520kah"
+path="res://.godot/imported/Eat ant.wav-f700a8cb5d59d92b302cc19ac340b868.sample"
+
+[deps]
+
+source_file="res://Art/Sounds/Placeholder/Eat ant.wav"
+dest_files=["res://.godot/imported/Eat ant.wav-f700a8cb5d59d92b302cc19ac340b868.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

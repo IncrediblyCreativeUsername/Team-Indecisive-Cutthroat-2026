@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @export var wasGrabbed := false
 var damageCooldown = 0
+@onready var hurtSFX := $HurtSFX
 
 func _ready() -> void:
 	var index = randi_range(0,2);
@@ -83,6 +84,7 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if !wasGrabbed:
 			Globals.hurt(damage)
+			hurtSFX.play()
 			$DamageArea.set_deferred("monitoring",false)
 			damageCooldown = damageCooldownMax
 			if velocity.x > 0:

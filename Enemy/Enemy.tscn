@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cr5uer3e35twp" path="res://Enemy/enemy.gd" id="1_3o4wt"]
 [ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="2_epr5s"]
+[ext_resource type="AudioStream" uid="uid://becuixys8ersd" path="res://Art/Sounds/Placeholder/Hurt.wav" id="3_vonkd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epr5s"]
 atlas = ExtResource("2_epr5s")
@@ -62,5 +63,8 @@ shape = SubResource("RectangleShape2D_vonkd")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1615933641]
 rect = Rect2(-64, -64, 127, 128)
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="." unique_id=592374813]
+stream = ExtResource("3_vonkd")
 
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

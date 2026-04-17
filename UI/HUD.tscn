@@ -59,6 +59,7 @@ offset_left = 23.0
 offset_top = 124.0
 offset_right = 95.0
 offset_bottom = 173.0
+theme = ExtResource("3_uk570")
 text = "[E] Eat
 [Q] Drop"
 
