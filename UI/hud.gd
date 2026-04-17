@@ -27,5 +27,10 @@ func _process(_delta: float) -> void:
 	hp.position = hpPos + hpOffset
 	$Health2.position = hpPos + hpOffset
 	
+	#flash white
 	var hpFlash = max(iFramesRatio,Globals.eatFlash/Globals.eatFlashMax)
 	hp.material.set_shader_parameter("flash",hpFlash * 0.5)
+	
+	#hunger flash white
+	var hungerFlash = Globals.PhilipEatFlash/Globals.eatFlashMax
+	hunger.material.set_shader_parameter("flash",hungerFlash * 0.5)

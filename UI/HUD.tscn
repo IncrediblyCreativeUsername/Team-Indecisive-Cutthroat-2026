@@ -11,6 +11,10 @@
 shader = ExtResource("2_gppie")
 shader_parameter/flash = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gppie"]
+shader = ExtResource("2_gppie")
+shader_parameter/flash = 0.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_uk570"]
 atlas = ExtResource("3_4n7mi")
 region = Rect2(0, 0, 128, 128)
@@ -40,6 +44,7 @@ texture = ExtResource("2_uk570")
 stretch_mode = 1
 
 [node name="Hunger" type="ProgressBar" parent="." unique_id=1659374639]
+material = SubResource("ShaderMaterial_gppie")
 offset_left = 768.0
 offset_right = 1024.0
 offset_bottom = 27.0

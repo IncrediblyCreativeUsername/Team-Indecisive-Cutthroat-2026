@@ -26,6 +26,7 @@ func _process(_delta: float) -> void:
 			if item.has_method("victory"):
 				item.victory()
 			else:
+				Globals.PhilipEatFlash = Globals.eatFlashMax
 				eatParticles.emitting = true
 				item.queue_free()
 
