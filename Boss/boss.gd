@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var gravity : int = 0
 @export var speed : int = 600
 @export var speedMod : float = 1.0
+@export var playerKnockbackSpeed : int = 1600
 @export var damage : int = 1
 @export var knockback : int = 2000
 @export var hungerRestore : int = 100
@@ -41,8 +42,23 @@ func _physics_process(_delta: float) -> void:
 	if visibility.is_on_screen() && !wasGrabbed:
 		bossbar.visible = true
 		lifetime += _delta
-		velocity.y = cos(lifetime * speedMod * PI) * speed * speedMod
-		velocity.x = cos(lifetime * speedMod * PI * 0.25) * speed * speedMod
+		var pTarget
+		var vTarget
+		if damageCooldown > 0:
+			pTarget = (player.global_position - global_position)
+			vTarget = -pTarget.normalized() * (float(damageCooldown) / float(damageCooldownMax)) * playerKnockbackSpeed
+			print(vTarget)
+			velocity = vTarget
+		else:
+			if anger <= bossbar.maxAnger:
+				velocity.y = cos(lifetime * speedMod * PI) * speed * speedMod
+				velocity.x = cos(lifetime * speedMod * PI * 0.25) * speed * speedMod
+			else:
+				pTarget = (player.global_position - global_position) + Vector2(cos(lifetime * speedMod * PI),sin(lifetime * speedMod * PI)) * 600
+				vTarget = pTarget * 5
+				vTarget = vTarget.limit_length(speed * 2)
+				velocity = vTarget
+		
 		move_and_slide()
 		
 		if velocity.x > 0:

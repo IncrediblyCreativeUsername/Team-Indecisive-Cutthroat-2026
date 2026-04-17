@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var maxAnger : int = 20
+var maxAnger : int = 10
 var anger : int = 0
 
 @onready var angerbar := $Anger
