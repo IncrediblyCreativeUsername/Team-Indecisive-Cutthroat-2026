@@ -72,3 +72,8 @@ func _on_screen_flash_pressed() -> void:
 		$ScreenFlash.text = "Screen Flashes: ON"
 	else:
 		$ScreenFlash.text = "Screen Flashes: OFF"
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file(Globals.creditsScene)
+	

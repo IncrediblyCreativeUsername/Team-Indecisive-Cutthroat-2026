@@ -3,12 +3,20 @@
 [ext_resource type="Script" uid="uid://db1yirjf8h55l" path="res://UI/main_menu.gd" id="1_uahxu"]
 [ext_resource type="AudioStream" uid="uid://du2lg3r71wpae" path="res://Art/Sounds/Music/AnteaterMenuMusic(NameTBD).wav" id="2_8aown"]
 [ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="2_t6syg"]
+[ext_resource type="Texture2D" uid="uid://cxex2m2ufyoql" path="res://Art/title_art.png" id="2_y6s48"]
 [ext_resource type="PackedScene" uid="uid://d2faiy2b0xqm2" path="res://Player/Hats.tscn" id="3_8aown"]
 
 [node name="MainMenu" type="Node2D" unique_id=2109912654]
 script = ExtResource("1_uahxu")
+metadata/_edit_vertical_guides_ = [859.0]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=994577088]
+offset_right = 1254.0
+offset_bottom = 705.0
+texture = ExtResource("2_y6s48")
 
 [node name="Title" type="Label" parent="." unique_id=441380911]
+visible = false
 offset_right = 1152.0
 offset_bottom = 353.0
 theme = ExtResource("2_t6syg")
@@ -47,6 +55,15 @@ offset_right = 273.0
 offset_bottom = 648.0
 theme = ExtResource("2_t6syg")
 text = "Quit
+"
+
+[node name="Credits" type="Button" parent="." unique_id=1319075014]
+offset_left = 859.0
+offset_top = 584.0
+offset_right = 1151.0
+offset_bottom = 648.0
+theme = ExtResource("2_t6syg")
+text = "Credits
 "
 
 [node name="ScreenShake" type="Button" parent="." unique_id=1560806556]
@@ -102,7 +119,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Hats" parent="." unique_id=1316857142 instance=ExtResource("3_8aown")]
-position = Vector2(1264, 568)
+position = Vector2(1264, 536)
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="NextHat" to="." method="_on_next_hat_pressed"]
@@ -110,6 +127,7 @@ position = Vector2(1264, 568)
 [connection signal="pressed" from="PrevHat" to="." method="_on_prev_hat_pressed"]
 [connection signal="pressed" from="PrevHat" to="Hats" method="updateHat"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="ScreenShake" to="." method="_on_screen_shake_pressed"]
 [connection signal="pressed" from="ScreenFlash" to="." method="_on_screen_flash_pressed"]
 [connection signal="pressed" from="SmootheCam" to="." method="_on_smooth_cam_pressed"]

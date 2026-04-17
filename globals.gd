@@ -4,6 +4,7 @@ extends Node
 var gameScene := "res://Game/game2.tscn"
 var mainMenuScene := "res://UI/MainMenu.tscn"
 var deathScene := "res://UI/GameEnd.tscn"
+var creditsScene := "res://UI/Credits.tscn"
 var playerHatNum := 0
 var hatCount := 10
 var hp := 5
