@@ -61,6 +61,14 @@ theme = ExtResource("2_t6syg")
 text = "Screen Shake: ON"
 alignment = 0
 
+[node name="ScreenFlash" type="Button" parent="." unique_id=854237453]
+offset_top = 241.0
+offset_right = 272.0
+offset_bottom = 305.0
+theme = ExtResource("2_t6syg")
+text = "Screen Flashes: ON"
+alignment = 0
+
 [node name="SmootheCam" type="Button" parent="." unique_id=12573520]
 offset_left = 1.0
 offset_top = 385.0
@@ -109,5 +117,6 @@ position = Vector2(1264, 568)
 [connection signal="pressed" from="PrevHat" to="Hats" method="updateHat"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="ScreenShake" to="." method="_on_screen_shake_pressed"]
+[connection signal="pressed" from="ScreenFlash" to="." method="_on_screen_flash_pressed"]
 [connection signal="pressed" from="SmootheCam" to="." method="_on_smooth_cam_pressed"]
 [connection signal="value_changed" from="Volume Slider" to="." method="_on_volume_slider_value_changed"]

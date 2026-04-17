@@ -204,8 +204,9 @@ func _physics_process(delta: float) -> void:
 			grabbedObject = null
 		
 		#damage flash
-		var iFramesRatio = float(Globals.invincible)/float(Globals.invincibilityFrames)
-		animSprite.self_modulate = Color(1,1-iFramesRatio,1-iFramesRatio)
+		if Globals.screenFlash:
+			var iFramesRatio = float(Globals.invincible)/float(Globals.invincibilityFrames)
+			animSprite.self_modulate = Color(1,1-iFramesRatio,1-iFramesRatio)
 		
 		#move according to velocity and delta
 		move_and_slide()
