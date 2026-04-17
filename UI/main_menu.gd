@@ -17,6 +17,10 @@ func _ready() -> void:
 		$ScreenShake.text = "Screen Shake: ON"
 	else:
 		$ScreenShake.text = "Screen Shake: OFF"
+	if Globals.screenFlash:
+		$ScreenFlash.text = "Screen Flashes: ON"
+	else:
+		$ScreenFlash.text = "Screen Flashes: OFF"
 	$"Volume Slider".value = (AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))*3)+75
 
 func _on_play_pressed() -> void:
@@ -60,3 +64,11 @@ func _on_smooth_cam_pressed() -> void:
 		$SmootheCam.text = "Smoothe Camera: ON"
 	else:
 		$SmootheCam.text = "Smoothe Camera: OFF"
+
+
+func _on_screen_flash_pressed() -> void:
+	Globals.screenFlash = !Globals.screenFlash
+	if Globals.screenFlash:
+		$ScreenFlash.text = "Screen Flashes: ON"
+	else:
+		$ScreenFlash.text = "Screen Flashes: OFF"

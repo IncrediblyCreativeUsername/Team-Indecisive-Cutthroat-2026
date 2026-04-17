@@ -19,6 +19,7 @@ var hungerDrain := 1.0
 var hungry := false
 var screenShake := true
 var smootheCam := true
+var screenFlash := true
 
 func _ready():
 	AudioServer.add_bus_effect(0,AudioEffectLowPassFilter.new(),0)

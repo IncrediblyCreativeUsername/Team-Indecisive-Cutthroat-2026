@@ -24,13 +24,15 @@ func _process(_delta: float) -> void:
 	hpOffset = Vector2(sin(lifetime * 20),sin(lifetime * 50)) * iFramesRatio * 5.
 	hp.self_modulate = Color(1,1-iFramesRatio,1-iFramesRatio)
 	$Health2.self_modulate = Color(1,1-iFramesRatio,1-iFramesRatio)
-	hp.position = hpPos + hpOffset
-	$Health2.position = hpPos + hpOffset
+	if Globals.screenShake:
+		hp.position = hpPos + hpOffset
+		$Health2.position = hpPos + hpOffset
 	
 	#flash white
-	var hpFlash = max(iFramesRatio,Globals.eatFlash/Globals.eatFlashMax)
-	hp.material.set_shader_parameter("flash",hpFlash * 0.5)
-	
-	#hunger flash white
-	var hungerFlash = Globals.PhilipEatFlash/Globals.eatFlashMax
-	hunger.material.set_shader_parameter("flash",hungerFlash * 0.5)
+	if Globals.screenFlash:
+		var hpFlash = max(iFramesRatio,Globals.eatFlash/Globals.eatFlashMax)
+		hp.material.set_shader_parameter("flash",hpFlash * 0.5)
+		
+		#hunger flash white
+		var hungerFlash = Globals.PhilipEatFlash/Globals.eatFlashMax
+		hunger.material.set_shader_parameter("flash",hungerFlash * 0.5)
