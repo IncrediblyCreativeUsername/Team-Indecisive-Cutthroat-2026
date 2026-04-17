@@ -14,7 +14,7 @@ func _ready() -> void:
 		$Mountains.queue_free()
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Sky/Sky.material.set_shader_parameter("skyColor",sky_color)
 	$Sky/Sky.material.set_shader_parameter("cloudColor",cloud_color)
 	if mountains:
@@ -22,5 +22,5 @@ func _process(delta: float) -> void:
 		$Mountains/Mountains2/Mountains.material.set_shader_parameter("mountainColor",mountain_color2)
 		$Mountains/Mountains3/Mountains.material.set_shader_parameter("mountainColor",mountain_color3)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass#texture.noise.offset.y += 0.001

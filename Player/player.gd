@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var baseSpeed : int = 1000
+@export var baseSpeed : float = 1000.0
 @onready var speed := baseSpeed
 @export var jumpForce : int = 2200
 @export var gravity : int = 100
@@ -45,6 +45,8 @@ var prevSpeed = Vector2.ZERO
 @onready var pickupSFX := $"SFX/Pick Up Ant"
 @onready var eatSFX := $"SFX/Eat Ant"
 
+@onready var SFXrng : RandomNumberGenerator = RandomNumberGenerator.new()
+
 func _ready():
 	animSprite.play("stand")
 	Hats.updateAnim("stand")
@@ -81,12 +83,16 @@ func _physics_process(delta: float) -> void:
 			speed = baseSpeed
 			Globals.hp = min(5, Globals.hp + 2)
 			eatParticles.emitting = true
+			SFXrng.randomize()
+			eatSFX.pitch_scale = 1 + SFXrng.randf_range(-0.2,0.2)
 			eatSFX.play()
 		else:
 			for item in $Eat.get_overlapping_bodies():
 				if item.is_in_group("edible") && item.wasGrabbed:
 					Globals.heldAnt = true
 					speed = baseSpeed*0.75
+					SFXrng.randomize()
+					pickupSFX.pitch_scale = 1 + SFXrng.randf_range(-0.2,0.2)
 					pickupSFX.play()
 					item.queue_free()
 	#drop held ant
@@ -152,6 +158,8 @@ func _physics_process(delta: float) -> void:
 					velocity.y = -jumpForce
 					animSprite.play("jump")
 					Hats.updateAnim("jump")
+					SFXrng.randomize()
+					jumpSFX.pitch_scale = 1 + SFXrng.randf_range(-0.3,0.3)
 					jumpSFX.play()
 			else:
 				#shorter jump if not held
@@ -175,6 +183,8 @@ func _physics_process(delta: float) -> void:
 				else:
 					tonguePivot.look_at(get_global_mouse_position())
 					grapplePoint = tonguePivot.global_position + Vector2(964,0).rotated(tonguePivot.rotation)
+				SFXrng.randomize()
+				shootGrappleSFX.pitch_scale = 1 + SFXrng.randf_range(-0.2,0.2)
 				shootGrappleSFX.play()
 				tongueAnimator.play("Extend")
 				tongueParticles.emitting = true
@@ -204,6 +214,8 @@ func _physics_process(delta: float) -> void:
 		if prevVel.y > 2250 && velocity.y == 0 && is_on_floor():
 			cam.addShake(min(prevVel.y/350, 15), 0.1)
 			landParticles.emitting = true
+			SFXrng.randomize()
+			landSFX.pitch_scale = 1 + SFXrng.randf_range(-0.2,0.2)
 			landSFX.play()
 	
 #tongue fully extends
@@ -228,6 +240,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		tongueAnimator.play("Retract")
 		tongueAnimator.seek(startTime)
 		
+		SFXrng.randomize()
+		landGrappleSFX.pitch_scale = 1 + SFXrng.randf_range(-0.1,0.1)
 		landGrappleSFX.play()
 		#grab object
 		if body.is_in_group("grabbable"):
