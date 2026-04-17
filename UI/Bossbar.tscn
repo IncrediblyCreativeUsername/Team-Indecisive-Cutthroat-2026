@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://vxxr7h30akbh"]
 
 [ext_resource type="Script" uid="uid://bwm6a7p5kawas" path="res://UI/bossbar.gd" id="1_r43jt"]
+[ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="2_wo3b5"]
 
 [node name="Bossbar" type="CanvasLayer" unique_id=474634526]
 process_mode = 3
@@ -33,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_wo3b5")
 theme_override_font_sizes/font_size = 32
 text = "The Queen Ant's Rage"
 horizontal_alignment = 1
