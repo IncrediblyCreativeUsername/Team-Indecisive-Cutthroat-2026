@@ -47,7 +47,6 @@ func _physics_process(_delta: float) -> void:
 		if damageCooldown > 0:
 			pTarget = (player.global_position - global_position)
 			vTarget = -pTarget.normalized() * (float(damageCooldown) / float(damageCooldownMax)) * playerKnockbackSpeed
-			print(vTarget)
 			velocity = vTarget
 		else:
 			if anger <= bossbar.maxAnger:

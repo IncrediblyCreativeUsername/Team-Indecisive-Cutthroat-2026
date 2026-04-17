@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://db1yirjf8h55l" path="res://UI/main_menu.gd" id="1_uahxu"]
 [ext_resource type="AudioStream" uid="uid://du2lg3r71wpae" path="res://Art/Sounds/Music/AnteaterMenuMusic(NameTBD).wav" id="2_8aown"]
+[ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="2_t6syg"]
 [ext_resource type="PackedScene" uid="uid://d2faiy2b0xqm2" path="res://Player/Hats.tscn" id="3_8aown"]
 
 [node name="MainMenu" type="Node2D" unique_id=2109912654]
@@ -9,7 +10,8 @@ script = ExtResource("1_uahxu")
 
 [node name="Title" type="Label" parent="." unique_id=441380911]
 offset_right = 1152.0
-offset_bottom = 175.0
+offset_bottom = 353.0
+theme = ExtResource("2_t6syg")
 theme_override_font_sizes/font_size = 128
 text = "Aunt Eater"
 horizontal_alignment = 1
@@ -17,8 +19,9 @@ autowrap_mode = 2
 
 [node name="Play" type="Button" parent="." unique_id=819105366]
 offset_top = 512.0
-offset_right = 256.0
+offset_right = 272.0
 offset_bottom = 576.0
+theme = ExtResource("2_t6syg")
 text = "Play"
 alignment = 0
 
@@ -27,6 +30,7 @@ offset_left = 1087.0
 offset_top = 326.0
 offset_right = 1151.0
 offset_bottom = 390.0
+theme = ExtResource("2_t6syg")
 text = ">"
 alignment = 2
 
@@ -35,43 +39,49 @@ offset_left = 859.0
 offset_top = 326.0
 offset_right = 923.0
 offset_bottom = 390.0
+theme = ExtResource("2_t6syg")
 text = "<"
 alignment = 0
 
 [node name="Quit" type="Button" parent="." unique_id=675368216]
 offset_left = 1.0
 offset_top = 584.0
-offset_right = 257.0
+offset_right = 273.0
 offset_bottom = 648.0
+theme = ExtResource("2_t6syg")
 text = "Quit
 "
 alignment = 0
 
 [node name="ScreenShake" type="Button" parent="." unique_id=1560806556]
 offset_top = 313.0
-offset_right = 256.0
+offset_right = 272.0
 offset_bottom = 377.0
+theme = ExtResource("2_t6syg")
 text = "Screen Shake: ON"
 alignment = 0
 
 [node name="SmootheCam" type="Button" parent="." unique_id=12573520]
 offset_left = 1.0
 offset_top = 385.0
-offset_right = 257.0
+offset_right = 273.0
 offset_bottom = 449.0
+theme = ExtResource("2_t6syg")
 text = "Smooth Camera: ON"
 alignment = 0
 
 [node name="Volume slider label" type="Label" parent="." unique_id=90093605]
 offset_top = 456.0
-offset_right = 64.0
+offset_right = 272.0
 offset_bottom = 479.0
+theme = ExtResource("2_t6syg")
 text = "Volume:"
 
 [node name="Volume Slider" type="HSlider" parent="." unique_id=1306812822]
 offset_top = 475.0
-offset_right = 256.0
+offset_right = 272.0
 offset_bottom = 491.0
+theme = ExtResource("2_t6syg")
 value = 60.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1100318440]
@@ -82,7 +92,8 @@ autoplay = true
 offset_left = 924.0
 offset_top = 326.0
 offset_right = 1087.0
-offset_bottom = 390.0
+offset_bottom = 401.0
+theme = ExtResource("2_t6syg")
 text = "Hat:
 #0"
 horizontal_alignment = 1

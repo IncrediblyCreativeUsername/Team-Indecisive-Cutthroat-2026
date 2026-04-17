@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://da15vktx8ws2l"]
 
 [ext_resource type="Script" uid="uid://cunbbmqub1qri" path="res://UI/pause.gd" id="1_h74dl"]
+[ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="2_vtu0c"]
 
 [node name="Pause" type="CanvasLayer" unique_id=1763727713]
 process_mode = 2
@@ -9,6 +10,7 @@ script = ExtResource("1_h74dl")
 [node name="Title" type="Label" parent="." unique_id=1255317589]
 offset_right = 1152.0
 offset_bottom = 175.0
+theme = ExtResource("2_vtu0c")
 theme_override_font_sizes/font_size = 128
 text = "Paused"
 horizontal_alignment = 1
@@ -16,30 +18,34 @@ autowrap_mode = 2
 
 [node name="ReturnToGame" type="Button" parent="." unique_id=2125947878]
 offset_top = 512.0
-offset_right = 256.0
+offset_right = 272.0
 offset_bottom = 576.0
+theme = ExtResource("2_vtu0c")
 text = "Return to game"
 alignment = 0
 
 [node name="Quit" type="Button" parent="." unique_id=781550152]
 offset_left = 1.0
 offset_top = 584.0
-offset_right = 257.0
+offset_right = 273.0
 offset_bottom = 648.0
+theme = ExtResource("2_vtu0c")
 text = "Quit
 "
 alignment = 0
 
 [node name="Volume slider label" type="Label" parent="." unique_id=205140431]
 offset_top = 456.0
-offset_right = 64.0
+offset_right = 272.0
 offset_bottom = 479.0
+theme = ExtResource("2_vtu0c")
 text = "Volume:"
 
 [node name="Volume Slider" type="HSlider" parent="." unique_id=738961483]
 offset_top = 475.0
-offset_right = 256.0
+offset_right = 272.0
 offset_bottom = 491.0
+theme = ExtResource("2_vtu0c")
 value = 60.0
 
 [connection signal="pressed" from="ReturnToGame" to="." method="_on_return_to_game_pressed"]

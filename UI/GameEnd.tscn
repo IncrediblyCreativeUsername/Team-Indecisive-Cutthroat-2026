@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cj1cbudf36pqb"]
 
 [ext_resource type="Script" uid="uid://dusbxf8ia3lj3" path="res://UI/game_end.gd" id="1_tupwa"]
+[ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="2_fm4hu"]
 
 [node name="GameEnd" type="Node2D" unique_id=1756477584]
 script = ExtResource("1_tupwa")
@@ -17,6 +18,7 @@ color = Color(0, 0, 0, 1)
 [node name="Title" type="Label" parent="." unique_id=1448149937]
 offset_right = 1152.0
 offset_bottom = 175.0
+theme = ExtResource("2_fm4hu")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 128
 text = "Death"
@@ -27,6 +29,7 @@ autowrap_mode = 2
 offset_top = 512.0
 offset_right = 256.0
 offset_bottom = 576.0
+theme = ExtResource("2_fm4hu")
 text = "Restart"
 alignment = 0
 
@@ -35,6 +38,7 @@ offset_left = 1.0
 offset_top = 584.0
 offset_right = 257.0
 offset_bottom = 648.0
+theme = ExtResource("2_fm4hu")
 text = "Main Menu"
 alignment = 0
 

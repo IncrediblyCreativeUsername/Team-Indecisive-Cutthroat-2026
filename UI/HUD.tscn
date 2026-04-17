@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://tr3d1h67uo2h" path="res://UI/hud.gd" id="1_ijstf"]
 [ext_resource type="Texture2D" uid="uid://dlhfkqblbvnm8" path="res://Art/Placeholder/icon.svg" id="1_yixhe"]
 [ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="3_4n7mi"]
+[ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="3_uk570"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uk570"]
 atlas = ExtResource("3_4n7mi")
@@ -25,6 +26,7 @@ offset_left = 768.0
 offset_right = 1024.0
 offset_bottom = 27.0
 scale = Vector2(1.5, 1.5)
+theme = ExtResource("3_uk570")
 value = 25.0
 rounded = true
 fill_mode = 1
