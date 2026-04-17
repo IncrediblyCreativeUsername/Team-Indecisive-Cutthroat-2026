@@ -26,4 +26,6 @@ func _process(_delta: float) -> void:
 	$Health2.self_modulate = Color(1,1-iFramesRatio,1-iFramesRatio)
 	hp.position = hpPos + hpOffset
 	$Health2.position = hpPos + hpOffset
-	hp.material.set_shader_parameter("flash",iFramesRatio * 0.5)
+	
+	var hpFlash = max(iFramesRatio,Globals.eatFlash/Globals.eatFlashMax)
+	hp.material.set_shader_parameter("flash",hpFlash * 0.5)

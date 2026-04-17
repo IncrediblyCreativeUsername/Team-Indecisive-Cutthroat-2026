@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	#eat
 	if Input.is_action_just_pressed("EAT"):
 		if Globals.heldAnt && Globals.hp < 5:
+			Globals.eatFlash = Globals.eatFlashMax
 			Globals.heldAnt = false
 			speed = baseSpeed
 			Globals.hp = min(5, Globals.hp + 2)
