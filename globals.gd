@@ -12,6 +12,9 @@ var heldAnt := false
 var player
 var invincibilityFrames = 40
 var invincible = 0
+var eatFlashMax := 10
+var eatFlash := 0.
+var PhilipEatFlash := 0.
 var hungerDrain := 1.0
 var hungry := false
 var screenShake := true
@@ -48,3 +51,7 @@ func _process(delta: float) -> void:
 		#resetValues()
 	if invincible > 0:
 		invincible -= 1
+	if eatFlash > 0:
+		eatFlash -= 1
+	if PhilipEatFlash > 0:
+		PhilipEatFlash -= 1

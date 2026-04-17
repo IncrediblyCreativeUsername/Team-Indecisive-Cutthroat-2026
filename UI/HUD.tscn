@@ -2,9 +2,18 @@
 
 [ext_resource type="Script" uid="uid://tr3d1h67uo2h" path="res://UI/hud.gd" id="1_ijstf"]
 [ext_resource type="Texture2D" uid="uid://blbh31fcdir1f" path="res://Art/Characters/heart_broken.png" id="2_f2wx0"]
+[ext_resource type="Shader" uid="uid://bihjv0pybl74d" path="res://UI/HUDDamageFlash.gdshader" id="2_gppie"]
 [ext_resource type="Texture2D" uid="uid://c4qkdu035cx25" path="res://Art/Characters/heart.png" id="2_uk570"]
 [ext_resource type="Texture2D" uid="uid://ole04ijv4b8a" path="res://Art/antgame_chars.png" id="3_4n7mi"]
 [ext_resource type="Theme" uid="uid://cixgo4c1etb5j" path="res://UI/DefaultUI.tres" id="3_uk570"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ptjp"]
+shader = ExtResource("2_gppie")
+shader_parameter/flash = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gppie"]
+shader = ExtResource("2_gppie")
+shader_parameter/flash = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uk570"]
 atlas = ExtResource("3_4n7mi")
@@ -26,6 +35,7 @@ stretch_mode = 1
 [node name="Health" type="TextureRect" parent="." unique_id=969457420]
 modulate = Color(1, 0, 0, 1)
 texture_repeat = 2
+material = SubResource("ShaderMaterial_2ptjp")
 offset_right = 640.0
 offset_bottom = 128.0
 rotation = -0.00041778397
@@ -34,6 +44,7 @@ texture = ExtResource("2_uk570")
 stretch_mode = 1
 
 [node name="Hunger" type="ProgressBar" parent="." unique_id=1659374639]
+material = SubResource("ShaderMaterial_gppie")
 offset_left = 768.0
 offset_right = 1024.0
 offset_bottom = 27.0

@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 	#eat
 	if Input.is_action_just_pressed("EAT"):
 		if Globals.heldAnt && Globals.hp < 5:
+			Globals.eatFlash = Globals.eatFlashMax
 			Globals.heldAnt = false
 			speed = baseSpeed
 			Globals.hp = min(5, Globals.hp + 2)
@@ -187,10 +188,14 @@ func _physics_process(delta: float) -> void:
 		
 		#move grabbed object
 		if grabbedObject != null && tongueExtending:
-			if !grabbedObject.is_in_group("boss"):
+			if true:#!grabbedObject.is_in_group("boss"):
 				grabbedObject.global_position = $Tongue/Area2D.global_position
 		else:
 			grabbedObject = null
+		
+		#damage flash
+		var iFramesRatio = float(Globals.invincible)/float(Globals.invincibilityFrames)
+		animSprite.self_modulate = Color(1,1-iFramesRatio,1-iFramesRatio)
 		
 		#move according to velocity and delta
 		move_and_slide()
